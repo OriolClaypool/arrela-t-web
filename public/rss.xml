@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arrela’t — Diari i Entrevistes</title>
+    <link>https://arrelat.cat</link>
+    <description>Posem en valor el sector primari català. Diari de visites i newsletter mensual.</description>
+    <language>ca</language>
+    <atom:link href="https://arrelat.cat/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Wed, 13 May 2026 20:49:57 GMT</lastBuildDate>
+    <item>
+      <title>#3 Tardor al Lluçanès</title>
+      <link>https://arrelat.cat/newsletter/numero-3-tardor-2025</link>
+      <description>Visitem Formatges Lluçà en plena producció de tardor. La llet canvia amb l&apos;herba, i el formatge ho nota.</description>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 GMT</pubDate>
+      <category>Newsletter</category>
+      <guid isPermaLink="true">https://arrelat.cat/newsletter/numero-3-tardor-2025</guid>
+    </item>
+    <item>
+      <title>El temps que porta un formatge</title>
+      <link>https://arrelat.cat/diari/visita-formatges-lluca-setembre-2025</link>
+      <description>La família Mas fa formatge des de fa tres generacions al Lluçanès. Cada peça que madura a la seva cava porta el temps com a ingredient principal.</description>
+      <pubDate>Thu, 18 Sep 2025 00:00:00 GMT</pubDate>
+      <category>Diari de visita</category>
+      <guid isPermaLink="true">https://arrelat.cat/diari/visita-formatges-lluca-setembre-2025</guid>
+    </item>
+    <item>
+      <title>#2 El ritme de l&apos;estiu</title>
+      <link>https://arrelat.cat/newsletter/numero-2-estiu-2025</link>
+      <description>L&apos;estiu al camp és intensitat pura. Parlem de les visites d&apos;estiu, del mercat de pagès i dels productes de temporada que no et pots perdre.</description>
+      <pubDate>Tue, 01 Jul 2025 00:00:00 GMT</pubDate>
+      <category>Newsletter</category>
+      <guid isPermaLink="true">https://arrelat.cat/newsletter/numero-2-estiu-2025</guid>
+    </item>
+    <item>
+      <title>Verdures de muntanya: quan el fred és un ingredient</title>
+      <link>https://arrelat.cat/diari/visita-soler-nhug-juny-2025</link>
+      <description>El Berguedà a primera hora del matí és una altra dimensió. Puja boira des de la vall i les verdures brillen amb la humitat de la nit.</description>
+      <pubDate>Tue, 03 Jun 2025 00:00:00 GMT</pubDate>
+      <category>Diari de visita</category>
+      <guid isPermaLink="true">https://arrelat.cat/diari/visita-soler-nhug-juny-2025</guid>
+    </item>
+    <item>
+      <title>La verema que no necessita correccions</title>
+      <link>https://arrelat.cat/diari/visita-ca-liula-abril-2025</link>
+      <description>Baixem al celler de Ça Liula un matí de pluja fina. En Xavier ens rep amb un got de vi de l&apos;any passat, encara sense etiquetar.</description>
+      <pubDate>Sat, 12 Apr 2025 00:00:00 GMT</pubDate>
+      <category>Diari de visita</category>
+      <guid isPermaLink="true">https://arrelat.cat/diari/visita-ca-liula-abril-2025</guid>
+    </item>
+    <item>
+      <title>#1 La primera collita</title>
+      <link>https://arrelat.cat/newsletter/numero-1-primavera-2025</link>
+      <description>En aquest primer número expliquem com va néixer el projecte, presentem els tres primers productors i compartim les primeres impressions de les visites.</description>
+      <pubDate>Tue, 01 Apr 2025 00:00:00 GMT</pubDate>
+      <category>Newsletter</category>
+      <guid isPermaLink="true">https://arrelat.cat/newsletter/numero-1-primavera-2025</guid>
+    </item>
+  </channel>
+</rss>
