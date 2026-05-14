@@ -70,6 +70,9 @@ export default function Nav() {
         <li>
           <NavLink to="/contacte" onClick={close}>Contacte</NavLink>
         </li>
+        <li>
+          <NavLink to="/professional" className="nav__cta" onClick={close}>Espai professional</NavLink>
+        </li>
       </ul>
     </nav>
   )
