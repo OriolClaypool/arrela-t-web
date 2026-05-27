@@ -1,141 +1,173 @@
 import { useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps'
 import productors from '../data/productors'
 
-const COMARQUES = [
-  { id: 'alt-emporda',       nom: "Alt Empordà",         d: "M480,30 L560,30 L570,90 L490,95 Z" },
-  { id: 'baix-emporda',      nom: "Baix Empordà",        d: "M420,60 L480,30 L490,95 L430,110 Z" },
-  { id: 'garrotxa',          nom: "Garrotxa",             d: "M370,60 L420,60 L430,110 L375,115 Z" },
-  { id: 'girones',           nom: "Gironès",              d: "M410,110 L490,95 L495,150 L415,155 Z" },
-  { id: 'pla-estany',        nom: "Pla de l'Estany",     d: "M375,115 L430,110 L415,155 L370,150 Z" },
-  { id: 'ripolles',          nom: "Ripollès",             d: "M320,30 L420,30 L420,60 L370,60 L320,80 Z" },
-  { id: 'cerdanya',          nom: "Cerdanya",             d: "M250,30 L320,30 L320,80 L250,80 Z" },
-  { id: 'selva',             nom: "Selva",                d: "M430,110 L495,150 L480,200 L420,190 L390,150 Z" },
-  { id: 'osona',             nom: "Osona",                d: "M280,80 L370,60 L375,115 L370,150 L300,145 L270,110 Z" },
-  { id: 'bergueda',          nom: "Berguedà",             d: "M220,80 L280,80 L270,110 L300,145 L240,155 L200,120 Z" },
-  { id: 'llucanes',          nom: "Lluçanès",             d: "M300,145 L370,150 L365,185 L305,180 Z" },
-  { id: 'maresme',           nom: "Maresme",              d: "M390,150 L420,190 L400,230 L360,200 Z" },
-  { id: 'valles-oriental',   nom: "Vallès Oriental",     d: "M330,155 L390,150 L360,200 L310,195 Z" },
-  { id: 'valles-occidental', nom: "Vallès Occidental",   d: "M275,165 L330,155 L310,195 L270,190 Z" },
-  { id: 'barcelones',        nom: "Barcelonès",           d: "M310,195 L360,200 L355,225 L305,220 Z" },
-  { id: 'bages',             nom: "Bages",                d: "M200,120 L270,110 L275,165 L210,170 Z" },
-  { id: 'solsones',          nom: "Solsonès",             d: "M150,80 L220,80 L200,120 L140,115 Z" },
-  { id: 'anoia',             nom: "Anoia",                d: "M210,170 L275,165 L270,210 L215,215 Z" },
-  { id: 'baix-llobregat',    nom: "Baix Llobregat",      d: "M270,190 L310,195 L305,220 L260,225 Z" },
-  { id: 'garraf',            nom: "Garraf",               d: "M260,225 L305,220 L295,255 L255,250 Z" },
-  { id: 'alt-penedes',       nom: "Alt Penedès",          d: "M215,215 L270,210 L260,250 L255,250 L210,245 Z" },
-  { id: 'noguera',           nom: "Noguera",              d: "M80,70 L150,80 L140,115 L100,140 L70,110 Z" },
-  { id: 'pallars-jussa',     nom: "Pallars Jussà",       d: "M60,30 L250,30 L250,80 L150,80 L80,70 Z" },
-  { id: 'segarra',           nom: "Segarra",              d: "M100,140 L140,115 L210,170 L215,215 L150,220 L110,185 Z" },
-  { id: 'urgell',            nom: "Urgell",               d: "M60,145 L100,140 L110,185 L65,185 Z" },
-  { id: 'segria',            nom: "Segrià",               d: "M30,100 L80,70 L100,140 L60,145 L25,135 Z" },
-  { id: 'conca-barbera',     nom: "Conca de Barberà",    d: "M150,220 L215,215 L210,255 L155,260 Z" },
-  { id: 'tarragonès',        nom: "Tarragonès",           d: "M210,255 L255,250 L250,290 L205,290 Z" },
-  { id: 'baix-camp',         nom: "Baix Camp",            d: "M255,250 L295,255 L290,300 L250,300 Z" },
-  { id: 'priorat',           nom: "Priorat",              d: "M155,260 L210,255 L205,295 L155,300 Z" },
-  { id: 'terra-alta',        nom: "Terra Alta",           d: "M100,280 L155,260 L155,300 L100,310 Z" },
-  { id: 'montsia',           nom: "Montsià",              d: "M100,310 L200,310 L195,355 L95,355 Z" },
-]
-
-const comarcaToId = (nom) => {
-  const map = {
-    "Alt Empordà": "alt-emporda",
-    "Baix Empordà": "baix-emporda",
-    "Garrotxa": "garrotxa",
-    "Gironès": "girones",
-    "Pla de l'Estany": "pla-estany",
-    "Ripollès": "ripolles",
-    "Cerdanya": "cerdanya",
-    "Selva": "selva",
-    "Osona": "osona",
-    "Berguedà": "bergueda",
-    "Lluçanès": "llucanes",
-    "Maresme": "maresme",
-    "Vallès Oriental": "valles-oriental",
-    "Vallès Occidental": "valles-occidental",
-    "Barcelonès": "barcelones",
-    "Bages": "bages",
-    "Solsonès": "solsones",
-    "Anoia": "anoia",
-    "Baix Llobregat": "baix-llobregat",
-    "Garraf": "garraf",
-    "Alt Penedès": "alt-penedes",
-    "Noguera": "noguera",
-    "Pallars Jussà": "pallars-jussa",
-    "Segarra": "segarra",
-    "Urgell": "urgell",
-    "Segrià": "segria",
-    "Conca de Barberà": "conca-barbera",
-    "Tarragonès": "tarragonès",
-    "Baix Camp": "baix-camp",
-    "Priorat": "priorat",
-    "Terra Alta": "terra-alta",
-    "Montsià": "montsia",
-  }
-  return map[nom] || null
-}
+const GEO_URL = '/data/catalunya-comarques.json'
 
 const comarcesAmbProductors = new Set(
-  productors.filter((p) => p.publicat && p.comarca).map((p) => comarcaToId(p.comarca))
+  productors.filter((p) => p.publicat && p.comarca).map((p) => p.comarca)
 )
 
-export default function MapaCatalunya({ onSelect, selected }) {
-  const [tooltip, setTooltip] = useState({ visible: false, nom: '', x: 0, y: 0 })
-  const svgRef = useRef(null)
+const productorsAmbCoords = productors.filter(
+  (p) => p.publicat && Array.isArray(p.coordenades) && p.coordenades.length === 2
+)
 
-  const handleMouseEnter = (e, nom) => {
-    const rect = svgRef.current?.getBoundingClientRect()
-    const svgRect = e.currentTarget.getBoundingClientRect()
-    if (!rect) return
-    setTooltip({
-      visible: true,
-      nom,
-      x: svgRect.left + svgRect.width / 2 - rect.left,
-      y: svgRect.top - rect.top,
+/* Hardcoded hex values mirror the CSS variables so SVG fill/stroke can use them */
+const C = {
+  paperDeep:       '#f0e4d0',
+  terracottaPale:  '#e0a986',
+  terracottaSoft:  '#d99873',
+  terracotta:      '#c47a52',
+  clay:            '#b5613a',
+  forest:          '#1d4d35',
+  hoverInactive:   '#e8dcc5',
+}
+
+export default function MapaCatalunya({ onSelect, selected }) {
+  const navigate = useNavigate()
+  const wrapRef  = useRef(null)
+
+  const [tooltip,       setTooltip]       = useState({ visible: false, text: '', sub: '', x: 0, y: 0 })
+  const [hoveredComarca, setHoveredComarca] = useState(null)
+  const [hoveredMarker,  setHoveredMarker]  = useState(null)
+
+  const relPos = (e) => {
+    if (!wrapRef.current) return { x: 0, y: 0 }
+    const r = wrapRef.current.getBoundingClientRect()
+    return { x: e.clientX - r.left, y: e.clientY - r.top }
+  }
+
+  /* ── comarca handlers ─────────────────────────────────── */
+  const onGeoEnter = (e, nom) => {
+    if (hoveredMarker) return
+    const { x, y } = relPos(e)
+    setHoveredComarca(nom)
+    setTooltip({ visible: true, text: nom, sub: '', x, y })
+  }
+
+  const onGeoMove = (e) => {
+    setTooltip((prev) => {
+      if (!prev.visible) return prev
+      const { x, y } = relPos(e)
+      return { ...prev, x, y }
     })
   }
 
-  const handleMouseLeave = () => {
+  const onGeoLeave = () => {
+    setHoveredComarca(null)
     setTooltip((t) => ({ ...t, visible: false }))
   }
 
-  const handleClick = (comarca) => {
-    if (!comarcesAmbProductors.has(comarca.id)) return
-    onSelect(selected === comarca.nom ? null : comarca.nom)
+  const onGeoClick = (nom) => {
+    if (onSelect) onSelect(selected === nom ? null : nom)
   }
 
+  /* ── marker handlers ──────────────────────────────────── */
+  const onMarkerEnter = (e, p) => {
+    const { x, y } = relPos(e)
+    setHoveredMarker(p.slug)
+    setTooltip({ visible: true, text: p.nom, sub: p.categoria, x, y })
+  }
+
+  const onMarkerLeave = () => {
+    setHoveredMarker(null)
+    setTooltip((t) => ({ ...t, visible: false }))
+  }
+
+  const onMarkerClick = (slug) => navigate(`/productors/${slug}`)
+
+  /* small-screen marker radius (approximate — no resize listener needed) */
+  const isSm = typeof window !== 'undefined' && window.innerWidth < 640
+
   return (
-    <div className="mapa-wrap" ref={svgRef}>
-      <svg viewBox="0 0 600 390" aria-label="Mapa de les comarques de Catalunya" role="img">
-        <title>Mapa de les comarques de Catalunya</title>
-        {COMARQUES.map((comarca) => {
-          const teProductors = comarcesAmbProductors.has(comarca.id)
-          const isSelected = selected === comarca.nom
-          let cls = 'comarca-shape'
-          if (isSelected) cls += ' comarca-shape--seleccionada'
-          else if (teProductors) cls += ' comarca-shape--activa'
-          return (
-            <path
-              key={comarca.id}
-              d={comarca.d}
-              className={cls}
-              role={teProductors ? 'button' : undefined}
-              aria-label={teProductors ? `${comarca.nom} — té productors` : comarca.nom}
-              tabIndex={teProductors ? 0 : undefined}
-              onMouseEnter={(e) => handleMouseEnter(e, comarca.nom)}
-              onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick(comarca)}
-              onKeyDown={(e) => e.key === 'Enter' && handleClick(comarca)}
-            />
-          )
-        })}
-      </svg>
-      <div
-        className={`mapa-tooltip${tooltip.visible ? ' mapa-tooltip--visible' : ''}`}
-        style={{ left: tooltip.x, top: tooltip.y }}
-        aria-hidden="true"
-      >
-        {tooltip.nom}
+    <div className="mapa-card">
+      <div className="mapa-card__header">
+        <span className="mapa-card__label">El territori</span>
+        <h2 className="mapa-card__title">Els productors al mapa</h2>
       </div>
+
+      <div className="mapa-wrap" ref={wrapRef} onMouseMove={onGeoMove}>
+        <ComposableMap
+          projection="geoMercator"
+          projectionConfig={{ center: [1.74, 41.7], scale: 13500 }}
+          width={800}
+          height={700}
+          style={{ width: '100%', height: 'auto', display: 'block' }}
+        >
+          <Geographies geography={GEO_URL}>
+            {({ geographies }) =>
+              geographies.map((geo) => {
+                const nom   = geo.properties.NOMCOMAR
+                const activa = comarcesAmbProductors.has(nom)
+                const sel    = selected === nom
+                const hov    = hoveredComarca === nom
+
+                const fill =
+                  sel            ? C.terracotta
+                  : hov && activa ? C.terracottaSoft
+                  : hov           ? C.hoverInactive
+                  : activa        ? C.terracottaPale
+                  :                 C.paperDeep
+
+                return (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    fill={fill}
+                    stroke={activa ? C.clay : C.terracottaSoft}
+                    strokeWidth={activa ? 1 : 0.7}
+                    style={{
+                      outline: 'none',
+                      cursor: activa ? 'pointer' : 'default',
+                      transition: 'fill 180ms ease',
+                    }}
+                    onMouseEnter={(e) => onGeoEnter(e, nom)}
+                    onMouseLeave={onGeoLeave}
+                    onClick={() => onGeoClick(nom)}
+                  />
+                )
+              })
+            }
+          </Geographies>
+
+          {productorsAmbCoords.map((p) => {
+            const hov = hoveredMarker === p.slug
+            const r   = hov ? (isSm ? 9 : 12) : (isSm ? 6 : 8)
+            return (
+              <Marker key={p.slug} coordinates={p.coordenades}>
+                <circle
+                  r={r}
+                  fill={C.forest}
+                  stroke="white"
+                  strokeWidth={1.5}
+                  style={{ cursor: 'pointer' }}
+                  onMouseEnter={(e) => onMarkerEnter(e, p)}
+                  onMouseLeave={onMarkerLeave}
+                  onClick={() => onMarkerClick(p.slug)}
+                />
+              </Marker>
+            )
+          })}
+        </ComposableMap>
+
+        {tooltip.visible && (
+          <div
+            className="mapa-tooltip mapa-tooltip--visible"
+            style={{ left: tooltip.x, top: tooltip.y }}
+            aria-hidden="true"
+          >
+            <span className="mapa-tooltip__nom">{tooltip.text}</span>
+            {tooltip.sub && (
+              <span className="mapa-tooltip__cat">{tooltip.sub}</span>
+            )}
+          </div>
+        )}
+      </div>
+
+      <p className="mapa-card__helper">
+        Fes clic en un productor per veure el seu perfil
+      </p>
     </div>
   )
 }

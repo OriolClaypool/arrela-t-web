@@ -11,6 +11,7 @@ const productors = [
     descripcioCurta: 'Vinyes velles al cor del Penedès. Producció petita, treballada sense pressa.',
     descripcioLlarga: "Tres hectàrees de garnatxa, carinyena i xarel·lo. Vinificació al celler propi. Venda directa i a un grapat de botigues seleccionades arreu de Catalunya.",
     recomanacio: "Un celler que treballa la vinya amb respecte i sense pressa. Visitar-los és entendre per què el vi natural no és una moda, sinó una filosofia.",
+    coordenades: [1.7123, 41.4640],
     ubicacio: 'Mas Liula · Sant Pere de Riudebitlles',
     contacte: {
       web: 'caliula.cat',
@@ -64,6 +65,7 @@ const productors = [
     descripcioCurta: "Al peu del Pedraforca, la família Roca cultiva la terra com es feia fa cent anys. Diversitat, rotació i temps.",
     descripcioLlarga: "Cereals antics, llegums de secà, ous i verdures de temporada. Tot cultivat amb varietats locals i sense artificis. La venda es fa directament al mercat de Berga i per cistella setmanal a domicili.",
     recomanacio: "Una explotació familiar al cor del Berguedà que combina diverses produccions amb una coherència i una estima pel territori que s'encomana.",
+    coordenades: [1.8500, 42.0700],
     ubicacio: "Mas Soler · Gósol, Berguedà",
     contacte: {
       instagram: '@solerdenHug',
@@ -116,6 +118,7 @@ const productors = [
     descripcioCurta: 'Formatge de cabra artesà al cor del Lluçanès. La llet, de la pròpia ramada. Cada peça, feta a mà.',
     descripcioLlarga: "Fresc, semicurat i curat. Madurats al celler de la masia. Venda directa i a restaurants de cuina catalana. Tota la producció es fa a mà, amb les mateixes tècniques de sempre.",
     recomanacio: "Formatge de cabra artesà fet amb llet de la pròpia explotació. Una de les visites que més ens va marcar per la dedicació i la tranquil·litat amb què treballen.",
+    coordenades: [2.0500, 42.0400],
     ubicacio: 'Masia Lluçà · Sant Feliu Sasserra, Lluçanès',
     contacte: {
       instagram: '@formatgeslluca',
