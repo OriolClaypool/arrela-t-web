@@ -19,7 +19,7 @@ export default function ProductorGrid({ comarcaFilter }) {
     if (filters.cerca) {
       const q = filters.cerca.toLowerCase()
       const matchNom = p.nom.toLowerCase().includes(q)
-      const matchProductes = p.productes.some((pr) => pr.toLowerCase().includes(q))
+      const matchProductes = p.productes.some((pr) => (pr.nom ?? pr).toString().toLowerCase().includes(q))
       if (!matchNom && !matchProductes) return false
     }
     return true

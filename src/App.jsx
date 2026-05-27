@@ -7,8 +7,9 @@ import Temporada from './components/Temporada'
 import MapaCatalunya from './components/MapaCatalunya'
 import Newsletter from './components/Newsletter'
 import Footer from './components/Footer'
-import ProductorDetall from './pages/ProductorDetall'
 import DirectoriProductors from './pages/DirectoriProductors'
+import ProducerProfile from './components/ProducerProfile'
+import ProducerReportage from './components/ProducerReportage'
 import QuiSom from './pages/QuiSom'
 import Agenda from './pages/Agenda'
 import Contacte from './pages/Contacte'
@@ -49,7 +50,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/productors" element={<DirectoriProductors />} />
-        <Route path="/productors/:slug" element={<ProductorDetall />} />
+        <Route path="/productors/:slug" element={<ProducerProfile />} />
+        <Route path="/entrevistes/:slug" element={<ProducerReportage />} />
         <Route path="/qui-som" element={<QuiSom />} />
         <Route path="/agenda" element={<Agenda />} />
         <Route path="/contacte" element={<Contacte />} />
