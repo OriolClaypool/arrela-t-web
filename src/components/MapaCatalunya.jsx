@@ -5,8 +5,11 @@ import productors from '../data/productors'
 
 const GEO_URL = '/data/catalunya-comarques.json'
 
+const normalize = (s) =>
+  s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim()
+
 const comarcesAmbProductors = new Set(
-  productors.filter((p) => p.publicat && p.comarca).map((p) => p.comarca)
+  productors.filter((p) => p.publicat && p.comarca).map((p) => normalize(p.comarca))
 )
 
 const productorsAmbCoords = productors.filter(
@@ -90,18 +93,18 @@ export default function MapaCatalunya({ onSelect, selected }) {
       <div className="mapa-wrap" ref={wrapRef} onMouseMove={onGeoMove}>
         <ComposableMap
           projection="geoMercator"
-          projectionConfig={{ center: [1.74, 41.7], scale: 13500 }}
-          width={800}
-          height={700}
+          projectionConfig={{ center: [1.7, 41.8], scale: 7500 }}
+          width={680}
+          height={500}
           style={{ width: '100%', height: 'auto', display: 'block' }}
         >
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies.map((geo) => {
-                const nom   = geo.properties.NOMCOMAR
-                const activa = comarcesAmbProductors.has(nom)
-                const sel    = selected === nom
-                const hov    = hoveredComarca === nom
+                const nom   = geo.properties.NOMCOMAR ?? geo.properties.NOM_COMAR ?? geo.properties.nom_comar ?? geo.properties.name ?? ''
+                const activa = comarcesAmbProductors.has(normalize(nom))
+                const sel    = selected != null && normalize(selected) === normalize(nom)
+                const hov    = hoveredComarca != null && normalize(hoveredComarca) === normalize(nom)
 
                 const fill =
                   sel            ? C.terracotta
