@@ -4,8 +4,6 @@ import { Link, NavLink } from 'react-router-dom'
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const navigate = useNavigate()
-  const location = useLocation()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
