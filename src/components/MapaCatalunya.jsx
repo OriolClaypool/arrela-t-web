@@ -80,9 +80,6 @@ export default function MapaCatalunya({ onSelect, selected }) {
 
   const onMarkerClick = (slug) => navigate(`/productors/${slug}`)
 
-  /* small-screen marker radius (approximate — no resize listener needed) */
-  const isSm = typeof window !== 'undefined' && window.innerWidth < 640
-
   return (
     <div className="mapa-card">
       <div className="mapa-card__header">
@@ -93,7 +90,7 @@ export default function MapaCatalunya({ onSelect, selected }) {
       <div className="mapa-wrap" ref={wrapRef} onMouseMove={onGeoMove}>
         <ComposableMap
           projection="geoMercator"
-          projectionConfig={{ center: [1.7, 41.8], scale: 7500 }}
+          projectionConfig={{ center: [2.0, 41.7], scale: 7500 }}
           width={680}
           height={500}
           style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -136,14 +133,14 @@ export default function MapaCatalunya({ onSelect, selected }) {
 
           {productorsAmbCoords.map((p) => {
             const hov = hoveredMarker === p.slug
-            const r   = hov ? (isSm ? 9 : 12) : (isSm ? 6 : 8)
+            const r   = hov ? 9 : 6
             return (
               <Marker key={p.slug} coordinates={p.coordenades}>
                 <circle
                   r={r}
                   fill={C.forest}
                   stroke="white"
-                  strokeWidth={1.5}
+                  strokeWidth={1}
                   style={{ cursor: 'pointer' }}
                   onMouseEnter={(e) => onMarkerEnter(e, p)}
                   onMouseLeave={onMarkerLeave}

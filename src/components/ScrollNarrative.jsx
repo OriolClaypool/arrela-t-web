@@ -7,7 +7,7 @@ const statements = [
   'Perquè el camp mereix ser vist.',
 ]
 
-function Statement({ text }) {
+function Statement({ text, index }) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -16,15 +16,16 @@ function Statement({ text }) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          el.style.transitionDelay = `${index * 180}ms`
           el.classList.add('visible')
           observer.unobserve(el)
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     )
     observer.observe(el)
     return () => observer.disconnect()
-  }, [])
+  }, [index])
 
   return (
     <p ref={ref} className="narrative__statement fade-in">
@@ -38,7 +39,7 @@ export default function ScrollNarrative() {
     <section className="narrative">
       <div className="narrative__inner">
         {statements.map((text, i) => (
-          <Statement key={i} text={text} />
+          <Statement key={i} text={text} index={i} />
         ))}
       </div>
     </section>
