@@ -28,6 +28,11 @@ const productors = [
     zonesDistribucio: ['Barcelonès', 'Baix Llobregat', 'Alt Penedès', 'Garraf'],
     galeria: ['#5a6b3f', '#c47a52', '#3a2e22', '#d99873', '#1d4d35'],
     xarxes: { instagram: 'https://instagram.com/caliula' },
+    comercial: {
+      zonesDistribucio: ['Barcelonès', 'Vallès Occidental', 'Maresme'],
+      comandaMinima: 'Mín. 12 ampolles',
+      nProductes: 4,
+    },
     publicat: true,
     reportatge: {
       titol: 'La paciència del cep',
@@ -81,6 +86,11 @@ const productors = [
     zonesDistribucio: ['Berguedà', 'Bages', 'Osona', 'Barcelonès'],
     galeria: ['#5a6b3f', '#c4a87a', '#d4c4a0', '#1d4d35', '#8a7a64'],
     xarxes: { instagram: 'https://instagram.com/solerdenHug', web: 'https://solerdenHug.cat' },
+    comercial: {
+      zonesDistribucio: ['Barcelonès', 'Bages'],
+      comandaMinima: 'Consultar',
+      nProductes: 4,
+    },
     publicat: true,
     reportatge: {
       titol: 'La llavor que no es perd',
@@ -134,6 +144,11 @@ const productors = [
     zonesDistribucio: ['Osona', 'Lluçanès', 'Barcelonès', 'Vallès Oriental'],
     galeria: ['#8a5a32', '#d4b880', '#f0e8d0', '#1d4d35', '#a07840'],
     xarxes: { instagram: 'https://instagram.com/formatgeslluca' },
+    comercial: {
+      zonesDistribucio: ['Tot Catalunya'],
+      comandaMinima: 'Mín. 5 kg',
+      nProductes: 4,
+    },
     publicat: true,
     reportatge: {
       titol: 'El temps del formatge',
