@@ -62,6 +62,9 @@ export default function Nav() {
           <a href="/#productors" onClick={goToProductors}>Productors</a>
         </li>
         <li>
+          <NavLink to="/entrevistes" onClick={close}>Entrevistes</NavLink>
+        </li>
+        <li>
           <NavLink to="/qui-som" onClick={close}>Qui som</NavLink>
         </li>
         <li>

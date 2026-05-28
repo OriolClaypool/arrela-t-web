@@ -14,6 +14,7 @@ import QuiSom from './pages/QuiSom'
 import Agenda from './pages/Agenda'
 import Contacte from './pages/Contacte'
 import Professional from './components/Professional'
+import Entrevistes from './components/Entrevistes'
 
 function MapaHome() {
   return (
@@ -51,6 +52,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/productors" element={<DirectoriProductors />} />
         <Route path="/productors/:slug" element={<ProducerProfile />} />
+        <Route path="/entrevistes" element={<Entrevistes />} />
         <Route path="/entrevistes/:slug" element={<ProducerReportage />} />
         <Route path="/qui-som" element={<QuiSom />} />
         <Route path="/agenda" element={<Agenda />} />
