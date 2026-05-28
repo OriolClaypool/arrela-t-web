@@ -27,7 +27,7 @@ export default function Footer() {
         </div>
 
         <nav className="footer__nav" aria-label="Navegació peu de pàgina">
-          <a href="/#productors">Productors</a>
+          <Link to="/productors">Productors</Link>
           <Link to="/qui-som">Qui som</Link>
           <Link to="/agenda">Agenda</Link>
           <Link to="/contacte">Contacte</Link>

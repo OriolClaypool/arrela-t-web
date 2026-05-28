@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -14,19 +14,6 @@ export default function Nav() {
   }, [])
 
   const close = () => setMenuOpen(false)
-
-  const goToProductors = (e) => {
-    e.preventDefault()
-    close()
-    if (location.pathname === '/') {
-      document.getElementById('productors')?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      navigate('/')
-      setTimeout(() => {
-        document.getElementById('productors')?.scrollIntoView({ behavior: 'smooth' })
-      }, 300)
-    }
-  }
 
   return (
     <nav
@@ -59,7 +46,7 @@ export default function Nav() {
 
       <ul className={`nav__links${menuOpen ? ' nav__links--open' : ''}`}>
         <li>
-          <a href="/#productors" onClick={goToProductors}>Productors</a>
+          <NavLink to="/productors" onClick={close}>Productors</NavLink>
         </li>
         <li>
           <NavLink to="/entrevistes" onClick={close}>Entrevistes</NavLink>

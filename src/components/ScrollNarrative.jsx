@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 const statements = [
   'Cada producte té una història.',
   'Cada productor, una vida dedicada al territori.',
-  "Arrela't entra, escolta i ho explica.",
+  'Nosaltres entrem, escoltem i ho expliquem.',
   'Perquè el camp mereix ser vist.',
 ]
 

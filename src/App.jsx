@@ -1,9 +1,8 @@
-import { Routes, Route } from 'react-router-dom'
+import { Link, Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import ScrollNarrative from './components/ScrollNarrative'
-import Productors from './components/Productors'
-import Temporada from './components/Temporada'
+import UltimesEntrevistes from './components/UltimesEntrevistes'
 import MapaCatalunya from './components/MapaCatalunya'
 import Newsletter from './components/Newsletter'
 import Footer from './components/Footer'
@@ -20,11 +19,28 @@ function MapaHome() {
   return (
     <section className="mapa-seccio">
       <div className="mapa-seccio__inner">
-        <h2 className="mapa-seccio__title">On som</h2>
-        <p className="mapa-seccio__subtitle">
-          Productors visitats arreu del territori català.
-        </p>
         <MapaCatalunya onSelect={() => {}} selected={null} />
+      </div>
+    </section>
+  )
+}
+
+function ProTeaser() {
+  return (
+    <section className="pro-teaser">
+      <div className="pro-teaser__inner">
+        <div className="pro-teaser__text">
+          <p className="pro-teaser__label">Ets botiga o restaurant?</p>
+          <h2 className="pro-teaser__title">Connecta amb els productors</h2>
+          <p className="pro-teaser__body">
+            Accedeix a preus, quantitats i contacte directe amb productors verificats per Arrela't.
+          </p>
+        </div>
+        <div className="pro-teaser__cta">
+          <Link to="/professional" className="pro-teaser__btn">
+            Espai professional
+          </Link>
+        </div>
       </div>
     </section>
   )
@@ -35,9 +51,9 @@ function Home() {
     <>
       <Hero />
       <ScrollNarrative />
-      <Productors />
-      <Temporada />
+      <UltimesEntrevistes />
       <MapaHome />
+      <ProTeaser />
       <Newsletter />
       <Footer />
     </>
