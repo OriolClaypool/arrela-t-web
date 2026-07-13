@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
 import productors from '../data/productors'
 import Footer from './Footer'
+import Seo from './Seo'
 
 const COMARQUES = [
   "Alt Camp", "Alt Empordà", "Alt Penedès", "Alt Urgell", "Alta Ribagorça",
-  "Anoia", "Aran", "Bages", "Baix Camp", "Baix Ebre", "Baix Empordà",
+  "Anoia", "Bages", "Baix Camp", "Baix Ebre", "Baix Empordà",
   "Baix Llobregat", "Baix Penedès", "Barcelonès", "Berguedà", "Cerdanya",
   "Conca de Barberà", "Garraf", "Garrigues", "Garrotxa", "Gironès",
   "Lluçanès", "Maresme", "Moianès", "Montsià", "Noguera", "Osona",
@@ -212,13 +213,13 @@ export default function Professional() {
     if (accessForm.nomNegoci && accessForm.email) setAccessSent(true)
   }
 
-  const scrollToAccess = (e) => {
-    e.preventDefault()
-    accessRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-
   return (
     <div className="pro-page">
+      <Seo
+        title="Espai professional — Arrela't"
+        description="Troba productors verificats per Arrela't que reparteixen a la teva zona. Preus, quantitats i contacte directe per a botigues i restaurants."
+        path="/professional"
+      />
 
       {/* Top bar */}
       <div className="pro-topbar">
@@ -293,7 +294,7 @@ export default function Professional() {
       <div className="pro-results" id="pro-results-anchor">
         <p className="pro-results__count">
           {comarca
-            ? `${filtered.length} ${filtered.length === 1 ? 'productor reparteix' : 'productors reparteixen'} al ${comarca}`
+            ? `${filtered.length} ${filtered.length === 1 ? 'productor' : 'productors'} — reparteixen a: ${comarca}`
             : `${filtered.length} productors disponibles`}
         </p>
 

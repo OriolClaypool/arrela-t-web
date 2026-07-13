@@ -28,17 +28,20 @@ export default function Footer() {
 
         <nav className="footer__nav" aria-label="Navegació peu de pàgina">
           <Link to="/productors">Productors</Link>
+          <Link to="/entrevistes">Entrevistes</Link>
           <Link to="/qui-som">Qui som</Link>
           <Link to="/agenda">Agenda</Link>
           <Link to="/contacte">Contacte</Link>
         </nav>
 
         <div className="footer__social">
-          <a href="#" aria-label="Instagram d'Arrela't" target="_blank" rel="noopener noreferrer">
+          {/* TODO: real URL */}
+          <a href="#" aria-label="Instagram d'Arrela't" rel="noopener noreferrer">
             <IconaInstagram />
             Instagram
           </a>
-          <a href="#" aria-label="YouTube d'Arrela't" target="_blank" rel="noopener noreferrer">
+          {/* TODO: real URL */}
+          <a href="#" aria-label="YouTube d'Arrela't" rel="noopener noreferrer">
             <IconaYoutube />
             YouTube
           </a>

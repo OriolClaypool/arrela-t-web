@@ -1,7 +1,10 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, lazy, Suspense } from 'react'
+import Seo from '../components/Seo'
 import ProductorGrid from '../components/ProductorGrid'
-import MapaCatalunya from '../components/MapaCatalunya'
+import MapaSkeleton from '../components/MapaSkeleton'
 import Footer from '../components/Footer'
+
+const MapaCatalunya = lazy(() => import('../components/MapaCatalunya'))
 
 export default function DirectoriProductors() {
   const [comarcaSeleccionada, setComarcaSeleccionada] = useState(null)
@@ -18,6 +21,11 @@ export default function DirectoriProductors() {
 
   return (
     <>
+      <Seo
+        title="Els productors — Arrela't"
+        description="El directori de productors verificats per Arrela't: pagesos, formatgers i cellers d'arreu de Catalunya visitats i validats en persona."
+        path="/productors"
+      />
       <div className="directori">
         <div className="directori__header">
           <h1 className="directori__title">Els productors</h1>
@@ -33,7 +41,9 @@ export default function DirectoriProductors() {
               <p className="mapa-seccio__subtitle">
                 Selecciona una comarca del mapa per filtrar els productors d'aquella zona.
               </p>
-              <MapaCatalunya onSelect={handleSelect} selected={comarcaSeleccionada} />
+              <Suspense fallback={<MapaSkeleton />}>
+                <MapaCatalunya onSelect={handleSelect} selected={comarcaSeleccionada} />
+              </Suspense>
               {comarcaSeleccionada && (
                 <p style={{ textAlign: 'center', color: 'var(--terracotta)', fontWeight: 500, marginBottom: '1rem' }}>
                   Mostrant productors de: {comarcaSeleccionada}

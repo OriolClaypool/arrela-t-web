@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Footer from '../components/Footer'
+import Seo from '../components/Seo'
 
 const IconaInstagram = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
@@ -18,6 +19,7 @@ const IconaYoutube = () => (
 
 export default function Contacte() {
   const [form, setForm] = useState({ nom: '', email: '', missatge: '' })
+  const [sent, setSent] = useState(false)
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -26,10 +28,16 @@ export default function Contacte() {
   const handleSubmit = (e) => {
     e.preventDefault()
     setForm({ nom: '', email: '', missatge: '' })
+    setSent(true)
   }
 
   return (
     <div className="contacte">
+      <Seo
+        title="Contacte — Arrela't"
+        description="Ets productor o productora i vols que et visitem? Escriu-nos i parlem de com posar en valor el teu projecte."
+        path="/contacte"
+      />
       <div className="contacte__inner">
         <h1>Contacte</h1>
         <p className="contacte__intro">
@@ -37,51 +45,59 @@ export default function Contacte() {
           relacionat amb el sector primari i t'interessa col·laborar? Escriu-nos.
         </p>
 
-        <form className="contacte__form" onSubmit={handleSubmit} noValidate>
-          <div className="contacte__field">
-            <label htmlFor="nom">Nom</label>
-            <input
-              type="text"
-              id="nom"
-              name="nom"
-              value={form.nom}
-              onChange={handleChange}
-              required
-              autoComplete="name"
-            />
-          </div>
-          <div className="contacte__field">
-            <label htmlFor="email">Correu electrònic</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              required
-              autoComplete="email"
-            />
-          </div>
-          <div className="contacte__field">
-            <label htmlFor="missatge">Missatge</label>
-            <textarea
-              id="missatge"
-              name="missatge"
-              rows="6"
-              value={form.missatge}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <button type="submit" className="contacte__submit">Enviar missatge</button>
-        </form>
+        {sent ? (
+          <p className="contacte__confirm">
+            Gràcies pel teu missatge! Et respondrem el més aviat possible.
+          </p>
+        ) : (
+          <form className="contacte__form" onSubmit={handleSubmit}>
+            <div className="contacte__field">
+              <label htmlFor="nom">Nom</label>
+              <input
+                type="text"
+                id="nom"
+                name="nom"
+                value={form.nom}
+                onChange={handleChange}
+                required
+                autoComplete="name"
+              />
+            </div>
+            <div className="contacte__field">
+              <label htmlFor="email">Correu electrònic</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                required
+                autoComplete="email"
+              />
+            </div>
+            <div className="contacte__field">
+              <label htmlFor="missatge">Missatge</label>
+              <textarea
+                id="missatge"
+                name="missatge"
+                rows="6"
+                value={form.missatge}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <button type="submit" className="contacte__submit">Enviar missatge</button>
+          </form>
+        )}
 
         <div className="contacte__social">
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram d'Arrela't">
+          {/* TODO: real URL */}
+          <a href="#" rel="noopener noreferrer" aria-label="Instagram d'Arrela't">
             <IconaInstagram />
             @arrelat.cat a Instagram
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube d'Arrela't">
+          {/* TODO: real URL */}
+          <a href="#" rel="noopener noreferrer" aria-label="YouTube d'Arrela't">
             <IconaYoutube />
             Arrela't a YouTube
           </a>

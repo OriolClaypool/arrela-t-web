@@ -8,6 +8,7 @@ function OrganicStrokes() {
       preserveAspectRatio="xMidYMid slice"
       aria-hidden="true"
     >
+      {/* stroke mirrors var(--terracotta); CSS custom properties aren't resolved in plain SVG presentation attributes */}
       <g fill="none" stroke="#c47a52" strokeWidth="1.5" opacity="0.08">
         <path d="M-80 780 Q 220 650 520 720 Q 820 790 1120 660 Q 1320 590 1520 670"/>
         <path d="M-80 630 Q 260 500 560 575 Q 860 645 1160 510 Q 1350 445 1520 520"/>

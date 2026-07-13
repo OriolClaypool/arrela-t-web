@@ -1,4 +1,5 @@
 import Footer from '../components/Footer'
+import Seo from '../components/Seo'
 
 const equip = [
   {
@@ -16,6 +17,11 @@ const equip = [
 export default function QuiSom() {
   return (
     <div className="qui-som">
+      <Seo
+        title="Qui som — Arrela't"
+        description="Dues persones amb la voluntat de posar en valor el sector primari català, una càmera i moltes ganes d'escoltar."
+        path="/qui-som"
+      />
       <section className="qui-som__hero">
         <h1>Qui som</h1>
         <p>

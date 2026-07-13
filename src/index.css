@@ -2,8 +2,6 @@
    Mobile-first · CSS pur · Sense frameworks
    ============================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap');
-
 /* ── Variables ─────────────────────────────────────────────── */
 :root {
   --paper:            #f6efe1;
@@ -17,7 +15,7 @@
   --moss:             #5a6b3f;
   --ink:              #2e2419;
   --ink-soft:         #6b5d4a;
-  --ink-faint:        #8a7a64;
+  --ink-faint:        #75664f;
   --white:            #ffffff;
 
   --nav-height:   72px;
@@ -213,7 +211,7 @@ input, textarea { font-family: 'DM Sans', sans-serif; }
 .hero__title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 6vw, 5rem);
-  color: #f6efe1;
+  color: var(--paper);
   line-height: 1.05;
   margin-bottom: 1.75rem;
   letter-spacing: -0.025em;
@@ -563,7 +561,7 @@ input, textarea { font-family: 'DM Sans', sans-serif; }
 
 .footer__bottom p {
   font-size: 0.875rem;
-  color: rgba(246,239,225,0.4);
+  color: rgba(246,239,225,0.6);
 }
 
 @media (max-width: 768px) {
@@ -1014,6 +1012,14 @@ input, textarea { font-family: 'DM Sans', sans-serif; }
 }
 
 .contacte__submit:hover { background: var(--clay); }
+
+.contacte__confirm {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.125rem;
+  color: var(--terracotta);
+  margin-bottom: 3.5rem;
+}
 
 .contacte__social {
   display: flex;
@@ -1568,7 +1574,7 @@ input, textarea { font-family: 'DM Sans', sans-serif; }
   align-self: flex-end;
 }
 
-.pro-filterbar__btn:hover { background: #b36840; }
+.pro-filterbar__btn:hover { background: var(--clay); }
 
 /* Results */
 
@@ -1956,7 +1962,7 @@ input, textarea { font-family: 'DM Sans', sans-serif; }
   align-self: flex-start;
 }
 
-.pro-access__btn:hover { background: #b36840; }
+.pro-access__btn:hover { background: var(--clay); }
 
 @media (max-width: 768px) {
   .pro-access__inner {
@@ -2102,6 +2108,67 @@ input, textarea { font-family: 'DM Sans', sans-serif; }
   line-height: 1.3;
 }
 
+/* Loading skeleton */
+.mapa-skeleton {
+  aspect-ratio: 680 / 500;
+  width: 100%;
+  background: var(--paper-deep);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: mapaSkeletonPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes mapaSkeletonPulse {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+
+.mapa-skeleton__text {
+  font-size: 0.875rem;
+  color: var(--ink-faint);
+  font-weight: 300;
+}
+
+/* Error state */
+.mapa-error {
+  aspect-ratio: 680 / 500;
+  width: 100%;
+  background: var(--paper-deep);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.mapa-error__text {
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+}
+
+.mapa-error__select {
+  max-width: 320px;
+  width: 100%;
+  height: 46px;
+  flex: none;
+}
+
+/* Comarca <select> shown above the map on small screens */
+.mapa-comarca-mobile {
+  display: none;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .mapa-comarca-mobile { display: block; }
+  .mapa-comarca-mobile .filter-bar__select { width: 100%; }
+}
+
 /* ── Temporada ───────────────────────────────────────────── */
 /* ── Últimes Entrevistes (home) ───────────────────────────── */
 
@@ -2240,7 +2307,7 @@ input, textarea { font-family: 'DM Sans', sans-serif; }
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(246,239,225,0.65);
+  color: #4a1b0c;
   margin-bottom: 0.875rem;
 }
 
@@ -3102,7 +3169,7 @@ a.profile-contacte__item:hover { color: var(--terracotta); }
   font-size: clamp(1.75rem, 4vw, 3rem);
   font-style: italic;
   font-weight: 700;
-  color: #f6efe1;
+  color: var(--paper);
   line-height: 1.15;
   margin-bottom: 0.65rem;
 }
@@ -3241,4 +3308,9 @@ a.profile-contacte__item:hover { color: var(--terracotta); }
   .entrevistes__header {
     padding: 3.5rem var(--gutter) 2.5rem;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }

@@ -1,0 +1,324 @@
+ARRELA'T — CODEBASE AUDIT
+Date: 2026-07-12
+Scope: all of src/, index.html, public/, scripts/, build config. Read-only audit.
+
+=====================================================================
+1. CODE QUALITY & ARCHITECTURE
+=====================================================================
+
+Dead code from previous iterations (highest priority — it's substantial):
+
+- src/pages/ProductorDetall.jsx — entirely unrouted (App.jsx:70 routes
+  /productors/:slug to ProducerProfile). Worse, it references fields that
+  no longer exist in the data model: productor.videos (line 61) would
+  throw TypeError, and line 55 renders product objects as React
+  keys/children. Delete the file.
+- src/components/Productors.jsx and src/components/Temporada.jsx —
+  imported by nothing. src/data/temporada.js goes with them.
+- Orphaned CSS, ~500+ lines in src/index.css: .productor-card* (298-420),
+  .detall-* (576-732 and 1319-1389), .not-found (1037-1061),
+  .productors__* / .productors__preview-* (273-295, 1083-1122),
+  .temporada* (2280-2337, already labeled "legacy"). Deleting these
+  shrinks the stylesheet ~15%.
+- src/assets/hero.png, react.svg, vite.svg — unused assets.
+
+Broken script: scripts/generate-rss.js:11-12 imports
+../src/data/diari.js and ../src/data/newsletter.js, which don't exist.
+"npm run rss" crashes. Meanwhile public/rss.xml is a stale artifact whose
+items link to /diari/... and /newsletter/... — routes that don't exist on
+the site. Either restore the data files or delete script + feed + the
+<link rel="alternate"> in index.html:23.
+
+Unused dependencies (package.json): react-helmet-async (never imported —
+see SEO), prop-types (never imported), gh-pages (deploy is Vercel),
+playwright (no tests exist).
+
+Duplication:
+- parseDataVisita + MESOS copy-pasted in UltimesEntrevistes.jsx:5-12 and
+  Entrevistes.jsx:5-12. Extract to src/utils/dates.js. Better: store
+  dataVisita as an ISO date in productors.js and format for display —
+  string-parsing Catalan month names is fragile.
+- Inline SVG icons redefined per file: IconaInstagram/IconaYoutube in
+  both Footer.jsx and Contacte.jsx; IconArrow in both ProducerProfile.jsx
+  and ProducerReportage.jsx; OrganicStrokes in three variants (Hero,
+  ProducerProfile, ProducerReportage). One src/components/icons.jsx
+  module would consolidate ~150 lines.
+- The IntersectionObserver fade-in logic exists as the useFadeIn hook but
+  is reimplemented inline in ScrollNarrative.jsx:13-28 and
+  UltimesEntrevistes.jsx:17-26. Use the hook everywhere.
+
+Inconsistent patterns: DirectoriProductors.jsx:30-46 uses inline
+style={{}} objects (section override, the "Mostrant productors de"
+notice, the reset button) while the rest of the site is class-based.
+Move to classes.
+
+Lint: "npx eslint ." fails with 1 error — Professional.jsx:215
+scrollToAccess is defined but never used (the access band lost its
+anchor link in a redesign). Remove it or re-link it.
+
+=====================================================================
+2. BUGS & FRAGILITY
+=====================================================================
+
+- No 404 catch-all route. App.jsx:67-77 has no <Route path="*">. Any
+  unknown URL renders the Nav over a blank page. Add a NotFound page
+  (the .profile-not-found styles already exist).
+- No scroll restoration. Nothing resets scroll on navigation, and React
+  Router doesn't do it by default. Clicking a footer link from the bottom
+  of the home page lands you at the bottom of the next page. Add a
+  ScrollToTop component on location.pathname in main.jsx/App.jsx.
+- Probable production 404s on deep links. There's no vercel.json with an
+  SPA rewrite. Unless the Vercel project preset adds the fallback,
+  loading arrelat.cat/productors/ca-liula directly (or refreshing)
+  returns 404. Verify in production; if broken, add a rewrite of /(.*)
+  to /index.html.
+- FilterBar controlled-value bug. FilterBar.jsx:6 sets the categoria
+  select's value to "comarcaFilter || filters.categoria" — when a comarca
+  is picked on the map, a comarca name becomes the value of the category
+  select, matching no option (renders blank/first option). Both selects
+  should keep their own values and only be disabled.
+- Contact form silently eats input. Contacte.jsx:40 sets noValidate while
+  relying on required, and there is no JS validation — an empty or
+  complete submit just wipes all fields (line 28) with zero feedback.
+  Remove noValidate and add a sent-confirmation state (the Professional
+  page already has this pattern).
+- Unguarded reportatge fields. ProducerReportage.jsx calls r.cos.map
+  (96), r.citacio.text (108), r.cosFinal.map (115), r.videos.map (152)
+  with no guards. Any future producer whose reportatge lacks one of these
+  crashes the whole page. Add optional-chaining guards or (better) a
+  dev-time shape check on productors.js.
+- Duplicate comarca in Professional list. Professional.jsx:5-15 contains
+  both "Aran" (line 7) and "Val d'Aran" (line 13) — same comarca twice in
+  both selects.
+- Catalan article bug in results count. Professional.jsx:296 renders
+  "al ${comarca}" — correct for "al Berguedà" but wrong for
+  "a l'Alt Empordà", "a Osona". Needs a small article helper or reworded
+  copy ("reparteixen a: {comarca}").
+- href="#" with target="_blank" on social links in Footer.jsx:37,41 and
+  Contacte.jsx:80,84, and event links url:'#' in agenda.js:8,16 — open
+  blank tabs. Point to real URLs or drop target.
+- Fragile URL building. ProducerProfile.jsx:234 builds
+  "https://${contacte.web}" — breaks the day data includes a protocol.
+  Normalize in data or strip protocol before prefixing.
+- GeoJSON property guessing. MapaCatalunya.jsx:101 tries four property
+  names for the comarca name. You own
+  public/data/catalunya-comarques.json — normalize the property once in
+  the file and read one key. Also: if the GeoJSON fetch fails, the map
+  silently renders empty — no loading or error state.
+
+=====================================================================
+3. DESIGN CONSISTENCY
+=====================================================================
+
+- Stale old-palette green #177245 survives in two places: index.html:8
+  (theme-color — tints the browser UI green on Android) and
+  public/favicon.svg:2 (green favicon square). Both clash with the
+  terracotta/paper identity. Highest-visibility inconsistency.
+- Hardcoded hex values that should be variables: Hero.jsx:11 stroke
+  #c47a52 (= --terracotta); index.css:216 and 3105 #f6efe1 (= --paper);
+  hover colors #b36840 (1571, 1959) which is a near-duplicate of --clay
+  #b5613a — use --clay; #1a120a hover (1687, 1802, 2274) appears three
+  times uncommented. The MapaCatalunya.jsx:20-28 mirror-object is
+  documented and acceptable for SVG, but it should be the only exception.
+- Alignment inconsistency between index pages: .entrevistes__header
+  (index.css:3018) has max-width:760px but no margin:0 auto, and
+  .pro-results (1575) has max-width without centering — both hug the left
+  edge on wide screens, while .directori__header (1292) and every home
+  section are centered containers. Decide one system (centered) and
+  apply it.
+- The reportage page shows a second header. ProducerReportage renders
+  .report-topbar with its own "Arrela't" logo under the global fixed Nav
+  (index.css:2756-2768 stacks it at top:var(--nav-height)), so users see
+  two bars with two logos. The profile page's plain back-bar
+  (.profile-topbar) is the better pattern.
+- Hardcoded copy "Sobre el celler" in ProducerProfile.jsx:178 — wrong for
+  the cheese and vegetable producers already in the data. Make it "Sobre
+  el projecte" or derive from category.
+- Border-radius drift: buttons are 2px on home (.hero__cta), 3px
+  everywhere else (.pro-*, .entrevistes__cta-btn), cards 5px/6px. Minor,
+  but a single --radius-btn token would stop the drift.
+- Footer omits Entrevistes (Footer.jsx:29-34) although it's a primary
+  nav item.
+
+=====================================================================
+4. RESPONSIVE QUALITY
+=====================================================================
+
+Overall the CSS is genuinely mobile-first and most grids collapse
+sensibly (dir-grid at 900/540, entrevistes at 768, pro-cards wrap at 560,
+infobar 2-col at 640). The real risks:
+
+- The map at 375px is the weakest point. The 680x500 viewBox scales to
+  ~340px wide, making small comarques nearly unclickable and the
+  6px-radius markers (MapaCatalunya.jsx:136) far below the 44px
+  touch-target guideline. Tooltips are hover-only, so touch users get
+  comarca names only by selecting. Consider a mobile fallback (comarca
+  <select> above the map, which FilterBar already almost provides) and
+  bigger marker hit areas (transparent larger circle).
+- Fixed-height heroes: .report-hero 320px (2788) and .profile-hero 280px
+  (2398) — a two-line italic Playfair title at 375px plus the pill gets
+  tight; a longer future title will clip. Prefer min-height + padding.
+- Profile infobar mobile alignment:
+  .profile-infobar__item:first-child { padding-left: 0 } (2479) was
+  written for the 4-column layout; in the 2-column mobile grid (2498)
+  item 3 starts a row with 1rem padding while item 1 has none — visible
+  misalignment.
+- Newsletter stacked form at 480px (484-493): the input keeps
+  border-bottom:none when stacked above the button, so it appears
+  open-ended against the dark background. Restore the bottom border
+  inside that media query.
+- Pro topbar at 375px (Professional.jsx:224-238): wordmark + badge +
+  "Botiga verificada" pill share one 44px row; it fits, but barely —
+  worth a real-device check.
+
+=====================================================================
+5. PERFORMANCE
+=====================================================================
+
+- Fonts are the biggest first-paint cost. index.css:5 loads Google Fonts
+  via CSS @import — the worst-case chain (HTML -> CSS -> fonts CSS ->
+  font files), render-blocking. Move to <link rel="preconnect"> +
+  <link rel="stylesheet"> in index.html, or better, self-host the two
+  families with font-display: swap.
+- 1.1MB GeoJSON (public/data/catalunya-comarques.json) is fetched at
+  runtime on the home page and the directory. Comarca boundaries at this
+  rendering size need a fraction of that precision — run it through
+  mapshaper (~10-15% simplification survives visually intact) and/or
+  convert to TopoJSON; realistic target is 100-200KB.
+- 410KB JS bundle, no code splitting. react-simple-maps + its d3
+  dependencies ship to every route via the static imports in App.jsx.
+  React.lazy on the route components (or at least on MapaCatalunya) would
+  cut the initial bundle substantially for
+  reportage/professional/contact visitors.
+- Map hover re-renders: every mousemove/hover updates state and
+  re-renders all 42 Geography elements, calling normalize() several times
+  per geography per render (MapaCatalunya.jsx:101-104). Precompute each
+  geography's normalized name once (keyed by geo.rsmKey) or memoize.
+  Noticeable on low-end devices.
+- Plausible is deferred — fine. No real images yet, so LCP is currently
+  text on gradient — fine.
+
+=====================================================================
+6. SEO & METADATA
+=====================================================================
+
+- No per-page titles or descriptions — the most important SEO gap. Every
+  route shares "Arrela't — Sector primari català". react-helmet-async is
+  already installed and unused; wire it up (or a tiny useDocumentTitle
+  hook). Reportage pages especially deserve title/description/OG from
+  productor.reportatge.
+- theme-color #177245 at index.html:8 — stale green, as noted.
+- OG/Twitter incomplete: twitter:card summary_large_image with no
+  og:image/twitter:image at all, and no og:url/canonical. Add a branded
+  fallback image (1200x630) even before real photos exist.
+- No sitemap.xml, no robots.txt. Both are trivial for ~10 static routes.
+- rss.xml actively harmful — advertised in <head> and pointing crawlers
+  to dead /diari/ and /newsletter/ URLs. Remove or regenerate.
+- Client-only rendering: producers and reportages exist only after JS
+  executes. Google copes; other crawlers and link-preview bots don't.
+  Prerendering the static routes at build time is the structural fix.
+- Semantics are decent: lang="ca" OK, one h1 per page OK,
+  nav/footer/article used. Weak spot: profile-page sections use
+  <span class="profile-label"> instead of real h2s
+  (ProducerProfile.jsx:178,187,203), so the document outline under the
+  h1 is flat.
+
+=====================================================================
+7. ACCESSIBILITY
+=====================================================================
+
+- The map is invisible to keyboard and screen-reader users. Geography
+  elements have onClick but no tabIndex/role/onKeyDown, and
+  outline:'none' (MapaCatalunya.jsx:121) kills any focus indicator;
+  markers are plain <circle>s. Tooltips are aria-hidden. Since the
+  directory grid + FilterBar duplicate the map's function, the pragmatic
+  fix is: mark the map decorative-but-enhanced (aria-hidden on the SVG,
+  ensure the select-based filtering is complete), or make markers
+  focusable with role="button" and Enter/Space handlers.
+- The Professional contact modal doesn't manage focus
+  (Professional.jsx:56-149): focus is not moved into the dialog, not
+  trapped, and not returned on close; role="dialog" sits on the backdrop
+  instead of the panel. Escape and backdrop-click do work. Tab currently
+  walks the page behind the modal.
+- Systematic contrast failures with --ink-faint (#8a7a64) on paper —
+  ratio ~3.6:1, below AA for the small text it's used on:
+  .mapa-card__helper (13px), .ultimes-card__data, .entrevistes__card-data,
+  .pro-results__count, form placeholders. Darkening --ink-faint to
+  ~#75664f fixes all at once. Also failing: .footer__bottom p at
+  rgba(paper, 0.4) (~3.4:1, index.css:566) and .pro-teaser__label at
+  rgba(paper, 0.65) on terracotta (~2:1, index.css:2243).
+- No prefers-reduced-motion guard for scroll-behavior:smooth
+  (index.css:38), the .fade-in transforms, and card hover translations.
+  One media query at the end of the stylesheet covers it.
+- Good points worth keeping: hamburger has aria-expanded + dynamic label,
+  form labels are real <label htmlFor> or sr-only, decorative SVGs
+  consistently aria-hidden, footer nav has aria-label.
+
+=====================================================================
+8. QUICK WINS vs. STRUCTURAL WORK
+=====================================================================
+
+(a) Quick wins — under 30 min each, by impact
+---------------------------------------------
+ 1. Fix theme-color and favicon from #177245 to the terracotta palette
+    (index.html:8, public/favicon.svg).
+ 2. Add a ScrollToTop component on route change — every internal
+    navigation currently lands mid-page.
+ 3. Add a catch-all 404 route in App.jsx reusing the .profile-not-found
+    styles.
+ 4. Verify/add vercel.json SPA rewrite so deep links to producers and
+    reportages don't 404 in production.
+ 5. Move Google Fonts from CSS @import to <link> + preconnect in
+    index.html — cheapest first-paint improvement.
+ 6. Delete dead files: ProductorDetall.jsx, Productors.jsx,
+    Temporada.jsx, temporada.js, hero.png — and fix the ESLint error in
+    Professional.jsx:215.
+ 7. Remove or regenerate rss.xml and its <head> link; fix or delete
+    generate-rss.js.
+ 8. Fix the Contacte form: drop noValidate, add a sent-confirmation
+    state.
+ 9. Fix the FilterBar controlled-value bug (FilterBar.jsx:6,19).
+10. Darken --ink-faint and fix the two rgba contrast failures —
+    one-variable accessibility win.
+11. Remove the Aran/Val d'Aran duplicate; fix the "al ${comarca}"
+    article.
+12. Replace hardcoded hexes with CSS variables (#f6efe1,
+    #b36840 -> --clay, Hero stroke).
+13. Add a prefers-reduced-motion media query.
+14. Footer: add Entrevistes link; fix href="#" social links.
+15. Remove unused deps (prop-types, gh-pages, playwright; keep
+    react-helmet-async — see below).
+
+(b) Structural improvements — by value
+--------------------------------------
+ 1. Per-page SEO — wire react-helmet-async for titles/descriptions/OG on
+    all routes, add an OG fallback image, sitemap.xml, robots.txt; then
+    evaluate build-time prerendering of the static + reportage routes.
+    Content-first project; this is where the value is.
+ 2. Map performance and access: simplify the GeoJSON to ~150KB, lazy-load
+    MapaCatalunya (and ideally each route) with React.lazy, memoize
+    normalized comarca names, add loading/error states, and a
+    mobile/keyboard-accessible alternative (comarca select).
+ 3. CSS cleanup pass: delete the ~500 lines of orphaned styles, unify the
+    container/centering system, introduce --radius tokens, consider
+    splitting index.css (3,244 lines) into per-page files.
+ 4. Shared-code extraction: icons.jsx module, useFadeIn everywhere, date
+    utility with ISO dataVisita in the data model, plus a dev-time shape
+    check on productors.js so a missing reportatge field fails loudly
+    instead of crashing a page in production.
+ 5. Wire the forms (newsletter, contact, professional access/contact) to
+    a real backend — Formspree/Basin for forms, Buttondown/Mailchimp for
+    the newsletter. Until then, at minimum make every fake submit show
+    the confirmation state so nothing silently swallows input.
+ 6. Modal & focus management: a small useDialog (focus trap, restore,
+    Escape) used by the Professional modal and any future ones.
+
+=====================================================================
+BOTTOM LINE
+=====================================================================
+The architecture is sound for the site's size — static data, plain CSS,
+small components. The debt is almost entirely residue from redesigns
+(dead pages, orphaned CSS, a broken RSS pipeline, the old green) plus
+three user-facing gaps: no scroll restoration, no 404/deep-link
+handling, and no per-page SEO. The quick-wins list alone would fix most
+of what a visitor or crawler would actually notice.

@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import productors from '../data/productors'
+import Seo from './Seo'
 import Footer from './Footer'
 
 function IconMapPin() {
@@ -116,6 +117,11 @@ export default function ProducerProfile() {
   if (!productor || !productor.publicat) {
     return (
       <div className="profile-not-found">
+        <Seo
+          title="Productor no trobat — Arrela't"
+          description="No hem trobat cap productor amb aquest identificador."
+          noindex
+        />
         <p className="profile-not-found__label">404</p>
         <h1>Productor no trobat</h1>
         <p>No hem trobat cap productor amb aquest identificador.</p>
@@ -128,6 +134,11 @@ export default function ProducerProfile() {
 
   return (
     <>
+      <Seo
+        title={`${productor.nom} — ${productor.categoria} · Arrela't`}
+        description={productor.descripcioCurta}
+        path={`/productors/${productor.slug}`}
+      />
       <div className="profile-topbar">
         <Link to="/productors" className="profile-topbar__back">
           <IconBack />
@@ -175,7 +186,7 @@ export default function ProducerProfile() {
 
       <section className="profile-sobre">
         <div className="profile-sobre__inner">
-          <span className="profile-label">Sobre el celler</span>
+          <h2 className="profile-label">Sobre el projecte</h2>
           <p className="profile-sobre__curta">{productor.descripcioCurta}</p>
           <p className="profile-sobre__llarga">{productor.descripcioLlarga}</p>
         </div>
@@ -184,7 +195,7 @@ export default function ProducerProfile() {
       {productor.galeria.length > 0 && (
         <section className="profile-galeria">
           <div className="profile-galeria__inner">
-            <span className="profile-label">Galeria</span>
+            <h2 className="profile-label">Galeria</h2>
             <div className="profile-galeria__grid">
               <div className="profile-galeria__large" style={{ background: productor.galeria[0] }} />
               <div className="profile-galeria__smalls">
@@ -200,7 +211,7 @@ export default function ProducerProfile() {
       {productor.productes.length > 0 && (
         <section className="profile-productes">
           <div className="profile-productes__inner">
-            <span className="profile-label">Els seus productes</span>
+            <h2 className="profile-label">Els seus productes</h2>
             <div className="profile-productes__grid">
               {productor.productes.map((p, i) => (
                 <div key={i} className="profile-producte-card">

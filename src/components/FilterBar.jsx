@@ -3,7 +3,7 @@ export default function FilterBar({ categories, comarques, filters, onChange, co
     <div className="filter-bar" role="search">
       <select
         className="filter-bar__select"
-        value={comarcaFilter || filters.categoria}
+        value={filters.categoria}
         onChange={(e) => onChange({ ...filters, categoria: e.target.value })}
         aria-label="Filtrar per categoria"
         disabled={!!comarcaFilter}

@@ -1,6 +1,12 @@
 import { useParams, Link } from 'react-router-dom'
 import productors from '../data/productors'
+import Seo from './Seo'
 import Footer from './Footer'
+
+function truncate(text, max = 155) {
+  if (!text || text.length <= max) return text
+  return `${text.slice(0, max - 1).trimEnd()}…`
+}
 
 function IconArrow() {
   return (
@@ -34,6 +40,11 @@ export default function ProducerReportage() {
   if (!productor || !productor.publicat || !productor.reportatge) {
     return (
       <>
+        <Seo
+          title="Reportatge no trobat — Arrela't"
+          description="No hem trobat cap reportatge amb aquest identificador."
+          noindex
+        />
         <div className="report-topbar">
           <Link to="/" className="report-topbar__logo">Arrela't</Link>
           <Link to="/productors" className="report-topbar__back">← Tornar als productors</Link>
@@ -54,6 +65,11 @@ export default function ProducerReportage() {
 
   return (
     <>
+      <Seo
+        title={`${r.titol} — Arrela't`}
+        description={truncate(r.intro)}
+        path={`/entrevistes/${productor.slug}`}
+      />
       <div className="report-topbar">
         <Link to="/" className="report-topbar__logo">Arrela't</Link>
         <Link to="/productors" className="report-topbar__back">← Tornar als productors</Link>

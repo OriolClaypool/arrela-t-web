@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import productors from '../data/productors'
+import Seo from './Seo'
 import Footer from './Footer'
 
 const MESOS = ['gener','febrer','març','abril','maig','juny','juliol','agost','setembre','octubre','novembre','desembre']
@@ -29,6 +30,11 @@ export default function Entrevistes() {
 
   return (
     <div className="entrevistes">
+      <Seo
+        title="Les entrevistes — Arrela't"
+        description="Visitem els productors a casa seva. Aquestes són les seves històries."
+        path="/entrevistes"
+      />
 
       {/* Header */}
       <header className="entrevistes__header">

@@ -1,9 +1,15 @@
 import agenda from '../data/agenda'
 import Footer from '../components/Footer'
+import Seo from '../components/Seo'
 
 export default function Agenda() {
   return (
     <div className="agenda">
+      <Seo
+        title="Agenda — Arrela't"
+        description="Esdeveniments, visites i activitats relacionades amb Arrela't i els productors del sector primari català."
+        path="/agenda"
+      />
       <section className="agenda__hero">
         <h1>Agenda</h1>
         <p>
