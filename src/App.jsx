@@ -1,57 +1,32 @@
 import { lazy, Suspense } from 'react'
-import { Link, Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate, useParams } from 'react-router-dom'
 import Seo from './components/Seo'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
-import ScrollNarrative from './components/ScrollNarrative'
-import UltimesEntrevistes from './components/UltimesEntrevistes'
-import MapaSkeleton from './components/MapaSkeleton'
+import XifresFamilies from './components/XifresFamilies'
+import LesVisites from './components/LesVisites'
+import Temporada from './components/Temporada'
+import MapaSeccio from './components/MapaSeccio'
+import SegellSeccio from './components/SegellSeccio'
+import ProfessionalBanda from './components/ProfessionalBanda'
 import Newsletter from './components/Newsletter'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 
-const MapaCatalunya = lazy(() => import('./components/MapaCatalunya'))
 const DirectoriProductors = lazy(() => import('./pages/DirectoriProductors'))
-const ProducerProfile = lazy(() => import('./components/ProducerProfile'))
-const ProducerReportage = lazy(() => import('./components/ProducerReportage'))
+const Visita = lazy(() => import('./pages/Visita'))
 const QuiSom = lazy(() => import('./pages/QuiSom'))
 const Agenda = lazy(() => import('./pages/Agenda'))
 const Contacte = lazy(() => import('./pages/Contacte'))
-const Professional = lazy(() => import('./components/Professional'))
-const Entrevistes = lazy(() => import('./components/Entrevistes'))
+const Professional = lazy(() => import('./pages/Professional'))
+const Entrevistes = lazy(() => import('./pages/Entrevistes'))
+const Segell = lazy(() => import('./pages/Segell'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
-function MapaHome() {
-  return (
-    <section className="mapa-seccio">
-      <div className="mapa-seccio__inner">
-        <Suspense fallback={<MapaSkeleton />}>
-          <MapaCatalunya onSelect={() => {}} selected={null} />
-        </Suspense>
-      </div>
-    </section>
-  )
-}
-
-function ProTeaser() {
-  return (
-    <section className="pro-teaser">
-      <div className="pro-teaser__inner">
-        <div className="pro-teaser__text">
-          <p className="pro-teaser__label">Ets botiga o restaurant?</p>
-          <h2 className="pro-teaser__title">Connecta amb els productors</h2>
-          <p className="pro-teaser__body">
-            Accedeix a preus, quantitats i contacte directe amb productors verificats per Arrela't.
-          </p>
-        </div>
-        <div className="pro-teaser__cta">
-          <Link to="/professional" className="pro-teaser__btn">
-            Espai professional
-          </Link>
-        </div>
-      </div>
-    </section>
-  )
+// L'antic reportatge (/entrevistes/:slug) ara viu dins la visita (/productors/:slug)
+function RedirigeixAVisita() {
+  const { slug } = useParams()
+  return <Navigate to={`/productors/${slug}`} replace />
 }
 
 function Home() {
@@ -62,12 +37,16 @@ function Home() {
         description="Posem en valor el sector primari català. Visitem productors, expliquem les seves històries i connectem el camp amb la taula."
         path="/"
       />
-      <Hero />
-      <ScrollNarrative />
-      <UltimesEntrevistes />
-      <MapaHome />
-      <ProTeaser />
-      <Newsletter />
+      <main className="portada">
+        <Hero />
+        <XifresFamilies />
+        <LesVisites />
+        <Temporada />
+        <MapaSeccio />
+        <SegellSeccio />
+        <ProfessionalBanda />
+        <Newsletter />
+      </main>
       <Footer />
     </>
   )
@@ -82,13 +61,14 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/productors" element={<DirectoriProductors />} />
-          <Route path="/productors/:slug" element={<ProducerProfile />} />
+          <Route path="/productors/:slug" element={<Visita />} />
           <Route path="/entrevistes" element={<Entrevistes />} />
-          <Route path="/entrevistes/:slug" element={<ProducerReportage />} />
+          <Route path="/entrevistes/:slug" element={<RedirigeixAVisita />} />
           <Route path="/qui-som" element={<QuiSom />} />
           <Route path="/agenda" element={<Agenda />} />
           <Route path="/contacte" element={<Contacte />} />
           <Route path="/professional" element={<Professional />} />
+          <Route path="/segell" element={<Segell />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

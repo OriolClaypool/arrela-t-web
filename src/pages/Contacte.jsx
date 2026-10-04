@@ -1,110 +1,113 @@
-import { useState } from 'react'
-import Footer from '../components/Footer'
 import Seo from '../components/Seo'
+import Footer from '../components/Footer'
+import Formulari from '../components/formulari/Formulari'
+import IconaCheck from '../components/marca/IconaCheck'
+import Fletxa from '../components/marca/Fletxa'
+import IlustracioSobre from '../components/illustracions/IlustracioSobre'
+import useFadeIn from '../hooks/useFadeIn'
+
+// /contacte — dues columnes: introducció i canals a l'esquerra, formulari a la dreta.
+// Mateix patró de confirmació que els formularis de /professional.
+
+const INSTAGRAM = 'https://instagram.com/arrela_t_'
+
+const MOTIUS = [
+  'Ets productor o productora i vols que et visitem.',
+  "Coneixes algú que hauríem d'anar a veure.",
+  "Treballes en un projecte del sector primari i t'interessa col·laborar.",
+]
+
+const CAMPS = [
+  { nom: 'nom', etiqueta: 'Nom', autoComplete: 'name', ample: true },
+  { nom: 'email', etiqueta: 'Correu electrònic', tipus: 'email', autoComplete: 'email', ample: true },
+  { nom: 'missatge', etiqueta: 'Missatge', tipus: 'textarea', files: 6, ample: true },
+]
 
 const IconaInstagram = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-    <rect x="2" y="2" width="20" height="20" rx="5" />
-    <circle cx="12" cy="12" r="4" />
-    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-  </svg>
-)
-
-const IconaYoutube = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none" />
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="24" height="24">
+    <g fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" />
+    </g>
   </svg>
 )
 
 export default function Contacte() {
-  const [form, setForm] = useState({ nom: '', email: '', missatge: '' })
-  const [sent, setSent] = useState(false)
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setForm({ nom: '', email: '', missatge: '' })
-    setSent(true)
-  }
+  const ref = useFadeIn(0.05)
 
   return (
-    <div className="contacte">
+    <>
       <Seo
         title="Contacte — Arrela't"
         description="Ets productor o productora i vols que et visitem? Escriu-nos i parlem de com posar en valor el teu projecte."
         path="/contacte"
       />
-      <div className="contacte__inner">
-        <h1>Contacte</h1>
-        <p className="contacte__intro">
-          Ets productor o productora i vols que et visitem? Treballes en un projecte
-          relacionat amb el sector primari i t'interessa col·laborar? Escriu-nos.
-        </p>
 
-        {sent ? (
-          <p className="contacte__confirm">
-            Gràcies pel teu missatge! Et respondrem el més aviat possible.
-          </p>
-        ) : (
-          <form className="contacte__form" onSubmit={handleSubmit}>
-            <div className="contacte__field">
-              <label htmlFor="nom">Nom</label>
-              <input
-                type="text"
-                id="nom"
-                name="nom"
-                value={form.nom}
-                onChange={handleChange}
-                required
-                autoComplete="name"
-              />
-            </div>
-            <div className="contacte__field">
-              <label htmlFor="email">Correu electrònic</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                required
-                autoComplete="email"
-              />
-            </div>
-            <div className="contacte__field">
-              <label htmlFor="missatge">Missatge</label>
-              <textarea
-                id="missatge"
-                name="missatge"
-                rows="6"
-                value={form.missatge}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <button type="submit" className="contacte__submit">Enviar missatge</button>
-          </form>
-        )}
+      <main className="portada">
+        <section className="contacte-pagina" aria-labelledby="contacte-titol">
+          <div ref={ref} className="contacte-pagina__inner contenidor fade-in">
+            <div className="contacte-pagina__text">
+              <div className="contacte-pagina__blob">
+                <IlustracioSobre className="contacte-pagina__il" />
+              </div>
+              <p className="seccio-etiqueta">Contacte</p>
+              <h1 id="contacte-titol" className="seccio-titol seccio-titol--gran">
+                Escriu-nos, parlem
+              </h1>
+              <p className="seccio-intro seccio-intro--ample">
+                Ets productor o productora i vols que et visitem? Treballes en un projecte relacionat
+                amb el sector primari i t&apos;interessa col·laborar? Escriu-nos.
+              </p>
 
-        <div className="contacte__social">
-          {/* TODO: real URL */}
-          <a href="#" rel="noopener noreferrer" aria-label="Instagram d'Arrela't">
-            <IconaInstagram />
-            @arrelat.cat a Instagram
-          </a>
-          {/* TODO: real URL */}
-          <a href="#" rel="noopener noreferrer" aria-label="YouTube d'Arrela't">
-            <IconaYoutube />
-            Arrela't a YouTube
-          </a>
-        </div>
-      </div>
+              <ul className="contacte-motius" role="list">
+                {MOTIUS.map((motiu) => (
+                  <li key={motiu}>
+                    <IconaCheck fons="#1F4A34" check="#F5F0E4" />
+                    {motiu}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="contacte-canals">
+                <p className="contacte-canals__titol">També ens trobaràs a</p>
+                <a
+                  href={INSTAGRAM}
+                  className="targeta lift contacte-canal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="contacte-canal__icona">
+                    <IconaInstagram />
+                  </span>
+                  <span className="contacte-canal__text">
+                    <span className="contacte-canal__nom">Instagram</span>
+                    <span className="contacte-canal__detall">@arrela_t_</span>
+                  </span>
+                  <Fletxa className="contacte-canal__fletxa" />
+                  <span className="sr-only">(s&apos;obre en una pestanya nova)</span>
+                </a>
+                {/* TODO: afegir el canal de YouTube quan existeixi l'URL real (al peu també és només text) */}
+              </div>
+            </div>
+
+            <div className="contacte-pagina__formulari">
+              <h2 className="contacte-pagina__subtitol">El teu missatge</h2>
+              <Formulari
+                prefix="contacte"
+                camps={CAMPS}
+                boto="Envia el missatge"
+                confirmacio={{
+                  text: 'Hem rebut el teu missatge i et respondrem el més aviat possible.',
+                  textTorna: 'Envia un altre missatge',
+                }}
+              />
+            </div>
+          </div>
+        </section>
+      </main>
 
       <Footer />
-    </div>
+    </>
   )
 }

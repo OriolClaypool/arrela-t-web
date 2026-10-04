@@ -1,55 +1,79 @@
 import { Link } from 'react-router-dom'
+import Logo from './marca/Logo'
 
 const IconaInstagram = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-    <rect x="2" y="2" width="20" height="20" rx="5" />
-    <circle cx="12" cy="12" r="4" />
-    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <g fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" />
+    </g>
   </svg>
 )
 
 const IconaYoutube = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none" />
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <g fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round">
+      <rect x="2.5" y="5" width="19" height="14" rx="4" />
+      <path d="M10 9 L15 12 L10 15 Z" fill="currentColor" />
+    </g>
   </svg>
 )
+
+const ANY = new Date().getFullYear()
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__grid">
         <div>
-          <p className="footer__logo">Arrela't</p>
+          <Link to="/" className="footer__logo" aria-label="Arrela't, inici">
+            <Logo invers mida={34} />
+          </Link>
           <p className="footer__tagline">
-            Posem en valor el sector primari català, connectant productors i consumidors.
+            Visitem, escoltem i expliquem el sector primari català.
           </p>
         </div>
 
-        <nav className="footer__nav" aria-label="Navegació peu de pàgina">
-          <Link to="/productors">Productors</Link>
-          <Link to="/entrevistes">Entrevistes</Link>
-          <Link to="/qui-som">Qui som</Link>
-          <Link to="/agenda">Agenda</Link>
-          <Link to="/contacte">Contacte</Link>
+        <nav aria-label="Explora">
+          <p className="footer__titol">Explora</p>
+          <Link to="/entrevistes" className="footer__link">Les visites</Link>
+          <Link to="/#temporada" className="footer__link">Temporada</Link>
+          <Link to="/productors" className="footer__link">El mapa</Link>
+          <Link to="/segell" className="footer__link">El segell</Link>
         </nav>
 
-        <div className="footer__social">
-          {/* TODO: real URL */}
-          <a href="#" aria-label="Instagram d'Arrela't" rel="noopener noreferrer">
+        <nav aria-label="Arrela't">
+          <p className="footer__titol">Arrela&apos;t</p>
+          <Link to="/qui-som" className="footer__link">Qui som</Link>
+          <Link to="/professional" className="footer__link">Espai professional</Link>
+          <Link to="/agenda" className="footer__link">Agenda</Link>
+          <Link to="/contacte" className="footer__link">Contacte</Link>
+        </nav>
+
+        <div>
+          <p className="footer__titol">Segueix-nos</p>
+          <a
+            href="https://instagram.com/arrela_t_"
+            className="footer__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram @arrela_t_ (s'obre en una pestanya nova)"
+          >
             <IconaInstagram />
-            Instagram
+            @arrela_t_
           </a>
-          {/* TODO: real URL */}
-          <a href="#" aria-label="YouTube d'Arrela't" rel="noopener noreferrer">
+          {/* TODO: afegir l'URL real quan existeixi el canal de YouTube; mentrestant és text sense enllaç */}
+          <span className="footer__link">
             <IconaYoutube />
             YouTube
-          </a>
+          </span>
         </div>
       </div>
 
       <div className="footer__bottom">
-        <p>Fet amb estima pel territori.</p>
+        <span>© {ANY} Arrela&apos;t · Fet amb estima pel territori</span>
+        <span>Cap productor paga per sortir-hi</span>
       </div>
     </footer>
   )

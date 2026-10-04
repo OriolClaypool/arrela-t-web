@@ -22,6 +22,9 @@
     <loc>https://arrelat.cat/professional</loc>
   </url>
   <url>
+    <loc>https://arrelat.cat/segell</loc>
+  </url>
+  <url>
     <loc>https://arrelat.cat/productors/ca-liula</loc>
   </url>
   <url>
@@ -29,14 +32,5 @@
   </url>
   <url>
     <loc>https://arrelat.cat/productors/formatges-lluca</loc>
-  </url>
-  <url>
-    <loc>https://arrelat.cat/entrevistes/ca-liula</loc>
-  </url>
-  <url>
-    <loc>https://arrelat.cat/entrevistes/soler-de-nhug</loc>
-  </url>
-  <url>
-    <loc>https://arrelat.cat/entrevistes/formatges-lluca</loc>
   </url>
 </urlset>

@@ -72,7 +72,7 @@ All text pairings above pass WCAG AA. Do not invent new pairings without checkin
 
 - Display and numbers: **Fraunces**, weight 600, `font-variation-settings: 'SOFT' 100`, letter-spacing `-0.02em` on large sizes. Never italic.
 - Text and UI: **Instrument Sans**, 400–700.
-- Google Fonts URL: `https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Instrument+Sans:wght@400..700&display=swap`
+- Fonts are self-hosted with Fontsource (no Google Fonts request: faster first paint and no visitor IPs sent to Google): `@fontsource-variable/fraunces/full.css` (includes the `SOFT` axis) and `@fontsource-variable/instrument-sans`, imported in `src/main.jsx`. Family names: `'Fraunces Variable'` and `'Instrument Sans Variable'`.
 - Section label: 13px, weight 600, uppercase, letter-spacing `0.14em`, colour `--terracota-fosc` (on dark grounds: `--blat`).
 - Section title: `clamp(34px, 4vw, 54px)`, line-height 1.05, colour `--bosc`.
 

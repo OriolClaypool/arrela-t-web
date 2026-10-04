@@ -11,7 +11,7 @@ Goal of this batch: install the new visual system so the whole site shifts to it
 
 ## 2. Fonts and head
 
-- In `index.html`, replace the Playfair Display / DM Sans stylesheet with the Fraunces + Instrument Sans URL from the README. Keep the preconnects.
+- Self-host the fonts: `npm install @fontsource-variable/fraunces @fontsource-variable/instrument-sans`, import `@fontsource-variable/fraunces/full.css` (check the file name in the package; it must include the `SOFT` axis) and `@fontsource-variable/instrument-sans` in `src/main.jsx`. Remove the Google Fonts stylesheet and both Google preconnects from `index.html`.
 - Set `theme-color` to `#1F4A34`.
 - Replace `public/favicon.svg` with the logo mark from `design/icones/logo-arrel.svg` placed on a `#F5F0E4` rounded square (viewBox 40×40, radius 9).
 

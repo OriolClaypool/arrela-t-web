@@ -1,18 +1,41 @@
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
+import Footer from '../components/Footer'
+import Fletxa from '../components/marca/Fletxa'
+import IlustracioPerdut from '../components/illustracions/IlustracioPerdut'
+
+// Pàgina 404. També la mostra /productors/:slug quan el productor no existeix.
 
 export default function NotFound() {
   return (
-    <div className="profile-not-found">
+    <>
       <Seo
         title="Pàgina no trobada — Arrela't"
         description="No hem trobat la pàgina que busques."
         noindex
       />
-      <p className="profile-not-found__label">404</p>
-      <h1>Pàgina no trobada</h1>
-      <p>No hem trobat la pàgina que busques.</p>
-      <Link to="/" className="profile-not-found__link">← Torna a l'inici</Link>
-    </div>
+
+      <main className="perdut portada">
+        <div className="perdut__inner contenidor">
+          <IlustracioPerdut className="perdut__il" />
+          <p className="seccio-etiqueta">Error 404</p>
+          <h1 className="seccio-titol seccio-titol--gran">Aquest camí no porta enlloc</h1>
+          <p className="seccio-intro">
+            No hem trobat la pàgina que busques. Potser l&apos;enllaç és antic o t&apos;has desviat pel camí.
+          </p>
+          <div className="perdut__botons">
+            <Link to="/" className="btn btn--terracota btn--gran lift">
+              Torna a l&apos;inici
+              <Fletxa />
+            </Link>
+            <Link to="/entrevistes" className="btn btn--contorn btn--gran">
+              Mira les visites
+            </Link>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </>
   )
 }
