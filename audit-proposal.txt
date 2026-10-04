@@ -1,0 +1,200 @@
+# Arrela't — Strategic & Creative Audit
+
+*Prepared for discussion. Nothing in the codebase was modified.*
+
+---
+
+## PART 1 — Concept critique
+
+### 1.1 The trust seal is asserted, never demonstrated
+
+The differentiator — every producer personally visited and validated — appears on the site as loose fragments of copy: a one-line subtitle in DirectoriProductors.jsx ("visitats i validats personalment"), a small text pill in ProducerProfile.jsx ("Productor verificat per Arrela't"), and nothing anywhere else. There is no page that explains what verification means, no criteria, no visit date surfaced as evidence, no visual mark that repeats across surfaces. A "verified" label with no definition reads as decoration, and sophisticated users (exactly the shop owners you want) discount undefined badges to zero.
+
+The bitter irony: the site already HAS the proof — the reportage is literally the documented evidence of the visit ("Hi arribem un dimecres de maig…") — but the profile and the reportage are two disconnected pages, and the seal never points at the evidence. The strongest asset in the project is structurally orphaned from the claim it should be proving.
+
+### 1.2 The information architecture duplicates the core entity
+
+Each producer has two parallel pages: /productors/:slug (ProducerProfile.jsx) and /entrevistes/:slug (ProducerReportage.jsx). Both show the product grid, both end with the same pro-band, both have hero + metadata bars. With 3 published producers, this is two content trees for one entity. Worse, the reportage's top bar links "Tornar als productors" (the list) but never links to THAT producer's profile — a reader finishing "La paciència del cep" who wants to buy Ça Liula's wine has no path to the contact info. This is the single most damaging navigation gap on the site.
+
+For SEO it also splits authority across two thin pages when one strong page per producer would rank better.
+
+### 1.3 The homepage doesn't state the model
+
+The hero says "Connectem el camp amb la taula" — a sentence any of fifty projects could use. Nowhere above the fold does it say the one thing only Arrela't can say: "Hem visitat cada productor d'aquest web en persona." The ScrollNarrative statements gesture at it poetically, but the trust claim never appears as a plain factual promise. The map section on the home (MapaHome in App.jsx) renders the map card with NO heading at all — a naked map drops in after the interview cards with zero framing.
+
+### 1.4 Video is the product, and the site contains zero video
+
+Arrela't produces 3 videos per producer. On the site: report-video-card__embed renders an empty colored box with a number; the videos array in productors.js has titles but no URLs; Contacte.jsx links Instagram and YouTube to href="#". A visitor who arrives from Instagram (your entire audience of 3,700) lands on a site that is LESS rich than the feed they came from. This inverts the correct relationship: the site should be the place where the videos gain context, not the place where they disappear.
+
+### 1.5 The professional side fakes instead of promising — and undersells
+
+Professional.jsx renders a simulated logged-in state: "El meu compte" and a green "Botiga verificada" pill in the top bar, for every anonymous visitor. A real shop owner who clicks around discovers nothing is real — and a fake trust signal on a page SELLING trust is actively corrosive. Similarly, the ProTeaser on the home promises "Accedeix a preus" and the profile band says "Veure preus i contacte comercial", but the professional page shows no prices anywhere. Broken promises in the exact place you're pitching a paid subscription.
+
+What a restaurant buyer actually needs to shortlist a supplier — price band, formats, lead time, delivery days, seasonality, certifications, references — is absent. What's shown (comarca, zones, minimum order) is a teaser of a teaser. And the marketplace is one-directional: there is no flow at all for a producer seeking outlets, despite the reportages quoting exactly that pain ("El problema és arribar a les botigues que el sabran defensar" — Joan's quote is your product spec, written by your own user).
+
+Data-model note: zonesDistribucio exists both at the producer top level and inside comercial, with CONTRADICTORY values (Ça Liula: top-level includes Alt Penedès and Garraf; comercial says Vallès Occidental and Maresme). If a buyer ever cross-reads the profile and the pro card, the platform contradicts itself about the one field it exists to provide.
+
+### 1.6 Smaller but real credibility leaks
+
+- QuiSom.jsx: the team is "Nom Cognom" ×2. For a two-person trust project, THE TWO PERSONS ARE THE SEAL. This is the cheapest, highest-leverage page on the site and it's a placeholder.
+- Newsletter.jsx fakes success and discards the email. Every genuinely interested visitor since launch has been silently lost. Worse than no form.
+- Phone numbers render as "+34 93 ··· ··· ··" — reads as broken, not as "hidden".
+- agenda.js events link to "#".
+- ProductorCard.jsx displays descripcio (the long marketing paragraph) where the tight descripcioCurta exists and fits better.
+- The comarca map paints 40 empty comarques grey — with 3 producers it currently communicates absence, not coverage.
+
+VERDICT: the concept is right and the editorial voice is genuinely good (the reportage texts are the best material on the site). But the architecture buries the differentiator, the professional side simulates instead of brokering, and the site withholds its only real media asset. These are structural, not cosmetic, problems — fixable without a backend.
+
+---
+
+## PART 2 — New visual direction
+
+The current system (paper #f6efe1 / terracotta #c47a52 / forest #1d4d35, Playfair Display italic, soft fade-ins) reads as "rural nostalgia template". The problem isn't warmth per se — it's that the palette does all the talking while typography, layout and motion do almost none. Professional-feeling sites are the reverse: restrained color, assertive typography, deliberate motion.
+
+### Direction A — "Quadern de camp" · High-contrast editorial ★ RECOMMENDED
+
+The premium food-magazine treatment: gallery-white ground, near-black ink, one hot accent used with discipline, and metadata typeset like field-notebook annotations (coordinates, dates, seal numbers — data you already have in productors.js).
+
+- Palette:
+  - --paper: #FAFAF7 (gallery white — not cream)
+  - --ink: #111412 (near-black, faint green undertone)
+  - --accent: #D93A1E (vermelló — tomato/Catalan red, used at <5% of any screen: seal, links, live markers)
+  - --green: #1F4633 (deep green demoted to secondary: pro-side surfaces, seal ring)
+  - --grey: #6E7069, hairlines --line: #E4E2DB
+- Typography: FRAUNCES (Google Fonts, optical sizing — set at high optical size for display it's sharp and contemporary, nothing like Playfair) for headlines and pull quotes; INSTRUMENT SANS for UI and body; IBM PLEX MONO for metadata — comarca, visit dates, coordinates (41.4640 N · 1.7123 E), seal numbers. The mono layer alone will do more "designed-ness" work than any color change.
+- Texture/imagery: hairline rules and a visible grid instead of soft gradients. While photos don't exist: replace every gradient placeholder with TOPOGRAPHIC CONTOUR-LINE SVGs generated per producer from their real coordenades — each producer gets a unique, meaningful graphic instead of an apologetic color wash. When real photos arrive: full-bleed, duotone (ink + paper) at rest, full color on hover/scroll — a system that makes even mediocre photos look art-directed.
+- Animation philosophy: editorial and earned. Masked line-by-line headline reveals; images unveiled with clip-path wipes; the Catalonia map drawn on with stroke-dashoffset; counters (producers visited, comarques covered, videos published) ticking up; a reading-progress hairline on reportages; sticky-chapter scrolling in long reads. GSAP ScrollTrigger or Motion (framer-motion) — worth adding one dependency; the current 900 ms fade-up everywhere reads as one animation used ten times.
+- References: The Gourmand magazine (food as high editorial), ambrook.com (proof that agriculture + serious design coexist), noma.dk (restraint + territory + confidence).
+- Why it fits: the project IS journalism — visits, interviews, reportages. A magazine system matches the content's true nature. Red-on-white with black ink quietly reads Catalan (senyera, Miró) without a gram of folklore. It works in daylight (B2B users browse at 11 a.m., not by candlelight), and it's the best possible frame for the real photography coming later.
+
+### Direction B — "El celler" · Dark sophisticated
+
+- Palette: base #14100E (espresso black), panels #1E1814, text #EDE6DA, accents brass #B98A2F and wine #722F37; hairlines rgba(237,230,218,0.12).
+- Typography: NEWSREADER (display italic, candlelit and literary) + ARCHIVO (UI); mono for metadata as in A.
+- Texture/imagery: film grain overlay, vignetted photography, gold hairlines; product cards like cellar labels.
+- Animation: slow (600–900 ms), low-amplitude fades and glows; nothing bounces; light behaves like candlelight.
+- References: krug.com, aesop.com, top-tier winery/Michelin sites.
+- Why it fits / why not as the whole site: perfect for wine, cheese, the future tasting room — and it photographs "premium" instantly. But it fights daytime B2B use, vegetables and eggs die on black, and an all-dark site by a two-person team risks reading as template-moody rather than crafted. VERDICT: not the site — but steal it for the professional space (see recommendation).
+
+### Direction C — "Agritech serè" · Contemporary organic
+
+- Palette: bone #F2F1EC, charcoal #1C1E1C, sage #7A8B6F, signal green #2E6B3F, chartreuse accent #B5C43B for data/interactive states.
+- Typography: grotesque-only system — SCHIBSTED GROTESK (or General Sans via Fontshare) doing display AND body through weight/size contrast; mono for data.
+- Texture/imagery: flat color fields, rounded-2xl cards, generous whitespace, functional iconography; charts and calendars as first-class visuals.
+- Animation: micro-interactions with spring physics; motion communicates state, never decorates (Linear-school discipline).
+- References: ambrook.com, linear.app (motion discipline), modern climate-tech brand sites (Pachama et al.).
+- Why it fits / the risk: strongest for the B2B tool surface and it screams "funded startup" — which is also the risk: it erases the soul. Arrela't's moat is emotional (stories, faces, territory); a pure product-UI skin commoditizes exactly what makes it different.
+
+### Recommendation
+
+DIRECTION A SITE-WIDE, WITH THE PROFESSIONAL SPACE RENDERED AS A-INVERTED — same type system and grid on the --ink/deep-green dark ground, borrowing Direction B's gravity. You get one coherent design system, two clearly differentiated worlds (consumer = white magazine, professional = dark trade desk), and the dark pro-side makes "you're entering the business area" legible without a fake login bar. Direction A is also the only one of the three where the CURRENT lack of photos can be turned into a signature (the coordinate/contour graphic system) rather than a gap being papered over.
+
+---
+
+## PART 3 — Feature proposals
+
+Weight legend: LIGHT = static data + UI · MEDIUM = form/service integration, no own backend · HEAVY = real backend/auth.
+
+### Consumer side
+
+C1. One page per producer — "La visita" (LIGHT, structural). Merge ProducerProfile and ProducerReportage into a single long-form page: hero → seal + visit date → the story → the videos → products → where to buy → commercial band. Kill the /entrevistes/:slug route (301 via redirect rules in vercel.json), keep /entrevistes as an index that deep-links into producer pages. Fixes the IA duplication, the missing story→contact path, and consolidates SEO. This is the highest-value structural change on the site.
+
+C2. Embed the actual videos (LIGHT). Add real YouTube IDs to productors.js and render lite-embeds (thumbnail + play, iframe injected on click — fast and GDPR-friendly). The site finally contains the product. Also link each video to its Instagram reel counterpart. Nothing on this list is cheaper per unit of value.
+
+C3. The expedition map (LIGHT). Reframe MapaCatalunya from "directory filter" (which shows emptiness at n=3) to a VISIT LOG: visited comarques filled in ink, markers numbered in visit order (#001 Ça Liula), a dotted "pròximes visites" teaser for the next 1–2 comarques. With 3 producers it tells a story of momentum ("the map is being filled in") instead of a story of absence. Becomes more valuable with every visit, automatically.
+
+C4. "Ara és temporada" (LIGHT). Tag each product with its months in productors.js; a home module reads the current month and rotates what's in season now, linking to producers. The only honest recurrence hook a static site can offer — a reason to come back monthly. Pairs with the newsletter.
+
+C5. "On comprar-ho" per producer (LIGHT). List the real shops/markets/cistella schemes where each producer sells (you learn this during visits anyway). Consumers get actionability; producers get free promotion of their channels; and the shop names double as SOCIAL PROOF FOR THE B2B SIDE ("supplies Cal Blay, Vic market").
+
+C6. Real newsletter (MEDIUM). Wire Newsletter.jsx to Buttondown or Brevo (a form action — no backend). Every day it stays fake, real subscribers are discarded. Arguably a bug, not a feature.
+
+C7. Rutes de cap de setmana (LIGHT, later). Curated itineraries combining 2–3 producers with a village and a place to eat ("Ruta del Lluçanès"). High editorial value, strong SEO ("què fer al Lluçanès"), and it pre-figures the physical-space vision: Arrela't as a guide to the territory, not just a directory.
+
+C8. Simplify the directory until n>10 (LIGHT). FilterBar with category + comarca + free-text search over 3 items reads as aspiration, not utility. Replace with a simple editorial list plus the expedition map, and a "pipeline" strip (next visits, with dates) that converts the small catalogue into anticipation. Reintroduce filters when they have work to do.
+
+### Professional side
+
+P1. Remove the fake session; gate honestly (LIGHT). Delete "El meu compte" and the "Botiga verificada" pill from Professional.jsx. Show each producer's commercial sheet with the sensitive fields (price band, references, phone) visibly LOCKED — real UI, blurred values, lock icon — with "Sol·licita accés · verificació en 48 h". A visible locked field creates desire; a fake logged-in state creates distrust. Also fix the promise chain: if the teaser says "preus", the gated sheet must contain prices.
+
+P2. The fitxa comercial — the real B2B unit (LIGHT UI, real data-collection work). Per producer, structured for a buyer's shortlist decision:
+- Products with FORMATS AND PRICE BANDS (e.g. "caixa 6 amp. · 9–12 €/amp. PVD") — bands, not exact prices, so producers stay comfortable
+- Minimum order, LEAD TIME, delivery days per zone
+- SEASONALITY CALENDAR (12-month availability strip per product — a visual, buyers think in calendars)
+- Certifications (CCPAE, artesania, benestar) AND explicit "sense certificat — verificat en visita per Arrela't" where absent — turning your seal into the substitute for missing paperwork, which is precisely its economic value
+- Capacity ("pot assumir 2 restaurants més"), HORECA/retail suitability, invoicing (factura, IVA)
+- Current stockists as references (from C5)
+Collect this with a structured questionnaire during each visit — it becomes part of the visit protocol.
+
+P3. Concierge matchmaking as the marketplace MVP (MEDIUM). With <20 producers, a self-serve marketplace is the wrong shape; ARRELA'T BROKERING BY HAND IS THE RIGHT ONE — and it's the service worth paying for. Two real forms (Formspree/Basin/Tally → your inbox):
+- BUYER BRIEF ("Busco proveïdor"): business type, comarca, what they need, volume, frequency → you reply within 48 h with 1–3 matched producers and a warm intro.
+- PRODUCER INTAKE ("Busco distribució"): zones, capacity, target channel → you watch for matching buyer briefs.
+This makes the marketplace bidirectional TODAY, with zero backend, and every brokered match teaches you what the eventual software must do. The current ContactModal becomes real by pointing at the same service.
+
+P4. La Llotja — monthly availability bulletin (MEDIUM). A monthly email/PDF to verified businesses: what's available now, seasonal peaks, new verified producers, capacity openings ("Formatges Lluçà pot servir 2 restaurants més aquest trimestre"). Recurring, cheap to produce from the fitxa data, and the natural spine of the paid professional subscription: the INFORMATION, not the directory, is the product.
+
+P5. "Establiment arrelat" — the buyer-side badge (MEDIUM, later). Shops/restaurants that source through Arrela't get a public listing and a displayable badge (web + vinyl for the door). Gives buyers a marketing reason to join beyond procurement, gives producers the reverse-direction search ("who buys local in Osona?"), and quietly builds the consumer-facing answer to "on ho puc tastar?". This is also your events/physical-space audience, pre-assembled.
+
+P6. Accounts, saved lists, in-platform messaging (HEAVY — deferred). Real auth only makes sense when concierge volume hurts. Until then every hour spent on auth is an hour not spent visiting producers, which is the actual moat.
+
+### Trust layer
+
+T1. Name it, mark it, explain it (LIGHT). Create the SEGELL ARRELA'T: a drawable SVG mark (ring + root motif, animates with stroke-draw in Direction A), and a page /segell stating the method: visited in person, production seen, interviews filmed, visit date, re-visit policy — AND WHAT THE SEAL IS NOT (not an official certification). Precision about limits is what makes the claim credible to professionals.
+
+T2. Seal component everywhere, always carrying evidence (LIGHT). One reusable component: mark + "Verificat #003 · visita maig 2026" + link to /segell + link to the visit reportage/videos. On producer heroes, directory cards, pro cards, the map tooltip. The seal must never appear without a date and a path to proof — that discipline is the entire difference between a badge and a rubber stamp.
+
+T3. Number the seals (LIGHT). #001, #002, #003… — sequence communicates both scarcity ("only 3 exist") and momentum ("the number keeps rising"), and gives producers a shareable asset ("Productor verificat Arrela't #007") that markets you on their channels.
+
+T4. Signed visits (LIGHT, needs their content). Fix QuiSom.jsx with real names, faces, and each reportage byline-signed ("Visita i entrevista: Oriol — maig 2026"). Two named humans staking their reputation on each producer is the whole business; the site must show it.
+
+T5. Structured data (LIGHT). JSON-LD (LocalBusiness/Organization per producer, Article per reportage) via the existing Seo.jsx, so "formatge cabra Lluçanès" searches surface verified producers with rich results.
+
+---
+
+## PART 4 — Prioritized roadmap
+
+For two people with limited hours. Ordered by perceived-value-per-hour.
+[S] = works on current static architecture · [B] = forces the backend jump.
+
+### Phase 1 — Stop the credibility leaks (days, do immediately)
+1. [S] Real newsletter service (C6), real Instagram/YouTube links in Contacte.jsx/Footer.jsx, remove fake phone dots, remove "#" agenda links.
+2. [S] Remove the fake logged-in UI from Professional.jsx (P1, first half).
+3. [S] Embed the real videos (C2).
+4. [S] Real names and faces on Qui som (T4).
+
+Rationale: everything here is a lie the site currently tells. Fixing lies precedes design.
+
+### Phase 2 — The redesign + the merge (2–4 weeks, one push)
+5. [S] Direction A design system: palette, Fraunces/Instrument Sans/Plex Mono, hairline grid, motion system, coordinate-contour placeholder graphics.
+6. [S] Merge profile + reportage into "La visita" pages with redirects (C1).
+7. [S] Segell Arrela't: mark, /segell page, seal component with dates and numbering (T1–T3).
+8. [S] Homepage rebuild: trust claim in the hero, counters, expedition map with heading (C3), seasonal module (C4).
+
+Rationale: ship aesthetics, structure and trust as one coherent reveal — a redesign of the old IA would waste the redesign.
+
+### Phase 3 — Make the professional side real (following 4–6 weeks)
+9. [S] Fitxa comercial structure + visit questionnaire; backfill the 3 existing producers (P2). Fix the duplicated/contradictory zonesDistribucio while restructuring the data.
+10. [S→medium] Concierge forms both directions, wired to a form service (P3); dark A-inverted professional redesign.
+11. [S] "On comprar-ho" / stockist references (C5).
+12. [medium] First Llotja bulletin (P4) — start when there are ≥6 verified producers.
+
+### Phase 4 — Compounding editorial (ongoing, low cadence)
+13. [S] Rutes de cap de setmana (C7), one per quarter.
+14. [S] JSON-LD (T5). Pipeline strip on the directory (C8).
+
+### The backend jump — only when triggered
+15. [B] Accounts, gated price sheets behind login, saved lists, buyer directory (P5 at scale), messaging (P6). TRIGGER: >15 verified producers AND concierge matching consuming enough hours to hurt. Before that point, a backend is pure cost: it serves scale you don't have and steals time from visits, which are the only activity that grows the moat.
+
+### Discard — tempting but wrong
+- E-COMMERCE / ONLINE SALES. You'd become logistics middlemen; it competes with your producers' own channels and contradicts "producers never pay".
+- USER REVIEWS/RATINGS. Crowd ratings DILUTE a curator's seal — your model is "we verified", not "4.2 stars".
+- A CMS. At this scale productors.js edited in git is faster than any admin panel. Revisit at ~25 producers.
+- SELF-SERVE MARKETPLACE with live pricing/stock. Producers won't maintain it; stale data would poison the trust seal. The bulletin (P4) is the honest version.
+- SPANISH/ENGLISH VERSIONS NOW. Catalan-first IS brand; add Spanish only if B2B buyers outside the Catalan-speaking market actually appear.
+- NATIVE APP / PUSH ANYTHING. The newsletter is the retention channel.
+
+---
+
+### The one-paragraph thesis
+
+Arrela't's asset is not a directory — it's A VERIFICATION PRACTICE WITH A CAMERA. The site should be rebuilt around that: one magazine-grade page per visit where the story IS the proof, a numbered seal that never appears without a date and evidence, and a professional side that stops pretending to be software and starts being what it truly is at this scale — two trusted people brokering matches between producers and buyers, with a design system (white editorial front-of-house, dark trade desk in the back) that makes both sides look like they deserve the prices being asked.

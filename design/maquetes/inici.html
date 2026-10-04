@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arrela't — inici</title>
+<!-- Maqueta de referència d'Arrela't (direcció orgànica). Obre-la al navegador. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,100..900,0..100,0..1&amp;family=Instrument+Sans:wght@400..700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F5F0E4}
+h1,h2,h3,.f{font-family:'Fraunces',Georgia,serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-style:normal}
+a{color:#1F4A34}a:hover{color:#B5562F}
+.lift{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s cubic-bezier(.2,.7,.2,1)}
+.lift:hover{transform:translateY(-6px);box-shadow:0 22px 40px -26px rgba(42,32,23,.55)}
+@keyframes arrBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes arrSpin{to{transform:rotate(360deg)}}
+@keyframes arrDash{to{stroke-dashoffset:-110}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div style="background: #F5F0E4; color: #2A2017; font-family: 'Instrument Sans', system-ui, sans-serif; line-height: 1.5">
+
+<header style="background: #F5F0E4; border-bottom: 1px solid #E3D9C3">
+<nav aria-label="Principal" style="max-width: 1240px; margin: 0 auto; padding: 12px clamp(20px, 4vw, 64px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 32px">
+<a href="#" aria-label="Arrela't, inici" style="display: flex; align-items: center; gap: 10px; min-height: 48px; text-decoration: none; color: #1F4A34">
+<svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true">
+<path d="M20 15 C14 15 9 11 8 5 C14 5 19 9 20 15 Z" fill="#6E7B2F"></path>
+<path d="M20 12 C26 12 31 8 32 3 C26 3 21 6 20 12 Z" fill="#1F4A34"></path>
+<path d="M20 22 V12" fill="none" stroke="#1F4A34" stroke-width="2.4" stroke-linecap="round"></path>
+<path d="M7 22 H33" fill="none" stroke="#1F4A34" stroke-width="2.4" stroke-linecap="round"></path>
+<path d="M20 22 C20 28 16 30 12 35 M20 22 C20 29 21 32 20 37 M20 22 C21 28 25 30 29 34" fill="none" stroke="#B5562F" stroke-width="2.2" stroke-linecap="round"></path>
+</svg>
+<span class="f" style="font-size: 27px; font-weight: 650; letter-spacing: -0.01em">Arrela't</span>
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 26px; font-size: 15px; font-weight: 500">
+<a href="#visites" style="color: #2A2017; text-decoration: none; padding: 12px 0">Les visites</a>
+<a href="#temporada" style="color: #2A2017; text-decoration: none; padding: 12px 0">Temporada</a>
+<a href="#mapa" style="color: #2A2017; text-decoration: none; padding: 12px 0">El mapa</a>
+<a href="#segell" style="color: #2A2017; text-decoration: none; padding: 12px 0">El segell</a>
+<a href="#" style="color: #2A2017; text-decoration: none; padding: 12px 0">Qui som</a>
+<a href="#professional" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #1F4A34; color: #F5F0E4; text-decoration: none; font-weight: 600">Espai professional</a>
+</div>
+</nav>
+</header>
+
+<section aria-labelledby="hero-title" style="position: relative; overflow: hidden; background: #F5F0E4">
+<div style="position: relative; z-index: 2; max-width: 1240px; margin: 0 auto; padding: clamp(44px, 6.5vw, 92px) clamp(20px, 4vw, 64px) 0">
+<p style="margin: 0; display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 10px; border-radius: 999px; background: #EDE5D2; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #8F3F1F">
+<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21 C12 21 5 14.5 5 9.5 A7 7 0 0 1 19 9.5 C19 14.5 12 21 12 21 Z" fill="#B5562F"></path><circle cx="12" cy="9.5" r="2.6" fill="#EDE5D2"></circle></svg>
+Sector primari català
+</p>
+<h1 id="hero-title" style="margin: 22px 0 0; max-width: 1120px; font-size: clamp(42px, 5.8vw, 84px); line-height: 1.02; letter-spacing: -0.025em; font-weight: 600; color: #1F4A34">Hi hem anat, <span style="color: #B5562F; text-decoration: underline; text-decoration-color: #E4BE5C; text-decoration-thickness: 0.09em; text-underline-offset: 0.14em">ho hem vist</span> i t'ho expliquem.</h1>
+<p style="margin: 26px 0 0; max-width: 620px; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.6; color: #5E5040">Visitem productors del sector primari català a casa seva, els entrevistem i ho filmem. Aquí trobaràs les seves històries, què fan i com arribar-hi.</p>
+<div style="margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#visites" class="lift" style="display: inline-flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 26px; border-radius: 999px; background: #B5562F; color: #FFF8EE; font-size: 16px; font-weight: 600; text-decoration: none">Descobreix les visites
+<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12 H19 M13 6 L19 12 L13 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+<a href="#professional" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 24px; border-radius: 999px; border: 2px solid #1F4A34; color: #1F4A34; font-size: 16px; font-weight: 600; text-decoration: none; box-sizing: border-box">Tens botiga o restaurant?</a>
+</div>
+<ul role="list" style="list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 15px; font-weight: 500; color: #2A2017">
+<li style="display: flex; align-items: center; gap: 8px"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#6E7B2F"></circle><path d="M7.5 12.5 L10.5 15.5 L16.5 9" fill="none" stroke="#F5F0E4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Cada productor, visitat en persona</li>
+<li style="display: flex; align-items: center; gap: 8px"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#6E7B2F"></circle><path d="M7.5 12.5 L10.5 15.5 L16.5 9" fill="none" stroke="#F5F0E4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Cap productor paga per sortir-hi</li>
+</ul>
+</div>
+<div aria-hidden="true" style="position: relative; z-index: 1; margin-top: clamp(-150px, -9vw, -36px); height: clamp(260px, 36vw, 520px)">
+<svg viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" style="display: block; width: 100%; height: 100%">
+<g style="transform-box: view-box; transform-origin: 1110px 150px; animation: arrSpin 90s linear infinite">
+<circle cx="1110" cy="150" r="106" fill="none" stroke="#EE9A63" stroke-width="3" stroke-dasharray="2 15" stroke-linecap="round"></circle>
+</g>
+<circle cx="1110" cy="150" r="80" fill="#EE9A63"></circle>
+<circle cx="1110" cy="150" r="58" fill="#F3B48A"></circle>
+<path d="M560 96 q10 -10 20 0 q10 -10 20 0" fill="none" stroke="#5E5040" stroke-width="2.5" stroke-linecap="round"></path>
+<path d="M614 124 q7 -7 14 0 q7 -7 14 0" fill="none" stroke="#5E5040" stroke-width="2.2" stroke-linecap="round"></path>
+<path d="M0 290 Q60 240 120 200 Q160 225 210 238 Q270 160 320 128 Q370 170 420 205 Q470 180 520 172 Q560 200 610 222 Q680 150 740 110 Q800 160 860 196 Q910 175 960 168 Q1010 200 1060 226 Q1120 170 1180 140 Q1240 190 1300 210 Q1370 180 1440 196 L1440 520 L0 520 Z" fill="#C5D3CC"></path>
+<path d="M300 140 L320 128 L340 145 Q331 141 326 148 Q318 139 310 146 Q305 140 300 140 Z" fill="#F5F0E4"></path>
+<path d="M716 126 L740 110 L765 131 Q752 125 746 134 Q738 124 728 132 Q722 126 716 126 Z" fill="#F5F0E4"></path>
+<path d="M1158 151 L1180 140 L1200 157 Q1191 152 1186 159 Q1178 150 1170 157 Q1164 151 1158 151 Z" fill="#F5F0E4"></path>
+<path d="M0 330 C120 290 220 280 330 300 C440 320 520 270 640 268 C760 266 840 310 960 304 C1080 298 1160 262 1280 270 C1360 276 1410 290 1440 296 L1440 520 L0 520 Z" fill="#AFBD8E"></path>
+<g fill="#8E9C66">
+<circle cx="396" cy="299" r="8"></circle>
+<circle cx="424" cy="297" r="7"></circle>
+<circle cx="1012" cy="295" r="8"></circle>
+<circle cx="1046" cy="290" r="9"></circle>
+<circle cx="1082" cy="284" r="8"></circle>
+</g>
+<path d="M0 380 C140 340 260 330 400 352 C520 372 600 360 700 340 C820 318 940 330 1040 352 C1140 374 1260 350 1340 334 C1390 326 1420 328 1440 330 L1440 520 L0 520 Z" fill="#6E7B2F"></path>
+<g fill="none" stroke="#4E5A1C" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="0.1 12">
+<path d="M30 392 C150 356 260 348 390 368"></path>
+<path d="M20 408 C150 372 262 364 396 386"></path>
+<path d="M14 424 C150 390 266 382 404 404"></path>
+<path d="M1070 370 C1160 388 1260 366 1440 344"></path>
+<path d="M1080 388 C1170 404 1270 384 1440 362"></path>
+<path d="M1092 406 C1180 420 1280 402 1440 380"></path>
+</g>
+<ellipse cx="934" cy="315" rx="7" ry="20" fill="#1F4A34"></ellipse>
+<path d="M0 446 C160 410 300 404 470 420 C620 434 700 406 820 398 C940 390 1060 410 1180 426 C1300 442 1390 426 1440 420 L1440 520 L0 520 Z" fill="#E4BE5C"></path>
+<g fill="none" stroke="#CFA343" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 11">
+<path d="M40 460 C200 430 340 426 500 440"></path>
+<path d="M560 444 C680 424 800 412 940 414"></path>
+<path d="M28 478 C210 448 350 446 520 460"></path>
+</g>
+<path d="M700 520 C760 488 840 462 940 456 C1060 450 1180 462 1280 474 C1360 482 1410 474 1440 470 L1440 520 Z" fill="#B5562F"></path>
+<g fill="none" stroke="#99461F" stroke-width="3" stroke-linecap="round">
+<path d="M792 498 C880 474 1000 468 1120 476"></path>
+<path d="M850 512 C950 492 1070 488 1210 496"></path>
+<path d="M1150 484 C1250 490 1350 488 1440 484"></path>
+</g>
+<path d="M0 476 C110 458 220 462 330 480 C430 496 520 490 610 478 C680 470 730 476 770 488 C820 502 860 512 900 520 L0 520 Z" fill="#1F4A34"></path>
+<path d="M1150 520 C1220 494 1320 480 1440 484 L1440 520 Z" fill="#1F4A34"></path>
+<path d="M0 506 C300 494 620 512 900 500 C1120 492 1300 506 1440 498 L1440 520 L0 520 Z" fill="#1F4A34"></path>
+<g fill="#163826">
+<ellipse cx="80" cy="436" rx="11" ry="36"></ellipse>
+<ellipse cx="108" cy="442" rx="9" ry="28"></ellipse>
+<ellipse cx="132" cy="446" rx="7" ry="20"></ellipse>
+<ellipse cx="1296" cy="452" rx="11" ry="36"></ellipse>
+<ellipse cx="1324" cy="460" rx="8" ry="26"></ellipse>
+</g>
+<circle cx="540" cy="462" r="24" fill="#2E6247"></circle>
+<circle cx="576" cy="456" r="28" fill="#28583F"></circle>
+<circle cx="612" cy="466" r="18" fill="#2E6247"></circle>
+<path d="M720 520 C716 486 676 458 742 430 C800 406 852 380 872 334" fill="none" stroke="#F5F0E4" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 13"></path>
+<rect x="898" y="278" width="9" height="16" fill="#E9DFC8"></rect>
+<rect x="845" y="296" width="68" height="35" fill="#F5F0E4"></rect>
+<path d="M838 299 L879 272 L920 299 Z" fill="#B5562F"></path>
+<path d="M873 331 V319 A6 6 0 0 1 885 319 V331 Z" fill="#2A2017"></path>
+<rect x="853" y="306" width="9" height="9" rx="1.5" fill="#2A2017"></rect>
+<rect x="896" y="306" width="9" height="9" rx="1.5" fill="#2A2017"></rect>
+<g style="animation: arrBob 3.4s ease-in-out infinite">
+<path d="M879 262 C871 251 865 244 865 235 A14 14 0 1 1 893 235 C893 244 887 251 879 262 Z" fill="#B5562F"></path>
+<circle cx="879" cy="235" r="5.5" fill="#F5F0E4"></circle>
+</g>
+</svg>
+</div>
+</section>
+
+<section aria-labelledby="fam-title" style="background: #1F4A34; color: #F5F0E4">
+<div style="max-width: 1240px; margin: 0 auto; padding: 64px clamp(20px, 4vw, 64px) 96px">
+<ul role="list" aria-label="Arrela't en xifres" style="list-style: none; margin: 0; padding: 0 0 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px 24px; border-bottom: 1px solid #3B6650">
+<li style="display: flex; align-items: center; gap: 18px">
+<svg viewBox="0 0 48 48" width="52" height="52" aria-hidden="true"><g fill="none" stroke="#E4BE5C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 41 V22 L24 9 L41 22 V41 Z"></path><path d="M20 41 V31 H28 V41"></path><path d="M13 27 H17 M31 27 H35"></path></g></svg>
+<div><p class="f" style="margin: 0; font-size: 54px; line-height: 1; font-weight: 600; color: #E4BE5C">3</p><p style="margin: 6px 0 0; font-size: 15px; color: #C9D6C4">productors visitats en persona</p></div>
+</li>
+<li style="display: flex; align-items: center; gap: 18px">
+<svg viewBox="0 0 48 48" width="52" height="52" aria-hidden="true"><g fill="none" stroke="#E4BE5C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 40 L17 17 L25 29 L31 21 L44 40 Z"></path><path d="M13 24 L17 17 L21 24"></path></g></svg>
+<div><p class="f" style="margin: 0; font-size: 54px; line-height: 1; font-weight: 600; color: #E4BE5C">3</p><p style="margin: 6px 0 0; font-size: 15px; color: #C9D6C4">comarques recorregudes</p></div>
+</li>
+<li style="display: flex; align-items: center; gap: 18px">
+<svg viewBox="0 0 48 48" width="52" height="52" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="none" stroke="#E4BE5C" stroke-width="2.2"></circle><path d="M20 16 L33 24 L20 32 Z" fill="#E4BE5C"></path></svg>
+<div><p class="f" style="margin: 0; font-size: 54px; line-height: 1; font-weight: 600; color: #E4BE5C">9</p><p style="margin: 6px 0 0; font-size: 15px; color: #C9D6C4">vídeos gravats a peu de camp</p></div>
+</li>
+<li style="display: flex; align-items: center; gap: 18px">
+<svg viewBox="0 0 48 48" width="52" height="52" aria-hidden="true"><g fill="none" stroke="#E4BE5C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 32 H40"></path><path d="M24 32 V18"></path><path d="M24 22 C17 22 11 17 10 10 C17 10 23 15 24 22 Z"></path><path d="M24 18 C31 18 37 13 38 7 C31 7 25 11 24 18 Z"></path><path d="M24 32 C24 38 20 40 16 44 M24 32 C25 38 29 40 33 43"></path></g></svg>
+<div><p class="f" style="margin: 0; font-size: 54px; line-height: 1; font-weight: 600; color: #E4BE5C">0 €</p><p style="margin: 6px 0 0; font-size: 15px; color: #C9D6C4">el que paga un productor per sortir-hi</p></div>
+</li>
+</ul>
+<div style="margin-top: 56px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 48px">
+<div style="max-width: 640px">
+<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #E4BE5C">Què hi trobaràs</p>
+<h2 id="fam-title" style="margin: 12px 0 0; font-size: clamp(32px, 3.6vw, 50px); line-height: 1.06; letter-spacing: -0.02em; font-weight: 600; color: #F5F0E4">El sector primari, família a família</h2>
+</div>
+<p style="margin: 0; max-width: 420px; font-size: 17px; line-height: 1.6; color: #C9D6C4">Cada família té el seu color i la seva icona, i t'acompanya per tot el web: a les visites, al mapa i a la temporada.</p>
+</div>
+<ul role="list" style="list-style: none; margin: 44px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 28px 12px">
+<li style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+<svg viewBox="0 0 120 120" width="112" height="112" aria-hidden="true">
+<path d="M60 6 C88 4 114 24 114 56 C114 90 92 116 58 114 C26 112 6 92 6 60 C6 30 30 8 60 6 Z" fill="#6A2A47"></path>
+<path d="M60 41 Q59 31 66 25" fill="none" stroke="#F5F0E4" stroke-width="3" stroke-linecap="round"></path>
+<path d="M64 35 C70 23 84 19 92 25 C88 37 76 43 64 35 Z" fill="#A3B565"></path>
+<g fill="#D597B4" stroke="#6A2A47" stroke-width="1.5"><circle cx="46" cy="50" r="8"></circle><circle cx="61" cy="49" r="8"></circle><circle cx="76" cy="50" r="8"></circle><circle cx="53" cy="63" r="8"></circle><circle cx="69" cy="63" r="8"></circle><circle cx="61" cy="76" r="8"></circle></g>
+<g fill="#F3D8E4"><circle cx="43" cy="47" r="2.2"></circle><circle cx="58" cy="46" r="2.2"></circle><circle cx="50" cy="60" r="2.2"></circle></g>
+</svg>
+<span class="f" style="font-size: 20px; font-weight: 600; margin-top: 4px">Vi</span>
+<span style="font-size: 13px; color: #C9D6C4">Ça Liula</span>
+</li>
+<li style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+<svg viewBox="0 0 120 120" width="112" height="112" aria-hidden="true">
+<path d="M62 5 C94 8 116 32 112 64 C108 96 84 116 54 113 C24 110 4 86 8 56 C12 26 32 3 62 5 Z" fill="#E4BE5C"></path>
+<g transform="translate(4 0)">
+<path d="M52 60 L76.2 46 A28 28 0 1 0 76.2 74 Z" fill="#FBF1D3"></path>
+<path d="M76.2 46 A28 28 0 1 0 76.2 74" fill="none" stroke="#A9741A" stroke-width="5" stroke-linecap="round"></path>
+<path d="M60 60 L84.2 46 A28 28 0 0 1 84.2 74 Z" fill="#FBF1D3"></path>
+<path d="M84.2 46 A28 28 0 0 1 84.2 74" fill="none" stroke="#A9741A" stroke-width="5" stroke-linecap="round"></path>
+<g fill="#E8C877"><circle cx="40" cy="52" r="2.2"></circle><circle cx="36" cy="66" r="1.8"></circle><circle cx="48" cy="72" r="2.2"></circle><circle cx="57" cy="47" r="1.8"></circle><circle cx="74" cy="62" r="1.8"></circle></g>
+</g>
+</svg>
+<span class="f" style="font-size: 20px; font-weight: 600; margin-top: 4px">Formatge</span>
+<span style="font-size: 13px; color: #C9D6C4">Formatges Lluçà</span>
+</li>
+<li style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+<svg viewBox="0 0 120 120" width="112" height="112" aria-hidden="true">
+<path d="M56 7 C84 2 112 20 115 52 C118 86 96 112 62 115 C30 118 5 94 6 62 C7 32 28 12 56 7 Z" fill="#6E7B2F"></path>
+<circle cx="60" cy="66" r="27" fill="#E2603F"></circle>
+<path d="M39 72 A22 22 0 0 1 43 58" fill="none" stroke="#F4A28A" stroke-width="4" stroke-linecap="round"></path>
+<path d="M60 40 L65 47 L74 44 L69 51 L77 56 L67 55 L60 61 L55 54 L45 56 L52 50 L46 44 L55 47 Z" fill="#C8D69B"></path>
+<path d="M60 43 Q61 33 67 29" fill="none" stroke="#C8D69B" stroke-width="3.5" stroke-linecap="round"></path>
+</svg>
+<span class="f" style="font-size: 20px; font-weight: 600; margin-top: 4px">Horta</span>
+<span style="font-size: 13px; color: #C9D6C4">Soler de n'Hug</span>
+</li>
+<li style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+<svg viewBox="0 0 120 120" width="112" height="112" aria-hidden="true">
+<path d="M64 6 C92 10 114 34 113 62 C112 92 88 114 58 114 C28 114 6 90 7 60 C8 30 36 3 64 6 Z" fill="#EE9A63"></path>
+<path d="M66 30 C60 44 52 54 48 62" fill="none" stroke="#4E5A1C" stroke-width="3" stroke-linecap="round"></path>
+<path d="M66 30 C68 44 72 54 74 60" fill="none" stroke="#4E5A1C" stroke-width="3" stroke-linecap="round"></path>
+<path d="M66 30 C72 20 86 18 93 24 C87 34 75 36 66 30 Z" fill="#4E7A2F"></path>
+<circle cx="46" cy="73" r="13" fill="#A3233A"></circle>
+<circle cx="76" cy="71" r="13" fill="#A3233A"></circle>
+<circle cx="41" cy="68" r="3.4" fill="#E06C80"></circle>
+<circle cx="71" cy="66" r="3.4" fill="#E06C80"></circle>
+</svg>
+<span class="f" style="font-size: 20px; font-weight: 600; margin-top: 4px">Fruita</span>
+<span style="font-size: 13px; color: #A9BBA9">Pròximament</span>
+</li>
+<li style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+<svg viewBox="0 0 120 120" width="112" height="112" aria-hidden="true">
+<path d="M62 5 C94 8 116 32 112 64 C108 96 84 116 54 113 C24 110 4 86 8 56 C12 26 32 3 62 5 Z" fill="#B9C49B"></path>
+<g transform="translate(-4 0)">
+<path d="M56 28 C56 28 34 56 34 72 A22 22 0 0 0 78 72 C78 56 56 28 56 28 Z" fill="#A07F18"></path>
+<path d="M43 73 A13 13 0 0 0 51 85" fill="none" stroke="#F2DE8E" stroke-width="4" stroke-linecap="round"></path>
+<path d="M72 37 C78 27 90 25 96 31 C90 39 80 41 72 37 Z" fill="#4E5A1C"></path>
+<ellipse cx="83" cy="47" rx="5.5" ry="7" fill="#2F3A12" transform="rotate(-20 83 47)"></ellipse>
+</g>
+</svg>
+<span class="f" style="font-size: 20px; font-weight: 600; margin-top: 4px">Oli</span>
+<span style="font-size: 13px; color: #A9BBA9">Pròximament</span>
+</li>
+<li style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+<svg viewBox="0 0 120 120" width="112" height="112" aria-hidden="true">
+<path d="M56 7 C84 2 112 20 115 52 C118 86 96 112 62 115 C30 118 5 94 6 62 C7 32 28 12 56 7 Z" fill="#B5562F"></path>
+<path d="M52 42 C52 28 68 28 68 42" fill="none" stroke="#F5F0E4" stroke-width="5" stroke-linecap="round"></path>
+<path d="M46 42 Q60 38 74 42 L82 80 Q60 88 38 80 Z" fill="#E4BE5C"></path>
+<path d="M42 68 Q60 73 78 68" fill="none" stroke="#B98A2C" stroke-width="3" stroke-linecap="round"></path>
+<circle cx="60" cy="88" r="6" fill="#2A2017"></circle>
+</svg>
+<span class="f" style="font-size: 20px; font-weight: 600; margin-top: 4px">Ramaderia</span>
+<span style="font-size: 13px; color: #A9BBA9">Pròximament</span>
+</li>
+<li style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+<svg viewBox="0 0 120 120" width="112" height="112" aria-hidden="true">
+<path d="M64 6 C92 10 114 34 113 62 C112 92 88 114 58 114 C28 114 6 90 7 60 C8 30 36 3 64 6 Z" fill="#C98A26"></path>
+<path d="M56 78 C56 88 57 94 60 95 C63 94 64 88 64 78 Z" fill="#F6D57E"></path>
+<g fill="#F6D57E" stroke="#8E5C10" stroke-width="3" stroke-linejoin="round">
+<path d="M48.7 37 L60 43.5 L60 56.5 L48.7 63 L37.4 56.5 L37.4 43.5 Z"></path>
+<path d="M71.3 37 L82.6 43.5 L82.6 56.5 L71.3 63 L60 56.5 L60 43.5 Z"></path>
+<path d="M60 56.5 L71.3 63 L71.3 76 L60 82.5 L48.7 76 L48.7 63 Z"></path>
+</g>
+<ellipse cx="88" cy="31" rx="5" ry="3.6" fill="#F5F0E4" transform="rotate(-25 88 31)"></ellipse>
+<ellipse cx="88" cy="39" rx="7.5" ry="5.5" fill="#2A2017"></ellipse>
+<path d="M85 34.5 V43.5 M90 34.5 V43.5" fill="none" stroke="#F6D57E" stroke-width="2"></path>
+</svg>
+<span class="f" style="font-size: 20px; font-weight: 600; margin-top: 4px">Mel</span>
+<span style="font-size: 13px; color: #A9BBA9">Pròximament</span>
+</li>
+<li style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+<svg viewBox="0 0 120 120" width="112" height="112" aria-hidden="true">
+<path d="M60 6 C88 4 114 24 114 56 C114 90 92 116 58 114 C26 112 6 92 6 60 C6 30 30 8 60 6 Z" fill="#8EB9C4"></path>
+<g transform="translate(-3 0)">
+<path d="M30 58 C42 42 70 42 82 58 C70 74 42 74 30 58 Z" fill="#2F5E6E"></path>
+<path d="M80 58 L96 45 L93 58 L96 71 Z" fill="#2F5E6E"></path>
+<circle cx="42" cy="55" r="3.2" fill="#F5F0E4"></circle>
+<path d="M52 49 Q47 58 52 67" fill="none" stroke="#8EB9C4" stroke-width="2.5" stroke-linecap="round"></path>
+<path d="M29 86 q8 -6 16 0 t16 0 t16 0 t16 0" fill="none" stroke="#2F5E6E" stroke-width="3" stroke-linecap="round"></path>
+</g>
+</svg>
+<span class="f" style="font-size: 20px; font-weight: 600; margin-top: 4px">Pesca</span>
+<span style="font-size: 13px; color: #A9BBA9">Pròximament</span>
+</li>
+</ul>
+</div>
+</section>
+
+<section id="visites" aria-labelledby="visites-title" style="background: #F5F0E4">
+<div style="max-width: 1240px; margin: 0 auto; padding: 104px clamp(20px, 4vw, 64px)">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 48px">
+<div style="max-width: 680px">
+<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8F3F1F">Les visites</p>
+<h2 id="visites-title" style="margin: 12px 0 0; font-size: clamp(34px, 4vw, 56px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 600; color: #1F4A34">Tres visites, tres maneres de cuidar la terra</h2>
+</div>
+<a href="#" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 16px; font-weight: 600; color: #B5562F; text-decoration: none">Totes les visites
+<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12 H19 M13 6 L19 12 L13 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+</div>
+<div style="margin-top: 52px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 28px">
+
+<article class="lift" style="background: #FFFBF2; border: 1px solid #E6DCC6; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 11; background: #6A2A47">
+<svg viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="display: block; width: 100%; height: 100%">
+<rect width="400" height="275" fill="#6A2A47"></rect>
+<circle cx="300" cy="78" r="34" fill="#EE9A63"></circle>
+<path d="M0 170 C90 140 170 136 260 150 C320 160 360 150 400 140 L400 275 L0 275 Z" fill="#84395C"></path>
+<path d="M0 182 C80 160 160 156 240 166" fill="none" stroke="#A9547A" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 12"></path>
+<path d="M0 210 C100 180 200 176 300 192 C350 200 380 196 400 190 L400 275 L0 275 Z" fill="#9E4C72"></path>
+<g fill="none" stroke="#E9C3D6" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 12">
+<path d="M20 222 C120 194 210 192 300 206"></path>
+<path d="M10 240 C120 212 214 210 320 226"></path>
+<path d="M4 258 C120 232 220 230 340 246"></path>
+</g>
+</svg>
+<span style="position: absolute; top: 16px; left: 16px; padding: 6px 12px; border-radius: 999px; background: #F5F0E4; color: #6A2A47; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Visita nº 001</span>
+<div aria-hidden="true" style="position: absolute; right: 18px; bottom: -30px; width: 68px; height: 68px; border-radius: 50%; background: #FFFBF2; display: grid; place-items: center; box-shadow: 0 0 0 1px #E6DCC6">
+<svg viewBox="0 0 120 120" width="54" height="54"><path d="M60 6 C88 4 114 24 114 56 C114 90 92 116 58 114 C26 112 6 92 6 60 C6 30 30 8 60 6 Z" fill="#6A2A47"></path><path d="M60 41 Q59 31 66 25" fill="none" stroke="#F5F0E4" stroke-width="3" stroke-linecap="round"></path><path d="M64 35 C70 23 84 19 92 25 C88 37 76 43 64 35 Z" fill="#A3B565"></path><g fill="#D597B4" stroke="#6A2A47" stroke-width="1.5"><circle cx="46" cy="50" r="8"></circle><circle cx="61" cy="49" r="8"></circle><circle cx="76" cy="50" r="8"></circle><circle cx="53" cy="63" r="8"></circle><circle cx="69" cy="63" r="8"></circle><circle cx="61" cy="76" r="8"></circle></g></svg>
+</div>
+</div>
+<div style="padding: 26px 24px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<p style="margin: 0; padding-right: 64px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6A2A47">Vi natural · Alt Penedès</p>
+<h3 style="margin: 0; font-size: 28px; line-height: 1.1; letter-spacing: -0.01em; font-weight: 600; color: #2A2017">La paciència del cep</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #5E5040">Ça Liula. Vinyes velles treballades sense pressa i sense additius.</p>
+<div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #EDE5D2; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px">
+<span style="display: inline-flex; align-items: center; gap: 8px; color: #5E5040"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#6A2A47"></circle><path d="M10 8 L16 12 L10 16 Z" fill="#F5F0E4"></path></svg>3 vídeos</span>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; color: #6A2A47; text-decoration: none">Llegir la visita →</a>
+</div>
+</div>
+</article>
+
+<article class="lift" style="background: #FFFBF2; border: 1px solid #E6DCC6; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 11; background: #6E7B2F">
+<svg viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="display: block; width: 100%; height: 100%">
+<rect width="400" height="275" fill="#6E7B2F"></rect>
+<circle cx="92" cy="70" r="26" fill="#E4BE5C"></circle>
+<path d="M60 182 L150 72 L172 110 L186 118 L202 104 L222 66 L310 172 L400 160 L400 275 L0 275 L0 190 Z" fill="#4E5A1C"></path>
+<path d="M144 80 L150 72 L157 84 Q152 81 149 87 Q147 80 144 80 Z" fill="#E8EBD8"></path>
+<path d="M216 74 L222 66 L229 78 Q224 75 221 81 Q219 74 216 74 Z" fill="#E8EBD8"></path>
+<path d="M0 204 C80 186 170 190 250 202 C320 212 360 204 400 198 L400 275 L0 275 Z" fill="#8E9C55"></path>
+<path d="M0 236 C90 218 200 224 300 234 C350 240 380 236 400 232 L400 275 L0 275 Z" fill="#A9B676"></path>
+<g fill="#4E5A1C"><circle cx="56" cy="204" r="9"></circle><circle cx="78" cy="200" r="11"></circle><circle cx="330" cy="208" r="10"></circle><circle cx="352" cy="204" r="8"></circle></g>
+<rect x="190" y="214" width="34" height="22" fill="#F5F0E4"></rect>
+<path d="M185 216 L207 200 L229 216 Z" fill="#B5562F"></path>
+<rect x="203" y="224" width="8" height="12" rx="4" fill="#2A2017"></rect>
+</svg>
+<span style="position: absolute; top: 16px; left: 16px; padding: 6px 12px; border-radius: 999px; background: #F5F0E4; color: #4E5A1C; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Visita nº 002</span>
+<div aria-hidden="true" style="position: absolute; right: 18px; bottom: -30px; width: 68px; height: 68px; border-radius: 50%; background: #FFFBF2; display: grid; place-items: center; box-shadow: 0 0 0 1px #E6DCC6">
+<svg viewBox="0 0 120 120" width="54" height="54"><path d="M56 7 C84 2 112 20 115 52 C118 86 96 112 62 115 C30 118 5 94 6 62 C7 32 28 12 56 7 Z" fill="#6E7B2F"></path><circle cx="60" cy="66" r="27" fill="#E2603F"></circle><path d="M60 40 L65 47 L74 44 L69 51 L77 56 L67 55 L60 61 L55 54 L45 56 L52 50 L46 44 L55 47 Z" fill="#C8D69B"></path><path d="M60 43 Q61 33 67 29" fill="none" stroke="#C8D69B" stroke-width="3.5" stroke-linecap="round"></path></svg>
+</div>
+</div>
+<div style="padding: 26px 24px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<p style="margin: 0; padding-right: 64px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #5A6522">Producció diversa · Berguedà</p>
+<h3 style="margin: 0; font-size: 28px; line-height: 1.1; letter-spacing: -0.01em; font-weight: 600; color: #2A2017">La llavor que no es perd</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #5E5040">Soler de n'Hug. Una explotació familiar al peu de la muntanya.</p>
+<div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #EDE5D2; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px">
+<span style="display: inline-flex; align-items: center; gap: 8px; color: #5E5040"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#6E7B2F"></circle><path d="M10 8 L16 12 L10 16 Z" fill="#F5F0E4"></path></svg>3 vídeos</span>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; color: #5A6522; text-decoration: none">Llegir la visita →</a>
+</div>
+</div>
+</article>
+
+<article class="lift" style="background: #FFFBF2; border: 1px solid #E6DCC6; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 11; background: #E4BE5C">
+<svg viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="display: block; width: 100%; height: 100%">
+<rect width="400" height="275" fill="#E4BE5C"></rect>
+<circle cx="318" cy="68" r="30" fill="#F7E7BD"></circle>
+<path d="M0 160 C100 128 190 126 280 142 C340 152 370 146 400 140 L400 275 L0 275 Z" fill="#C99A35"></path>
+<rect x="172" y="110" width="36" height="24" fill="#F5F0E4"></rect>
+<path d="M167 112 L190 96 L213 112 Z" fill="#B5562F"></path>
+<rect x="186" y="121" width="8" height="13" rx="4" fill="#2A2017"></rect>
+<ellipse cx="226" cy="126" rx="6" ry="16" fill="#4E5A1C"></ellipse>
+<path d="M0 200 C110 174 220 176 320 190 C360 196 384 192 400 188 L400 275 L0 275 Z" fill="#B0802A"></path>
+<g fill="#F5F0E4"><ellipse cx="70" cy="208" rx="7" ry="4.5"></ellipse><ellipse cx="88" cy="212" rx="7" ry="4.5"></ellipse><ellipse cx="104" cy="205" rx="7" ry="4.5"></ellipse><ellipse cx="120" cy="214" rx="7" ry="4.5"></ellipse><ellipse cx="94" cy="223" rx="7" ry="4.5"></ellipse><ellipse cx="138" cy="208" rx="7" ry="4.5"></ellipse></g>
+<path d="M0 238 C120 216 240 222 400 230 L400 275 L0 275 Z" fill="#8A6416"></path>
+</svg>
+<span style="position: absolute; top: 16px; left: 16px; padding: 6px 12px; border-radius: 999px; background: #F5F0E4; color: #8A6416; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Visita nº 003</span>
+<div aria-hidden="true" style="position: absolute; right: 18px; bottom: -30px; width: 68px; height: 68px; border-radius: 50%; background: #FFFBF2; display: grid; place-items: center; box-shadow: 0 0 0 1px #E6DCC6">
+<svg viewBox="0 0 120 120" width="54" height="54"><path d="M62 5 C94 8 116 32 112 64 C108 96 84 116 54 113 C24 110 4 86 8 56 C12 26 32 3 62 5 Z" fill="#E4BE5C"></path><g transform="translate(4 0)"><path d="M52 60 L76.2 46 A28 28 0 1 0 76.2 74 Z" fill="#FBF1D3"></path><path d="M76.2 46 A28 28 0 1 0 76.2 74" fill="none" stroke="#A9741A" stroke-width="5" stroke-linecap="round"></path><path d="M60 60 L84.2 46 A28 28 0 0 1 84.2 74 Z" fill="#FBF1D3"></path><path d="M84.2 46 A28 28 0 0 1 84.2 74" fill="none" stroke="#A9741A" stroke-width="5" stroke-linecap="round"></path></g></svg>
+</div>
+</div>
+<div style="padding: 26px 24px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<p style="margin: 0; padding-right: 64px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8A6416">Formatge de cabra · Lluçanès</p>
+<h3 style="margin: 0; font-size: 28px; line-height: 1.1; letter-spacing: -0.01em; font-weight: 600; color: #2A2017">El temps del formatge</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #5E5040">Formatges Lluçà. Llet de la casa, cabres al prat i molta paciència.</p>
+<div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #EDE5D2; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px">
+<span style="display: inline-flex; align-items: center; gap: 8px; color: #5E5040"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#8A6416"></circle><path d="M10 8 L16 12 L10 16 Z" fill="#F5F0E4"></path></svg>3 vídeos</span>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; color: #8A6416; text-decoration: none">Llegir la visita →</a>
+</div>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<section id="temporada" aria-labelledby="temp-title" style="background: #EDE5D2">
+<div style="max-width: 1240px; margin: 0 auto; padding: 104px clamp(20px, 4vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px 72px; align-items: center">
+<div>
+<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8F3F1F">Temporada</p>
+<h2 id="temp-title" style="margin: 12px 0 0; font-size: clamp(34px, 4vw, 54px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 600; color: #1F4A34">Cada mes, el camp dona una cosa diferent</h2>
+<p style="margin: 18px 0 0; max-width: 520px; font-size: 18px; line-height: 1.6; color: #5E5040">La roda marca el mes en què som i què està en el seu punt. Cada color et porta als productors que en fan.</p>
+<ul role="list" style="list-style: none; margin: 30px 0 0; padding: 0">
+<li style="display: grid; grid-template-columns: 30px 1fr auto; align-items: center; gap: 14px; padding: 13px 0; border-bottom: 1px solid #DCD1B9"><span aria-hidden="true" style="width: 30px; height: 10px; border-radius: 999px; background: #6A2A47"></span><span style="font-size: 16px; font-weight: 600">Verema</span><span style="font-size: 14px; color: #5E5040">setembre i octubre</span></li>
+<li style="display: grid; grid-template-columns: 30px 1fr auto; align-items: center; gap: 14px; padding: 13px 0; border-bottom: 1px solid #DCD1B9"><span aria-hidden="true" style="width: 30px; height: 10px; border-radius: 999px; background: #B7962A"></span><span style="font-size: 16px; font-weight: 600">Oli nou</span><span style="font-size: 14px; color: #5E5040">de novembre a gener</span></li>
+<li style="display: grid; grid-template-columns: 30px 1fr auto; align-items: center; gap: 14px; padding: 13px 0; border-bottom: 1px solid #DCD1B9"><span aria-hidden="true" style="width: 30px; height: 10px; border-radius: 999px; background: #E0AC45"></span><span style="font-size: 16px; font-weight: 600">Formatge fresc</span><span style="font-size: 14px; color: #5E5040">de març a juny</span></li>
+<li style="display: grid; grid-template-columns: 30px 1fr auto; align-items: center; gap: 14px; padding: 13px 0; border-bottom: 1px solid #DCD1B9"><span aria-hidden="true" style="width: 30px; height: 10px; border-radius: 999px; background: #6E7B2F"></span><span style="font-size: 16px; font-weight: 600">Horta d'estiu</span><span style="font-size: 14px; color: #5E5040">de juny a setembre</span></li>
+<li style="display: grid; grid-template-columns: 30px 1fr auto; align-items: center; gap: 14px; padding: 13px 0; border-bottom: 1px solid #DCD1B9"><span aria-hidden="true" style="width: 30px; height: 10px; border-radius: 999px; background: #EE9A63"></span><span style="font-size: 16px; font-weight: 600">Fruita dolça</span><span style="font-size: 14px; color: #5E5040">de maig a agost</span></li>
+</ul>
+<div style="margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; padding: 16px 16px 16px 22px; border-radius: 20px; background: #6A2A47; color: #F5F0E4">
+<p style="margin: 0; font-size: 16px; line-height: 1.5"><span style="font-weight: 700">Ara, a l'octubre:</span> temps de verema.</p>
+<a href="#" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #F5F0E4; color: #6A2A47; font-size: 15px; font-weight: 600; text-decoration: none">Qui verema ara
+<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12 H19 M13 6 L19 12 L13 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+</div>
+</div>
+<div>
+<svg viewBox="0 0 540 540" role="img" aria-label="La roda de l'any. Verema al setembre i l'octubre, oli nou de novembre a gener, formatge fresc de març a juny, horta d'estiu de juny a setembre i fruita dolça de maig a agost. Ara és octubre." style="display: block; width: 100%; max-width: 540px; height: auto; margin: 0 auto">
+<g fill="#F5F0E4">
+<path d="M274.4 18.0 A252 252 0 0 1 392.2 49.6 L373.7 82.8 A214 214 0 0 0 273.7 56.0 Z"></path>
+<path d="M399.8 54.0 A252 252 0 0 1 486.0 140.2 L453.4 159.8 A214 214 0 0 0 380.2 86.6 Z"></path>
+<path d="M490.4 147.8 A252 252 0 0 1 522.0 265.6 L484.0 266.3 A214 214 0 0 0 457.2 166.3 Z"></path>
+<path d="M522.0 274.4 A252 252 0 0 1 490.4 392.2 L457.2 373.7 A214 214 0 0 0 484.0 273.7 Z"></path>
+<path d="M486.0 399.8 A252 252 0 0 1 399.8 486.0 L380.2 453.4 A214 214 0 0 0 453.4 380.2 Z"></path>
+<path d="M392.2 490.4 A252 252 0 0 1 274.4 522.0 L273.7 484.0 A214 214 0 0 0 373.7 457.2 Z"></path>
+<path d="M265.6 522.0 A252 252 0 0 1 147.8 490.4 L166.3 457.2 A214 214 0 0 0 266.3 484.0 Z"></path>
+<path d="M140.2 486.0 A252 252 0 0 1 54.0 399.8 L86.6 380.2 A214 214 0 0 0 159.8 453.4 Z"></path>
+<path d="M49.6 392.2 A252 252 0 0 1 18.0 274.4 L56.0 273.7 A214 214 0 0 0 82.8 373.7 Z"></path>
+<path d="M54.0 140.2 A252 252 0 0 1 140.2 54.0 L159.8 86.6 A214 214 0 0 0 86.6 159.8 Z"></path>
+<path d="M147.8 49.6 A252 252 0 0 1 265.6 18.0 L266.3 56.0 A214 214 0 0 0 166.3 82.8 Z"></path>
+</g>
+<path d="M18.0 265.6 A252 252 0 0 1 49.6 147.8 L82.8 166.3 A214 214 0 0 0 56.0 266.3 Z" fill="#B5562F"></path>
+<g font-family="Instrument Sans, sans-serif" font-size="15" font-weight="700" fill="#5E5040" text-anchor="middle" dominant-baseline="central">
+<text x="330.3" y="44.9">G</text>
+<text x="434.8" y="105.2">F</text>
+<text x="495.1" y="209.7">M</text>
+<text x="495.1" y="330.3">A</text>
+<text x="434.8" y="434.8">M</text>
+<text x="330.3" y="495.1">J</text>
+<text x="209.7" y="495.1">J</text>
+<text x="105.2" y="434.8">A</text>
+<text x="44.9" y="330.3">S</text>
+<text x="105.2" y="105.2">N</text>
+<text x="209.7" y="44.9">D</text>
+</g>
+<text x="44.9" y="209.7" font-family="Instrument Sans, sans-serif" font-size="15" font-weight="700" fill="#FFF8EE" text-anchor="middle" dominant-baseline="central">O</text>
+<g fill="none" stroke="#E1D6BD" stroke-width="16">
+<circle cx="270" cy="270" r="188"></circle>
+<circle cx="270" cy="270" r="162"></circle>
+<circle cx="270" cy="270" r="136"></circle>
+<circle cx="270" cy="270" r="110"></circle>
+<circle cx="270" cy="270" r="84"></circle>
+</g>
+<g fill="none" stroke-width="16" stroke-linecap="round">
+<path d="M99.6 349.5 A188 188 0 0 1 99.6 190.5" stroke="#6A2A47"></path>
+<path d="M137.3 177.1 A162 162 0 0 1 338.5 123.2" stroke="#B7962A"></path>
+<path d="M393.3 212.5 A136 136 0 0 1 281.9 405.5" stroke="#E0AC45"></path>
+<path d="M316.5 369.7 A110 110 0 0 1 160.4 279.6" stroke="#6E7B2F"></path>
+<path d="M338.8 318.2 A84 84 0 0 1 201.2 318.2" stroke="#EE9A63"></path>
+</g>
+<line x1="208.2" y1="253.4" x2="76.8" y2="218.2" stroke="#2A2017" stroke-width="2.5" stroke-linecap="round"></line>
+<circle cx="76.8" cy="218.2" r="7" fill="#2A2017" stroke="#F5F0E4" stroke-width="3"></circle>
+<circle cx="270" cy="270" r="62" fill="#F5F0E4"></circle>
+<text x="270" y="252" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="12" font-weight="700" letter-spacing="2.5" fill="#8F3F1F">ARA</text>
+<text x="270" y="285" text-anchor="middle" font-family="Fraunces, serif" font-size="27" font-weight="600" fill="#1F4A34" style="font-variation-settings: 'SOFT' 100">Octubre</text>
+</svg>
+</div>
+</div>
+</section>
+
+<section id="mapa" aria-labelledby="mapa-title" style="background: #F5F0E4">
+<div style="max-width: 1240px; margin: 0 auto; padding: 104px clamp(20px, 4vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px 72px; align-items: center">
+<div style="border-radius: 28px; background: #EAE3D1; padding: clamp(8px, 2vw, 24px)">
+<svg viewBox="0 0 600 600" role="img" aria-label="Mapa de Catalunya amb les tres visites: Ça Liula a l'Alt Penedès, Soler de n'Hug al Berguedà i Formatges Lluçà al Lluçanès, unides per la ruta en ordre de visita." style="display: block; width: 100%; height: auto">
+<defs><clipPath id="catClip"><path d="M123.0 33.8 C128.8 30.4 142.5 38.0 150.5 40.7 C158.5 43.4 164.3 46.5 171.1 49.9 C178.0 53.4 184.0 58.7 191.7 61.4 C199.5 64.1 210.0 64.5 217.5 66.0 C224.9 67.5 231.2 67.5 236.4 70.6 C241.5 73.7 246.7 77.9 248.4 84.4 C250.1 90.9 245.8 102.0 246.7 109.7 C247.5 117.4 249.5 126.6 253.5 130.4 C257.6 134.2 265.0 133.9 270.7 132.7 C276.4 131.6 283.0 126.2 287.9 123.5 C292.8 120.8 295.9 117.4 299.9 116.6 C303.9 115.8 307.6 117.4 311.9 118.9 C316.2 120.4 320.8 123.9 325.7 125.8 C330.5 127.7 335.4 128.9 341.1 130.4 C346.9 131.9 353.4 134.2 360.0 135.0 C366.6 135.8 373.8 134.2 380.6 135.0 C387.5 135.8 394.1 137.7 401.2 139.6 C408.4 141.5 416.7 144.6 423.6 146.5 C430.4 148.4 436.2 151.5 442.4 151.1 C448.7 150.7 454.5 146.9 461.3 144.2 C468.2 141.5 476.5 138.1 483.7 135.0 C490.8 131.9 497.1 126.6 504.3 125.8 C511.4 125.0 519.4 129.3 526.6 130.4 C533.7 131.6 542.9 130.0 547.2 132.7 C551.5 135.4 548.1 142.3 552.4 146.5 C556.6 150.7 571.5 154.2 573.0 158.0 C574.4 161.8 565.2 166.8 560.9 169.5 C556.6 172.2 550.9 170.7 547.2 174.1 C543.5 177.6 540.0 184.5 538.6 190.2 C537.2 196.0 536.3 202.9 538.6 208.6 C540.9 214.4 549.5 219.0 552.4 224.7 C555.2 230.5 557.2 236.2 555.8 243.1 C554.4 250.0 548.9 259.2 543.8 266.1 C538.6 273.0 531.5 279.1 524.9 284.5 C518.3 289.9 511.4 294.5 504.3 298.3 C497.1 302.1 491.1 302.9 481.9 307.5 C472.8 312.1 459.3 320.5 449.3 325.9 C439.3 331.3 431.0 334.3 421.8 339.7 C412.7 345.1 402.1 352.3 394.4 358.1 C386.6 363.8 380.6 368.4 375.5 374.2 C370.3 380.0 369.2 388.0 363.5 392.6 C357.7 397.2 349.4 399.1 341.1 401.8 C332.8 404.5 322.5 406.0 313.7 408.7 C304.8 411.4 296.8 415.2 287.9 417.9 C279.0 420.6 269.0 422.1 260.4 424.8 C251.8 427.5 243.8 432.1 236.4 434.0 C228.9 435.9 221.2 434.0 215.8 436.3 C210.3 438.6 209.2 445.5 203.7 447.8 C198.3 450.1 190.0 447.4 183.1 450.1 C176.3 452.8 169.4 457.8 162.5 463.9 C155.7 470.0 148.2 479.6 141.9 486.9 C135.6 494.2 125.3 503.4 124.8 507.6 C124.2 511.8 133.3 509.1 138.5 512.2 C143.6 515.3 155.4 521.4 155.7 526.0 C156.0 530.6 146.8 533.7 140.2 539.8 C133.6 545.9 121.9 560.9 116.2 562.8 C110.4 564.7 109.9 550.5 105.9 551.3 C101.9 552.1 94.7 564.0 92.1 567.4 C89.5 570.9 93.3 572.8 90.4 572.0 C87.5 571.2 81.0 566.6 75.0 562.8 C68.9 559.0 60.6 554.4 54.3 549.0 C48.0 543.6 40.9 537.5 37.2 530.6 C33.5 523.7 30.9 516.4 32.0 507.6 C33.2 498.8 42.3 487.3 44.0 477.7 C45.8 468.1 40.6 459.3 42.3 450.1 C44.0 440.9 51.5 432.1 54.3 422.5 C57.2 412.9 57.8 403.3 59.5 392.6 C61.2 381.9 62.9 369.6 64.6 358.1 C66.4 346.6 67.5 334.7 69.8 323.6 C72.1 312.5 74.4 302.9 78.4 291.4 C82.4 279.9 89.0 266.9 93.8 254.6 C98.7 242.3 103.3 230.1 107.6 217.8 C111.9 205.5 116.5 193.3 119.6 181.0 C122.7 168.7 125.0 155.7 126.5 144.2 C127.9 132.7 128.8 121.6 128.2 112.0 C127.6 102.4 125.0 95.1 123.0 86.7 C121.0 78.3 116.2 70.2 116.2 61.4 C116.2 52.6 117.3 37.3 123.0 33.8 Z"></path></clipPath></defs>
+<path d="M547.2 132.7 C551.5 135.4 548.1 142.3 552.4 146.5 C556.6 150.7 571.5 154.2 573.0 158.0 C574.4 161.8 565.2 166.8 560.9 169.5 C556.6 172.2 550.9 170.7 547.2 174.1 C543.5 177.6 540.0 184.5 538.6 190.2 C537.2 196.0 536.3 202.9 538.6 208.6 C540.9 214.4 549.5 219.0 552.4 224.7 C555.2 230.5 557.2 236.2 555.8 243.1 C554.4 250.0 548.9 259.2 543.8 266.1 C538.6 273.0 531.5 279.1 524.9 284.5 C518.3 289.9 511.4 294.5 504.3 298.3 C497.1 302.1 491.1 302.9 481.9 307.5 C472.8 312.1 459.3 320.5 449.3 325.9 C439.3 331.3 431.0 334.3 421.8 339.7 C412.7 345.1 402.1 352.3 394.4 358.1 C386.6 363.8 380.6 368.4 375.5 374.2 C370.3 380.0 369.2 388.0 363.5 392.6 C357.7 397.2 349.4 399.1 341.1 401.8 C332.8 404.5 322.5 406.0 313.7 408.7 C304.8 411.4 296.8 415.2 287.9 417.9 C279.0 420.6 269.0 422.1 260.4 424.8 C251.8 427.5 243.8 432.1 236.4 434.0 C228.9 435.9 221.2 434.0 215.8 436.3 C210.3 438.6 209.2 445.5 203.7 447.8 C198.3 450.1 190.0 447.4 183.1 450.1 C176.3 452.8 169.4 457.8 162.5 463.9 C155.7 470.0 148.2 479.6 141.9 486.9 C135.6 494.2 125.3 503.4 124.8 507.6 C124.2 511.8 133.3 509.1 138.5 512.2 C143.6 515.3 155.4 521.4 155.7 526.0 C156.0 530.6 146.8 533.7 140.2 539.8 C133.6 545.9 121.9 560.9 116.2 562.8 C110.4 564.7 109.9 550.5 105.9 551.3 C101.9 552.1 94.7 564.0 92.1 567.4 C89.5 570.9 93.3 572.8 90.4 572.0 L90.4 600 L600 600 L600 132.7 Z" fill="#D3E3E6"></path>
+<g fill="none" stroke="#B9D2D8" stroke-width="2.2" stroke-linecap="round">
+<path d="M500 380 q10 -7 20 0 t20 0"></path>
+<path d="M330 470 q10 -7 20 0 t20 0"></path>
+<path d="M560 282 q8 -6 16 0 t16 0"></path>
+</g>
+<text x="398" y="548" transform="rotate(-30 398 548)" font-family="Instrument Sans, sans-serif" font-size="13" font-weight="700" letter-spacing="5" fill="#557F8D">MAR MEDITERRÀNIA</text>
+<text x="322" y="92" font-family="Instrument Sans, sans-serif" font-size="12" font-weight="700" letter-spacing="4" fill="#8A7C64">FRANÇA</text>
+<path d="M123.0 33.8 C128.8 30.4 142.5 38.0 150.5 40.7 C158.5 43.4 164.3 46.5 171.1 49.9 C178.0 53.4 184.0 58.7 191.7 61.4 C199.5 64.1 210.0 64.5 217.5 66.0 C224.9 67.5 231.2 67.5 236.4 70.6 C241.5 73.7 246.7 77.9 248.4 84.4 C250.1 90.9 245.8 102.0 246.7 109.7 C247.5 117.4 249.5 126.6 253.5 130.4 C257.6 134.2 265.0 133.9 270.7 132.7 C276.4 131.6 283.0 126.2 287.9 123.5 C292.8 120.8 295.9 117.4 299.9 116.6 C303.9 115.8 307.6 117.4 311.9 118.9 C316.2 120.4 320.8 123.9 325.7 125.8 C330.5 127.7 335.4 128.9 341.1 130.4 C346.9 131.9 353.4 134.2 360.0 135.0 C366.6 135.8 373.8 134.2 380.6 135.0 C387.5 135.8 394.1 137.7 401.2 139.6 C408.4 141.5 416.7 144.6 423.6 146.5 C430.4 148.4 436.2 151.5 442.4 151.1 C448.7 150.7 454.5 146.9 461.3 144.2 C468.2 141.5 476.5 138.1 483.7 135.0 C490.8 131.9 497.1 126.6 504.3 125.8 C511.4 125.0 519.4 129.3 526.6 130.4 C533.7 131.6 542.9 130.0 547.2 132.7 C551.5 135.4 548.1 142.3 552.4 146.5 C556.6 150.7 571.5 154.2 573.0 158.0 C574.4 161.8 565.2 166.8 560.9 169.5 C556.6 172.2 550.9 170.7 547.2 174.1 C543.5 177.6 540.0 184.5 538.6 190.2 C537.2 196.0 536.3 202.9 538.6 208.6 C540.9 214.4 549.5 219.0 552.4 224.7 C555.2 230.5 557.2 236.2 555.8 243.1 C554.4 250.0 548.9 259.2 543.8 266.1 C538.6 273.0 531.5 279.1 524.9 284.5 C518.3 289.9 511.4 294.5 504.3 298.3 C497.1 302.1 491.1 302.9 481.9 307.5 C472.8 312.1 459.3 320.5 449.3 325.9 C439.3 331.3 431.0 334.3 421.8 339.7 C412.7 345.1 402.1 352.3 394.4 358.1 C386.6 363.8 380.6 368.4 375.5 374.2 C370.3 380.0 369.2 388.0 363.5 392.6 C357.7 397.2 349.4 399.1 341.1 401.8 C332.8 404.5 322.5 406.0 313.7 408.7 C304.8 411.4 296.8 415.2 287.9 417.9 C279.0 420.6 269.0 422.1 260.4 424.8 C251.8 427.5 243.8 432.1 236.4 434.0 C228.9 435.9 221.2 434.0 215.8 436.3 C210.3 438.6 209.2 445.5 203.7 447.8 C198.3 450.1 190.0 447.4 183.1 450.1 C176.3 452.8 169.4 457.8 162.5 463.9 C155.7 470.0 148.2 479.6 141.9 486.9 C135.6 494.2 125.3 503.4 124.8 507.6 C124.2 511.8 133.3 509.1 138.5 512.2 C143.6 515.3 155.4 521.4 155.7 526.0 C156.0 530.6 146.8 533.7 140.2 539.8 C133.6 545.9 121.9 560.9 116.2 562.8 C110.4 564.7 109.9 550.5 105.9 551.3 C101.9 552.1 94.7 564.0 92.1 567.4 C89.5 570.9 93.3 572.8 90.4 572.0 C87.5 571.2 81.0 566.6 75.0 562.8 C68.9 559.0 60.6 554.4 54.3 549.0 C48.0 543.6 40.9 537.5 37.2 530.6 C33.5 523.7 30.9 516.4 32.0 507.6 C33.2 498.8 42.3 487.3 44.0 477.7 C45.8 468.1 40.6 459.3 42.3 450.1 C44.0 440.9 51.5 432.1 54.3 422.5 C57.2 412.9 57.8 403.3 59.5 392.6 C61.2 381.9 62.9 369.6 64.6 358.1 C66.4 346.6 67.5 334.7 69.8 323.6 C72.1 312.5 74.4 302.9 78.4 291.4 C82.4 279.9 89.0 266.9 93.8 254.6 C98.7 242.3 103.3 230.1 107.6 217.8 C111.9 205.5 116.5 193.3 119.6 181.0 C122.7 168.7 125.0 155.7 126.5 144.2 C127.9 132.7 128.8 121.6 128.2 112.0 C127.6 102.4 125.0 95.1 123.0 86.7 C121.0 78.3 116.2 70.2 116.2 61.4 C116.2 52.6 117.3 37.3 123.0 33.8 Z" fill="#D6DDBA"></path>
+<g clip-path="url(#catClip)" fill="none" stroke="#BFC995" stroke-width="2">
+<path d="M150.5 63.7 C153.9 65.2 164.3 69.5 171.1 72.9 C178.0 76.4 184.0 81.7 191.7 84.4 C199.5 87.1 210.0 87.5 217.5 89.0 C224.9 90.5 231.2 90.5 236.4 93.6 C241.5 96.7 246.7 100.9 248.4 107.4 C250.1 113.9 245.8 125.0 246.7 132.7 C247.5 140.4 249.5 149.6 253.5 153.4 C257.6 157.2 265.0 156.9 270.7 155.7 C276.4 154.6 283.0 149.2 287.9 146.5 C292.8 143.8 295.9 140.4 299.9 139.6 C303.9 138.8 307.6 140.4 311.9 141.9 C316.2 143.4 320.8 146.9 325.7 148.8 C330.5 150.7 335.4 151.9 341.1 153.4 C346.9 154.9 353.4 157.2 360.0 158.0 C366.6 158.8 373.8 157.2 380.6 158.0 C387.5 158.8 394.1 160.7 401.2 162.6 C408.4 164.5 416.7 167.6 423.6 169.5 C430.4 171.4 436.2 174.5 442.4 174.1 C448.7 173.7 454.5 169.9 461.3 167.2 C468.2 164.5 476.5 161.1 483.7 158.0 C490.8 154.9 497.1 149.6 504.3 148.8 C511.4 148.0 519.4 152.3 526.6 153.4 C533.7 154.6 543.8 155.3 547.2 155.7"></path>
+<path d="M150.5 86.7 C153.9 88.2 164.3 92.5 171.1 95.9 C178.0 99.4 184.0 104.7 191.7 107.4 C199.5 110.1 210.0 110.5 217.5 112.0 C224.9 113.5 231.2 113.5 236.4 116.6 C241.5 119.7 246.7 123.9 248.4 130.4 C250.1 136.9 245.8 148.0 246.7 155.7 C247.5 163.4 249.5 172.6 253.5 176.4 C257.6 180.2 265.0 179.9 270.7 178.7 C276.4 177.6 283.0 172.2 287.9 169.5 C292.8 166.8 295.9 163.4 299.9 162.6 C303.9 161.8 307.6 163.4 311.9 164.9 C316.2 166.4 320.8 169.9 325.7 171.8 C330.5 173.7 335.4 174.9 341.1 176.4 C346.9 177.9 353.4 180.2 360.0 181.0 C366.6 181.8 373.8 180.2 380.6 181.0 C387.5 181.8 394.1 183.7 401.2 185.6 C408.4 187.5 416.7 190.6 423.6 192.5 C430.4 194.4 436.2 197.5 442.4 197.1 C448.7 196.7 454.5 192.9 461.3 190.2 C468.2 187.5 476.5 184.1 483.7 181.0 C490.8 177.9 497.1 172.6 504.3 171.8 C511.4 171.0 519.4 175.3 526.6 176.4 C533.7 177.6 543.8 178.3 547.2 178.7"></path>
+<path d="M150.5 109.7 C153.9 111.2 164.3 115.5 171.1 118.9 C178.0 122.3 184.0 127.7 191.7 130.4 C199.5 133.1 210.0 133.5 217.5 135.0 C224.9 136.5 231.2 136.5 236.4 139.6 C241.5 142.7 246.7 146.9 248.4 153.4 C250.1 159.9 245.8 171.0 246.7 178.7 C247.5 186.4 249.5 195.6 253.5 199.4 C257.6 203.2 265.0 202.8 270.7 201.7 C276.4 200.5 283.0 195.2 287.9 192.5 C292.8 189.8 295.9 186.4 299.9 185.6 C303.9 184.8 307.6 186.4 311.9 187.9 C316.2 189.4 320.8 192.9 325.7 194.8 C330.5 196.7 335.4 197.9 341.1 199.4 C346.9 200.9 353.4 203.2 360.0 204.0 C366.6 204.8 373.8 203.2 380.6 204.0 C387.5 204.8 394.1 206.7 401.2 208.6 C408.4 210.5 416.7 213.6 423.6 215.5 C430.4 217.4 436.2 220.5 442.4 220.1 C448.7 219.7 454.5 215.9 461.3 213.2 C468.2 210.5 476.5 207.1 483.7 204.0 C490.8 200.9 497.1 195.6 504.3 194.8 C511.4 194.0 519.4 198.3 526.6 199.4 C533.7 200.6 543.8 201.3 547.2 201.7"></path>
+</g>
+<path d="M123.0 33.8 C128.8 30.4 142.5 38.0 150.5 40.7 C158.5 43.4 164.3 46.5 171.1 49.9 C178.0 53.4 184.0 58.7 191.7 61.4 C199.5 64.1 210.0 64.5 217.5 66.0 C224.9 67.5 231.2 67.5 236.4 70.6 C241.5 73.7 246.7 77.9 248.4 84.4 C250.1 90.9 245.8 102.0 246.7 109.7 C247.5 117.4 249.5 126.6 253.5 130.4 C257.6 134.2 265.0 133.9 270.7 132.7 C276.4 131.6 283.0 126.2 287.9 123.5 C292.8 120.8 295.9 117.4 299.9 116.6 C303.9 115.8 307.6 117.4 311.9 118.9 C316.2 120.4 320.8 123.9 325.7 125.8 C330.5 127.7 335.4 128.9 341.1 130.4 C346.9 131.9 353.4 134.2 360.0 135.0 C366.6 135.8 373.8 134.2 380.6 135.0 C387.5 135.8 394.1 137.7 401.2 139.6 C408.4 141.5 416.7 144.6 423.6 146.5 C430.4 148.4 436.2 151.5 442.4 151.1 C448.7 150.7 454.5 146.9 461.3 144.2 C468.2 141.5 476.5 138.1 483.7 135.0 C490.8 131.9 497.1 126.6 504.3 125.8 C511.4 125.0 519.4 129.3 526.6 130.4 C533.7 131.6 542.9 130.0 547.2 132.7 C551.5 135.4 548.1 142.3 552.4 146.5 C556.6 150.7 571.5 154.2 573.0 158.0 C574.4 161.8 565.2 166.8 560.9 169.5 C556.6 172.2 550.9 170.7 547.2 174.1 C543.5 177.6 540.0 184.5 538.6 190.2 C537.2 196.0 536.3 202.9 538.6 208.6 C540.9 214.4 549.5 219.0 552.4 224.7 C555.2 230.5 557.2 236.2 555.8 243.1 C554.4 250.0 548.9 259.2 543.8 266.1 C538.6 273.0 531.5 279.1 524.9 284.5 C518.3 289.9 511.4 294.5 504.3 298.3 C497.1 302.1 491.1 302.9 481.9 307.5 C472.8 312.1 459.3 320.5 449.3 325.9 C439.3 331.3 431.0 334.3 421.8 339.7 C412.7 345.1 402.1 352.3 394.4 358.1 C386.6 363.8 380.6 368.4 375.5 374.2 C370.3 380.0 369.2 388.0 363.5 392.6 C357.7 397.2 349.4 399.1 341.1 401.8 C332.8 404.5 322.5 406.0 313.7 408.7 C304.8 411.4 296.8 415.2 287.9 417.9 C279.0 420.6 269.0 422.1 260.4 424.8 C251.8 427.5 243.8 432.1 236.4 434.0 C228.9 435.9 221.2 434.0 215.8 436.3 C210.3 438.6 209.2 445.5 203.7 447.8 C198.3 450.1 190.0 447.4 183.1 450.1 C176.3 452.8 169.4 457.8 162.5 463.9 C155.7 470.0 148.2 479.6 141.9 486.9 C135.6 494.2 125.3 503.4 124.8 507.6 C124.2 511.8 133.3 509.1 138.5 512.2 C143.6 515.3 155.4 521.4 155.7 526.0 C156.0 530.6 146.8 533.7 140.2 539.8 C133.6 545.9 121.9 560.9 116.2 562.8 C110.4 564.7 109.9 550.5 105.9 551.3 C101.9 552.1 94.7 564.0 92.1 567.4 C89.5 570.9 93.3 572.8 90.4 572.0 C87.5 571.2 81.0 566.6 75.0 562.8 C68.9 559.0 60.6 554.4 54.3 549.0 C48.0 543.6 40.9 537.5 37.2 530.6 C33.5 523.7 30.9 516.4 32.0 507.6 C33.2 498.8 42.3 487.3 44.0 477.7 C45.8 468.1 40.6 459.3 42.3 450.1 C44.0 440.9 51.5 432.1 54.3 422.5 C57.2 412.9 57.8 403.3 59.5 392.6 C61.2 381.9 62.9 369.6 64.6 358.1 C66.4 346.6 67.5 334.7 69.8 323.6 C72.1 312.5 74.4 302.9 78.4 291.4 C82.4 279.9 89.0 266.9 93.8 254.6 C98.7 242.3 103.3 230.1 107.6 217.8 C111.9 205.5 116.5 193.3 119.6 181.0 C122.7 168.7 125.0 155.7 126.5 144.2 C127.9 132.7 128.8 121.6 128.2 112.0 C127.6 102.4 125.0 95.1 123.0 86.7 C121.0 78.3 116.2 70.2 116.2 61.4 C116.2 52.6 117.3 37.3 123.0 33.8 Z" fill="none" stroke="#6E7B2F" stroke-width="2.2" stroke-linejoin="round"></path>
+<g fill="none" stroke="#7FAAB7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M52.6 376.5 C56.6 379.2 69.8 387.6 76.7 392.6 C83.5 397.6 89.0 399.9 93.8 406.4 C98.7 412.9 102.7 424.4 105.9 431.7 C109.0 439.0 113.3 444.0 112.7 450.1 C112.2 456.2 105.9 459.7 102.4 468.5 C99.0 477.3 92.1 493.0 92.1 503.0 C92.1 513.0 96.7 523.7 102.4 528.3 C108.2 532.9 118.2 531.0 126.5 530.6 C134.8 530.2 147.9 526.8 152.2 526.0"></path>
+<path d="M337.7 135.0 C330.5 136.5 308.8 141.9 294.8 144.2 C280.7 146.5 264.1 142.3 253.5 148.8 C243.0 155.3 237.5 171.0 231.2 183.3 C224.9 195.6 219.8 211.3 215.8 222.4 C211.8 233.5 214.1 241.9 207.2 250.0 C200.3 258.1 185.4 265.7 174.6 270.7 C163.7 275.7 152.8 271.9 141.9 279.9 C131.0 288.0 119.6 306.7 109.3 319.0 C99.0 331.3 89.3 344.3 80.1 353.5 C70.9 362.7 58.6 370.7 54.3 374.2"></path>
+<path d="M341.1 176.4 C338.6 180.6 329.1 193.6 325.7 201.7 C322.2 209.7 321.7 215.1 320.5 224.7 C319.4 234.3 319.4 247.7 318.8 259.2 C318.2 270.7 315.9 283.0 317.1 293.7 C318.2 304.4 323.1 313.6 325.7 323.6 C328.2 333.6 328.2 345.1 332.5 353.5 C336.8 361.9 345.7 368.1 351.4 374.2 C357.2 380.3 364.3 387.6 366.9 390.3"></path>
+<path d="M392.6 139.6 C390.4 147.3 379.8 172.2 378.9 185.6 C378.1 199.0 381.5 212.1 387.5 220.1 C393.5 228.2 404.1 230.8 415.0 233.9 C425.8 237.0 440.7 238.1 452.8 238.5 C464.8 238.9 477.1 238.5 487.1 236.2 C497.1 233.9 502.3 227.0 512.9 224.7 C523.4 222.4 544.3 222.8 550.6 222.4"></path>
+</g>
+<g fill="#2A2017"><circle cx="375.5" cy="371.9" r="4"></circle><circle cx="487.1" cy="236.2" r="4"></circle><circle cx="109.3" cy="319.0" r="4"></circle><circle cx="217.5" cy="434.0" r="4"></circle></g>
+<g font-family="Instrument Sans, sans-serif" font-size="12.5" font-weight="600" fill="#2A2017">
+<text x="386" y="383">Barcelona</text>
+<text x="496" y="258">Girona</text>
+<text x="118" y="334">Lleida</text>
+<text x="227" y="451">Tarragona</text>
+</g>
+<path d="M296.9 354.9 C286 300 300 250 320.5 215.5 C330 200 344 206 354.9 222.4" fill="none" stroke="#B5562F" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="2 9" style="animation: arrDash 7s linear infinite"></path>
+<g stroke="#FFFBF2" stroke-width="2.5">
+<path d="M296.9 354.9 C290.9 345.9 283.9 339.9 283.9 330.9 A13 13 0 1 1 309.9 330.9 C309.9 339.9 302.9 345.9 296.9 354.9 Z" fill="#6A2A47"></path>
+<path d="M320.5 215.5 C314.5 206.5 307.5 200.5 307.5 191.5 A13 13 0 1 1 333.5 191.5 C333.5 200.5 326.5 206.5 320.5 215.5 Z" fill="#6E7B2F"></path>
+<path d="M354.9 222.4 C348.9 213.4 341.9 207.4 341.9 198.4 A13 13 0 1 1 367.9 198.4 C367.9 207.4 360.9 213.4 354.9 222.4 Z" fill="#C99A35"></path>
+</g>
+<g fill="#FFFBF2"><circle cx="296.9" cy="330.9" r="8.5"></circle><circle cx="320.5" cy="191.5" r="8.5"></circle><circle cx="354.9" cy="198.4" r="8.5"></circle></g>
+<g font-family="Instrument Sans, sans-serif" font-size="11" font-weight="700" text-anchor="middle" dominant-baseline="central">
+<text x="296.9" y="331.4" fill="#6A2A47">1</text>
+<text x="320.5" y="192" fill="#4E5A1C">2</text>
+<text x="354.9" y="198.9" fill="#8A6416">3</text>
+</g>
+<g fill="#FFFBF2" stroke="#E0D4BA" stroke-width="1.2">
+<rect x="158" y="312" width="112" height="42" rx="10"></rect>
+<rect x="152" y="170" width="140" height="42" rx="10"></rect>
+<rect x="384" y="176" width="150" height="42" rx="10"></rect>
+</g>
+<g font-family="Instrument Sans, sans-serif" fill="#2A2017">
+<text x="170" y="330" font-size="14" font-weight="700">Ça Liula</text>
+<text x="170" y="346" font-size="11.5" fill="#5E5040">Alt Penedès</text>
+<text x="164" y="188" font-size="14" font-weight="700">Soler de n'Hug</text>
+<text x="164" y="204" font-size="11.5" fill="#5E5040">Berguedà</text>
+<text x="396" y="194" font-size="14" font-weight="700">Formatges Lluçà</text>
+<text x="396" y="210" font-size="11.5" fill="#5E5040">Lluçanès</text>
+</g>
+</svg>
+</div>
+<div>
+<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8F3F1F">El mapa</p>
+<h2 id="mapa-title" style="margin: 12px 0 0; font-size: clamp(34px, 4vw, 54px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 600; color: #1F4A34">On hem estat, visita a visita</h2>
+<p style="margin: 18px 0 0; max-width: 520px; font-size: 18px; line-height: 1.6; color: #5E5040">Cada punt és una explotació on hem entrat, hem escoltat i hem filmat. La línia segueix l'ordre de les visites: el mapa s'omple a mesura que avancem.</p>
+<ol style="list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 10px">
+<li style="display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 16px; background: #FFFBF2; border: 1px solid #E6DCC6"><span class="f" style="width: 44px; height: 44px; border-radius: 50%; background: #6A2A47; color: #F5F0E4; display: grid; place-items: center; font-size: 20px; font-weight: 700">1</span><span><span style="display: block; font-size: 16px; font-weight: 600">Ça Liula</span><span style="display: block; font-size: 14px; color: #5E5040">Alt Penedès</span></span><span style="font-size: 13px; font-weight: 600; color: #6A2A47">Vi natural</span></li>
+<li style="display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 16px; background: #FFFBF2; border: 1px solid #E6DCC6"><span class="f" style="width: 44px; height: 44px; border-radius: 50%; background: #5A6522; color: #F5F0E4; display: grid; place-items: center; font-size: 20px; font-weight: 700">2</span><span><span style="display: block; font-size: 16px; font-weight: 600">Soler de n'Hug</span><span style="display: block; font-size: 14px; color: #5E5040">Berguedà</span></span><span style="font-size: 13px; font-weight: 600; color: #5A6522">Producció diversa</span></li>
+<li style="display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 16px; background: #FFFBF2; border: 1px solid #E6DCC6"><span class="f" style="width: 44px; height: 44px; border-radius: 50%; background: #C99A35; color: #2A2017; display: grid; place-items: center; font-size: 20px; font-weight: 700">3</span><span><span style="display: block; font-size: 16px; font-weight: 600">Formatges Lluçà</span><span style="display: block; font-size: 14px; color: #5E5040">Lluçanès</span></span><span style="font-size: 13px; font-weight: 600; color: #8A6416">Formatge de cabra</span></li>
+<li style="display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 16px; border: 2px dashed #CDBFA2"><span aria-hidden="true" class="f" style="width: 40px; height: 40px; border-radius: 50%; border: 2px dashed #B5562F; color: #B5562F; display: grid; place-items: center; font-size: 22px; font-weight: 600">+</span><span><span style="display: block; font-size: 16px; font-weight: 600">La pròxima visita</span><span style="display: block; font-size: 14px; color: #5E5040">Ens recomanes algú?</span></span><a href="#" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 600; color: #B5562F">Proposa'ns-el</a></li>
+</ol>
+</div>
+</div>
+</section>
+
+<section id="segell" aria-labelledby="segell-title" style="background: #F6E2D3">
+<div style="max-width: 1240px; margin: 0 auto; padding: 104px clamp(20px, 4vw, 64px); display: flex; flex-wrap: wrap; align-items: center; gap: 48px 72px">
+<div style="flex: 1 1 280px; display: flex; justify-content: center">
+<svg viewBox="0 0 300 300" role="img" aria-label="Segell Arrela't número 001: productor visitat, Ça Liula" style="display: block; width: 100%; max-width: 330px; height: auto">
+<circle cx="150" cy="150" r="142" fill="#1F4A34"></circle>
+<circle cx="150" cy="150" r="129" fill="none" stroke="#E4BE5C" stroke-width="2.5" stroke-dasharray="0.1 8" stroke-linecap="round"></circle>
+<path id="segellArc" d="M150 150 m-104 0 a104 104 0 1 1 208 0 a104 104 0 1 1 -208 0" fill="none"></path>
+<text font-family="Instrument Sans, sans-serif" font-size="16" font-weight="700" letter-spacing="4.5" fill="#F5F0E4"><textPath href="#segellArc">PRODUCTOR VISITAT · ARRELA'T · TERRITORI · </textPath></text>
+<circle cx="150" cy="150" r="80" fill="#F5F0E4"></circle>
+<g transform="translate(120 88) scale(1.5)">
+<path d="M20 15 C14 15 9 11 8 5 C14 5 19 9 20 15 Z" fill="#6E7B2F"></path>
+<path d="M20 12 C26 12 31 8 32 3 C26 3 21 6 20 12 Z" fill="#1F4A34"></path>
+<path d="M20 22 V12" fill="none" stroke="#1F4A34" stroke-width="2.4" stroke-linecap="round"></path>
+<path d="M7 22 H33" fill="none" stroke="#1F4A34" stroke-width="2.4" stroke-linecap="round"></path>
+<path d="M20 22 C20 28 16 30 12 35 M20 22 C20 29 21 32 20 37 M20 22 C21 28 25 30 29 34" fill="none" stroke="#B5562F" stroke-width="2.2" stroke-linecap="round"></path>
+</g>
+<text x="150" y="182" text-anchor="middle" font-family="Fraunces, serif" font-size="30" font-weight="700" fill="#1F4A34" style="font-variation-settings: 'SOFT' 100">Nº 001</text>
+<text x="150" y="204" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="13" font-weight="600" fill="#8F3F1F">Ça Liula</text>
+</svg>
+</div>
+<div style="flex: 999 1 560px; min-width: 0">
+<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8F3F1F">El segell Arrela't</p>
+<h2 id="segell-title" style="margin: 12px 0 0; font-size: clamp(34px, 4vw, 54px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 600; color: #1F4A34">Verificat vol dir que hi hem estat</h2>
+<p style="margin: 18px 0 0; max-width: 600px; font-size: 18px; line-height: 1.6; color: #5E5040">No és una certificació oficial: és el nostre compromís. Cada segell porta un número, la data de la visita i els vídeos que ho demostren.</p>
+<ol style="list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 14px">
+<li style="display: flex; gap: 16px; align-items: flex-start; padding: 18px; border-radius: 18px; background: #FBF0E7">
+<span aria-hidden="true" style="flex: 0 0 52px; width: 52px; height: 52px; border-radius: 50%; background: #1F4A34; display: grid; place-items: center"><svg viewBox="0 0 48 48" width="30" height="30"><g fill="none" stroke="#F5F0E4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 44 C24 44 12 33 12 25 A12 12 0 0 1 36 25 C36 33 24 44 24 44 Z"></path><circle cx="24" cy="25" r="4"></circle></g></svg></span>
+<span><span style="display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #8F3F1F">01</span><span class="f" style="display: block; margin-top: 2px; font-size: 21px; font-weight: 600; color: #2A2017">Hi anem</span><span style="display: block; margin-top: 4px; font-size: 15px; line-height: 1.55; color: #5E5040">Visitem cada explotació en persona. Sense excepcions.</span></span>
+</li>
+<li style="display: flex; gap: 16px; align-items: flex-start; padding: 18px; border-radius: 18px; background: #FBF0E7">
+<span aria-hidden="true" style="flex: 0 0 52px; width: 52px; height: 52px; border-radius: 50%; background: #1F4A34; display: grid; place-items: center"><svg viewBox="0 0 48 48" width="30" height="30"><g fill="none" stroke="#F5F0E4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="7" width="12" height="21" rx="6"></rect><path d="M12 24 C12 31 17 36 24 36 C31 36 36 31 36 24"></path><path d="M24 36 V42 M18 42 H30"></path></g></svg></span>
+<span><span style="display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #8F3F1F">02</span><span class="f" style="display: block; margin-top: 2px; font-size: 21px; font-weight: 600; color: #2A2017">Escoltem</span><span style="display: block; margin-top: 4px; font-size: 15px; line-height: 1.55; color: #5E5040">Entrevistem qui hi treballa: la seva història i el seu ofici.</span></span>
+</li>
+<li style="display: flex; gap: 16px; align-items: flex-start; padding: 18px; border-radius: 18px; background: #FBF0E7">
+<span aria-hidden="true" style="flex: 0 0 52px; width: 52px; height: 52px; border-radius: 50%; background: #1F4A34; display: grid; place-items: center"><svg viewBox="0 0 48 48" width="30" height="30"><g fill="none" stroke="#F5F0E4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="14" width="27" height="20" rx="4"></rect><path d="M32 21 L43 15 V33 L32 27 Z"></path></g></svg></span>
+<span><span style="display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #8F3F1F">03</span><span class="f" style="display: block; margin-top: 2px; font-size: 21px; font-weight: 600; color: #2A2017">Filmem</span><span style="display: block; margin-top: 4px; font-size: 15px; line-height: 1.55; color: #5E5040">Tres vídeos: la persona, el projecte i el debat.</span></span>
+</li>
+<li style="display: flex; gap: 16px; align-items: flex-start; padding: 18px; border-radius: 18px; background: #FBF0E7">
+<span aria-hidden="true" style="flex: 0 0 52px; width: 52px; height: 52px; border-radius: 50%; background: #B5562F; display: grid; place-items: center"><svg viewBox="0 0 48 48" width="30" height="30"><g fill="none" stroke="#F5F0E4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="20" r="12"></circle><path d="M18 30 L15 44 L24 40 L33 44 L30 30"></path><path d="M19 20 L23 24 L30 16"></path></g></svg></span>
+<span><span style="display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #8F3F1F">04</span><span class="f" style="display: block; margin-top: 2px; font-size: 21px; font-weight: 600; color: #2A2017">Segellem</span><span style="display: block; margin-top: 4px; font-size: 15px; line-height: 1.55; color: #5E5040">Número de segell, data de la visita i les proves a la vista.</span></span>
+</li>
+</ol>
+</div>
+</div>
+</section>
+
+<section id="professional" aria-labelledby="pro-title" style="position: relative; overflow: hidden; background: #1F4A34; color: #F5F0E4">
+<svg aria-hidden="true" viewBox="0 0 700 700" preserveAspectRatio="xMaxYMin slice" style="position: absolute; top: 0; right: 0; width: 64%; height: 100%; pointer-events: none">
+<g fill="none" stroke="#2B5B41" stroke-width="2">
+<path d="M620 0 A80 80 0 0 0 700 80"></path>
+<path d="M560 0 A140 140 0 0 0 700 140"></path>
+<path d="M500 0 A200 200 0 0 0 700 200"></path>
+<path d="M440 0 A260 260 0 0 0 700 260"></path>
+<path d="M380 0 A320 320 0 0 0 700 320"></path>
+<path d="M320 0 A380 380 0 0 0 700 380"></path>
+<path d="M260 0 A440 440 0 0 0 700 440"></path>
+<path d="M200 0 A500 500 0 0 0 700 500"></path>
+<path d="M140 0 A560 560 0 0 0 700 560"></path>
+</g>
+</svg>
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 104px clamp(20px, 4vw, 64px)">
+<div style="max-width: 760px">
+<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #E4BE5C">Espai professional</p>
+<h2 id="pro-title" style="margin: 12px 0 0; font-size: clamp(34px, 4vw, 56px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 600; color: #F5F0E4">El punt de trobada entre el camp i el comerç</h2>
+<p style="margin: 18px 0 0; max-width: 640px; font-size: 18px; line-height: 1.6; color: #C9D6C4">No som un mercat en línia. Som dues persones que coneixen cada productor i fan de pont, a mà, entre qui produeix i qui ven o cuina.</p>
+</div>
+<div style="margin-top: 52px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 24px">
+
+<article style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 26px; background: #F5F0E4; color: #2A2017">
+<svg viewBox="0 0 200 140" aria-hidden="true" style="display: block; width: 190px; height: auto">
+<rect x="26" y="18" width="148" height="10" rx="4" fill="#2A2017"></rect>
+<rect x="36" y="58" width="128" height="72" fill="#FFFBF2" stroke="#2A2017" stroke-width="3"></rect>
+<path d="M30 26 H50 V56 Q40 68 30 56 Z" fill="#B5562F"></path>
+<path d="M50 26 H70 V56 Q60 68 50 56 Z" fill="#FFFBF2" stroke="#2A2017" stroke-width="1.5"></path>
+<path d="M70 26 H90 V56 Q80 68 70 56 Z" fill="#B5562F"></path>
+<path d="M90 26 H110 V56 Q100 68 90 56 Z" fill="#FFFBF2" stroke="#2A2017" stroke-width="1.5"></path>
+<path d="M110 26 H130 V56 Q120 68 110 56 Z" fill="#B5562F"></path>
+<path d="M130 26 H150 V56 Q140 68 130 56 Z" fill="#FFFBF2" stroke="#2A2017" stroke-width="1.5"></path>
+<path d="M150 26 H170 V56 Q160 68 150 56 Z" fill="#B5562F"></path>
+<rect x="48" y="76" width="58" height="40" rx="4" fill="#D3E3E6" stroke="#2A2017" stroke-width="2.5"></rect>
+<path d="M52 108 H102" stroke="#2A2017" stroke-width="2"></path>
+<circle cx="62" cy="101" r="6" fill="#E2603F"></circle>
+<circle cx="76" cy="101" r="6" fill="#E4BE5C"></circle>
+<circle cx="90" cy="101" r="6" fill="#6E7B2F"></circle>
+<rect x="118" y="76" width="32" height="54" rx="4" fill="#1F4A34"></rect>
+<circle cx="143" cy="104" r="2.5" fill="#E4BE5C"></circle>
+</svg>
+<h3 style="margin: 0; font-size: 30px; line-height: 1.1; font-weight: 600; color: #1F4A34">Tens botiga o restaurant?</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #5E5040">Explica'ns què busques i et proposem productors visitats per nosaltres que reparteixen a la teva zona.</p>
+<ul role="list" style="list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 15px">
+<li style="display: flex; align-items: center; gap: 10px"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1F4A34"></circle><path d="M7.5 12.5 L10.5 15.5 L16.5 9" fill="none" stroke="#F5F0E4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Fitxa comercial de cada productor</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1F4A34"></circle><path d="M7.5 12.5 L10.5 15.5 L16.5 9" fill="none" stroke="#F5F0E4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Zones de repartiment i comanda mínima</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1F4A34"></circle><path d="M7.5 12.5 L10.5 15.5 L16.5 9" fill="none" stroke="#F5F0E4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Calendari de disponibilitat per producte</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1F4A34"></circle><path d="M7.5 12.5 L10.5 15.5 L16.5 9" fill="none" stroke="#F5F0E4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Contacte directe amb el productor</li>
+</ul>
+<a href="#" class="lift" style="margin-top: 8px; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; background: #B5562F; color: #FFF8EE; font-size: 16px; font-weight: 600; text-decoration: none">Busco proveïdor
+<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12 H19 M13 6 L19 12 L13 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+</article>
+
+<article style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 26px; background: #E4BE5C; color: #2A2017">
+<svg viewBox="0 0 200 140" aria-hidden="true" style="display: block; width: 190px; height: auto">
+<circle cx="62" cy="66" r="16" fill="#E2603F" stroke="#2A2017" stroke-width="2.5"></circle>
+<circle cx="146" cy="70" r="14" fill="#E2603F" stroke="#2A2017" stroke-width="2.5"></circle>
+<circle cx="120" cy="60" r="17" fill="#EE9A63" stroke="#2A2017" stroke-width="2.5"></circle>
+<circle cx="90" cy="56" r="18" fill="#6E7B2F" stroke="#2A2017" stroke-width="2.5"></circle>
+<path d="M90 38 C86 28 92 20 100 18 C102 28 96 34 90 38 Z" fill="#4E5A1C" stroke="#2A2017" stroke-width="2"></path>
+<path d="M120 43 Q121 36 126 33" fill="none" stroke="#2A2017" stroke-width="2.5" stroke-linecap="round"></path>
+<rect x="34" y="72" width="132" height="56" rx="5" fill="#F5F0E4" stroke="#2A2017" stroke-width="3"></rect>
+<path d="M34 91 H166 M34 110 H166" stroke="#C99A35" stroke-width="3"></path>
+<rect x="86" y="78" width="28" height="8" rx="4" fill="#2A2017"></rect>
+</svg>
+<h3 style="margin: 0; font-size: 30px; line-height: 1.1; font-weight: 600; color: #2A2017">Ets productor?</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #3E3020">Explica'ns què fas i on vols arribar. Quan una botiga busqui el que tu fas, et presentarem.</p>
+<ul role="list" style="list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 15px">
+<li style="display: flex; align-items: center; gap: 10px"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#2A2017"></circle><path d="M7.5 12.5 L10.5 15.5 L16.5 9" fill="none" stroke="#E4BE5C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Preparem la teva fitxa durant la visita</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#2A2017"></circle><path d="M7.5 12.5 L10.5 15.5 L16.5 9" fill="none" stroke="#E4BE5C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Et presentem botigues que busquen el que fas</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#2A2017"></circle><path d="M7.5 12.5 L10.5 15.5 L16.5 9" fill="none" stroke="#E4BE5C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Sense cap cost: els productors no paguen mai</li>
+</ul>
+<a href="#" class="lift" style="margin-top: 8px; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; background: #1F4A34; color: #F5F0E4; font-size: 16px; font-weight: 600; text-decoration: none">Busco on vendre
+<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12 H19 M13 6 L19 12 L13 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+</article>
+
+</div>
+</div>
+</section>
+
+<section aria-labelledby="carta-title" style="background: #2A2017; color: #F5F0E4">
+<svg aria-hidden="true" viewBox="0 0 1440 70" preserveAspectRatio="none" style="display: block; width: 100%; height: 56px">
+<path d="M0 0 H1440 V34 C1260 66 1080 18 900 40 C720 62 540 22 360 44 C220 61 100 40 0 52 Z" fill="#1F4A34"></path>
+</svg>
+<div style="max-width: 1240px; margin: 0 auto; padding: 64px clamp(20px, 4vw, 64px) 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 32px 56px">
+<svg viewBox="0 0 160 120" aria-hidden="true" style="flex: 0 0 auto; display: block; width: 150px; height: auto">
+<path d="M96 36 C100 16 120 6 136 10 C132 28 116 38 96 36 Z" fill="#6E7B2F"></path>
+<path d="M100 34 C110 24 120 18 130 14" fill="none" stroke="#4E5A1C" stroke-width="2" stroke-linecap="round"></path>
+<rect x="16" y="32" width="128" height="80" rx="8" fill="#F5F0E4"></rect>
+<path d="M16 40 L80 82 L144 40" fill="none" stroke="#B5562F" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<rect x="112" y="46" width="22" height="26" rx="2" fill="#E4BE5C"></rect>
+</svg>
+<div style="flex: 999 1 420px; min-width: 0">
+<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #E4BE5C">La carta del camp</p>
+<h2 id="carta-title" style="margin: 10px 0 0; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.08; letter-spacing: -0.02em; font-weight: 600; color: #F5F0E4">Cada mes, què és temporada i qui hem visitat</h2>
+<p style="margin: 12px 0 0; font-size: 17px; line-height: 1.6; color: #CBBFA9">Una carta curta, un cop al mes. Sense soroll.</p>
+</div>
+<form style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 8px">
+<label for="carta-email" style="font-size: 14px; font-weight: 600; color: #CBBFA9">El teu correu</label>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<input id="carta-email" type="email" placeholder="nom@correu.cat" style="flex: 1 1 220px; min-width: 0; height: 52px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; border: 1px solid #6B5B49; background: #3A2E22; color: #F5F0E4; font-size: 16px; font-family: inherit">
+<button type="submit" style="height: 52px; padding: 0 24px; border: 0; border-radius: 999px; background: #E4BE5C; color: #2A2017; font-size: 16px; font-weight: 700; font-family: inherit; cursor: pointer">Vull rebre-la</button>
+</div>
+</form>
+</div>
+</section>
+
+<footer style="background: #2A2017; color: #CBBFA9">
+<div style="max-width: 1240px; margin: 0 auto; padding: 56px clamp(20px, 4vw, 64px) 32px; border-top: 1px solid #3E3226; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 32px">
+<div>
+<a href="#" aria-label="Arrela't, inici" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; color: #F5F0E4">
+<svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true">
+<path d="M20 15 C14 15 9 11 8 5 C14 5 19 9 20 15 Z" fill="#A3B565"></path>
+<path d="M20 12 C26 12 31 8 32 3 C26 3 21 6 20 12 Z" fill="#F5F0E4"></path>
+<path d="M20 22 V12" fill="none" stroke="#F5F0E4" stroke-width="2.4" stroke-linecap="round"></path>
+<path d="M7 22 H33" fill="none" stroke="#F5F0E4" stroke-width="2.4" stroke-linecap="round"></path>
+<path d="M20 22 C20 28 16 30 12 35 M20 22 C20 29 21 32 20 37 M20 22 C21 28 25 30 29 34" fill="none" stroke="#EE9A63" stroke-width="2.2" stroke-linecap="round"></path>
+</svg>
+<span class="f" style="font-size: 24px; font-weight: 650">Arrela't</span>
+</a>
+<p style="margin: 12px 0 0; max-width: 260px; font-size: 15px; line-height: 1.6">Visitem, escoltem i expliquem el sector primari català.</p>
+</div>
+<nav aria-label="Explora">
+<p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #E4BE5C">Explora</p>
+<a href="#visites" style="display: block; padding: 8px 0; color: #CBBFA9; text-decoration: none">Les visites</a>
+<a href="#temporada" style="display: block; padding: 8px 0; color: #CBBFA9; text-decoration: none">Temporada</a>
+<a href="#mapa" style="display: block; padding: 8px 0; color: #CBBFA9; text-decoration: none">El mapa</a>
+<a href="#segell" style="display: block; padding: 8px 0; color: #CBBFA9; text-decoration: none">El segell</a>
+</nav>
+<nav aria-label="Arrela't">
+<p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #E4BE5C">Arrela't</p>
+<a href="#" style="display: block; padding: 8px 0; color: #CBBFA9; text-decoration: none">Qui som</a>
+<a href="#professional" style="display: block; padding: 8px 0; color: #CBBFA9; text-decoration: none">Espai professional</a>
+<a href="#" style="display: block; padding: 8px 0; color: #CBBFA9; text-decoration: none">Contacte</a>
+</nav>
+<div>
+<p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #E4BE5C">Segueix-nos</p>
+<a href="#" style="display: flex; align-items: center; gap: 10px; padding: 8px 0; color: #CBBFA9; text-decoration: none"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor"></circle></g></svg>@arrela_t_</a>
+<a href="#" style="display: flex; align-items: center; gap: 10px; padding: 8px 0; color: #CBBFA9; text-decoration: none"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4"></rect><path d="M10 9 L15 12 L10 15 Z" fill="currentColor"></path></g></svg>YouTube</a>
+</div>
+</div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 20px clamp(20px, 4vw, 64px) 36px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; color: #A8997F">
+<span>© 2026 Arrela't · Fet amb estima pel territori</span>
+<span>Cap productor paga per sortir-hi</span>
+</div>
+</footer>
+
+</div>
+</body>
+</html>
