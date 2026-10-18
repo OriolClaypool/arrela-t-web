@@ -86,10 +86,12 @@ export default function QuiSom() {
                   </div>
                   <div className="persona__text">
                     <h3 className="persona__nom">{persona.nom}</h3>
-                    <p className="persona__rol">{persona.rol}</p>
-                    <blockquote className="persona__cita">
-                      <p>&laquo;{persona.cita}&raquo;</p>
-                    </blockquote>
+                    {persona.rol && <p className="persona__rol">{persona.rol}</p>}
+                    {persona.cita && (
+                      <blockquote className="persona__cita">
+                        <p>&laquo;{persona.cita}&raquo;</p>
+                      </blockquote>
+                    )}
                   </div>
                 </li>
               ))}
