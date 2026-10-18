@@ -2486,6 +2486,56 @@ a.footer__link:hover { color: var(--lli); }
   color: var(--terra-suau);
 }
 
+/* Visites de la primera etapa (2024), recuperades de l'antic web (VisitaArxiu) */
+.visita-arxiu { background: var(--rosa-terra); }
+
+.visita-arxiu__inner {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.visita-arxiu__text { max-width: 680px; }
+
+.visita-arxiu__titol {
+  margin-top: 10px;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--bosc);
+}
+
+.visita-arxiu__frase {
+  margin: 12px 0 18px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--terra-suau);
+}
+
+.visita-arxiu__original {
+  margin: 0 0 20px;
+  padding-left: 16px;
+  border-left: 3px solid var(--terracota);
+  font-family: var(--font-display);
+  font-variation-settings: 'SOFT' 100;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.35;
+  color: var(--bosc);
+}
+
+.visita-arxiu__original-etiqueta {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-text);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terracota-fosc);
+}
+
+.graella-visites--primera { margin-top: 36px; }
+
 /* Banda "Espai professional" */
 .visita-pro {
   background: var(--terracota);

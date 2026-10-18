@@ -1,0 +1,148 @@
+{
+  "font": "Wayback Machine (Internet Archive)",
+  "captures": [
+    {
+      "data": "2024-09-05",
+      "url": "https://web.archive.org/web/20240905170109/https://arrelat.cat/"
+    },
+    {
+      "data": "2025-01-03",
+      "url": "https://web.archive.org/web/20250103205145/https://arrelat.cat/"
+    },
+    {
+      "data": "2025-03-04",
+      "url": "https://web.archive.org/web/20250304144146/https://arrelat.cat/"
+    }
+  ],
+  "nota": "Només es va arxivar la portada. Les pàgines de cada productor, el blog, /participa i les imatges (wp-content/uploads) no consten a cap arxiu públic consultat (Wayback Machine, PADICAT, Common Crawl, Arquivo.pt).",
+  "plataforma": "WordPress + Bricks Builder, allotjat a SiteGround",
+  "meta": {
+    "og_title": "Productes de qualitat, productors de proximitat",
+    "og_description": "Arrela't! Coneix els diferents productors que participen a la iniciativa i les seves històries!",
+    "lema_hero": "Productors de proximitat, productes de qualitat",
+    "contacte": "info@arrelat.cat",
+    "instagram": "https://www.instagram.com/arrela_t_/"
+  },
+  "seccions": {
+    "que_es": "Arrela’t és un projecte que neix per posar en valor el sector primari i connectar-lo amb la població. Mitjançant aquesta iniciativa, volem destacar la importància dels productors locals que, amb el seu esforç i dedicació, sostenen i enriqueixen el nostre territori. Arrela’t busca fomentar la cooperació, la sostenibilitat i la innovació, proporcionant una plataforma que promogui els productes de proximitat i de qualitat, així com les històries i valors dels productors que hi ha darrere.",
+    "com_participar": {
+      "productors": "Si ets productor i vols formar part del projecte, pots posar-te en contacte amb nosaltres per coordinar una visita, conèixer-te i veure com podem col·laborar per donar visibilitat als teus productes i mètodes de treball.",
+      "consumidors": "Pots seguir-nos a les xarxes socials i visitar la nostra web per conèixer els productors i els seus productes de proximitat."
+    },
+    "objectius": [
+      {
+        "titol": "Suport als productors",
+        "text": "Alleujar la càrrega de treball dels productors facilitant-los el dia a dia i promovent la cooperació entre els membres del sector."
+      },
+      {
+        "titol": "Productes de proximitat i qualitat",
+        "text": "Apropar els productes de proximitat als consumidors, proporcionant-los informació detallada sobre els productors, els seus mètodes de treball i els valors que guien la seva activitat."
+      },
+      {
+        "titol": "Conscienciació i educació",
+        "text": "Conscienciar la població sobre la importància del consum local i sostenible, així com educar sobre les pràctiques sostenibles i els beneficis del suport al sector primari."
+      }
+    ],
+    "qui_som": "Arrela’t! el formen la Sílvia i l’Oriol, dues persones que els uneix una voluntat sincera per voler ajudar a les persones del sector primari.",
+    "full_de_ruta": {
+      "intro": "El projecte s'anirà definint a partir de les experiències i necessitats recollides a les visites, converses i entrevistes. Sempre amb el fonament \"d'Arrela't!\" ben present; ajudar al productor i facilitar-li la feina.",
+      "fases": [
+        {
+          "n": "01",
+          "titol": "Presentació",
+          "text": "Presentació del projecte, creació dels perfils socials i llançament de la pàgina web."
+        },
+        {
+          "n": "02",
+          "titol": "Visites i entrevistes",
+          "text": "Visites i entrevistes als productors que podreu trobar a les xarxes socials i a la web."
+        },
+        {
+          "n": "03",
+          "titol": "Web interactiva",
+          "text": "Cada productor que participi al projecte tindrà un espai informatiu a la web. A més, planejem crear un mapa interactiu amb cada un d'ells!"
+        },
+        {
+          "n": "04",
+          "titol": "El futur d'Arrela't!",
+          "text": "Arrela't no vol quedar-se únicament al món digital."
+        }
+      ]
+    },
+    "peu": "Arrela’t busca fomentar la cooperació, la sostenibilitat i la innovació entre les persones del sector primari català. Ens vols acompanyar?"
+  },
+  "productors": [
+    {
+      "nom": "Aubracs del Sorreigs",
+      "comarca": "Lluçanès",
+      "lema": "Vaques en extensiu, ramats de foc i sostenibilitat",
+      "url_antiga": "https://arrelat.cat/aubracs-del-sorregis/",
+      "imatge_original": "2024/08/Diseno-sin-titulo-3.png",
+      "estat_2024_09": "Properament",
+      "estat_2025_01": "Publicat",
+      "titol_article_original": "Aubracs del Sorregis: un nou projecte, Aubracs i venda de proximitat",
+      "font_titol": "Títol indexat pel cercador (2026-10-18), text literal"
+    },
+    {
+      "nom": "Biobastona",
+      "comarca": "Moianès",
+      "lema": "Un projecte familiar, ecològic i amb venda proximitat",
+      "url_antiga": "https://arrelat.cat/biobastona-projecte-familiar-agricultura-ramaderia-ecologica/",
+      "imatge_original": "2024/08/IMG_1534-3-scaled.jpg",
+      "estat_2024_09": "Publicat",
+      "estat_2025_01": "Publicat"
+    },
+    {
+      "nom": "Projecte Geosmina",
+      "comarca": "Vallès Occidental",
+      "lema": "Sensibilització ambiental, agricultura regenerativa i divulgació",
+      "url_antiga": "https://arrelat.cat/projecte-geosmina/",
+      "imatge_original": "2024/08/IMG_0715-2-scaled.jpg",
+      "estat_2024_09": "Publicat",
+      "estat_2025_01": "Publicat"
+    },
+    {
+      "nom": "Ecoavícola",
+      "comarca": "Berguedà",
+      "lema": "Pollastres ecològics criats al Parc Natural del Cadí-Moixeró",
+      "url_antiga": "https://arrelat.cat/pollastres-ecologics-ecoavicola/",
+      "imatge_original": "2024/09/R0000236-scaled.jpg",
+      "estat_2024_09": "No hi era",
+      "estat_2025_01": "Publicat",
+      "titol_article_original": "Pollastres Ecològics Ecoavícola: un projecte que és remunta a la infància",
+      "font_titol": "Títol indexat pel cercador (2026-10-18), text literal"
+    },
+    {
+      "nom": "Mas Terricabras",
+      "comarca": "Lluçanès",
+      "lema": "El Blat Forment, la Ruta del Pa i la raça Bruna dels Pirineus",
+      "url_antiga": "https://arrelat.cat/mas-terricabras/",
+      "imatge_original": "2024/12/C0B698E1-F4CB-4024-AEE3-6FEBA423C6F3-scaled.jpeg",
+      "estat_2024_09": "No hi era",
+      "estat_2025_01": "Publicat",
+      "titol_article_original": "Mas Terricabras: el blat forment, la raça Bruna i les dificultats del sector",
+      "font_titol": "Títol indexat pel cercador (2026-10-18), text literal"
+    },
+    {
+      "nom": "Cal Miquel",
+      "comarca": "Berguedà",
+      "lema": "Xais, vaques, porcs, un obrador propi i una carnisseria",
+      "url_antiga": "https://arrelat.cat/cal-miquel/",
+      "imatge_original": "2024/12/R0000291-scaled.jpg",
+      "estat_2024_09": "No hi era",
+      "estat_2025_01": "Publicat"
+    }
+  ],
+  "altres_imatges": [
+    "2024/05/Diseno-sin-titulo-2-1.png (logotip / icona del web)"
+  ],
+  "pagines_no_recuperades": [
+    "/productors/",
+    "/entrevistes/",
+    "/participa/",
+    "/blog/",
+    "/contacte/",
+    "les 6 fitxes de productor"
+  ],
+  "nota_titols": "Els títols dels articles de tres productors es coneixen perquè el cercador encara els tenia indexats; el cos dels articles no s'ha pogut recuperar."
+}

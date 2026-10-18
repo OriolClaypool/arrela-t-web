@@ -5,6 +5,7 @@ import { mescla } from '../../utils/color'
 // - vi: copiada de la maqueta (sol amb halo, vinya, masia, rengles i un raïm al primer pla).
 // - horta: muntanyes amb neu, camps, masia i una tomaquera al primer pla.
 // - formatge: turons daurats, masia, cabres i una roda de formatge al primer pla.
+// - ramaderia: turons, masia, prat amb una tanca de fusta i vaques pasturant.
 // Qualsevol altra família rep la composició del vi pintada amb el color de la família.
 // Tots els fons de cel són el del panell (CSS: --familia-panell); l'SVG no en porta.
 // L'halo del sol gira lent (.visita-paisatge__halo a index.css) i s'apaga amb
@@ -91,6 +92,70 @@ function Vi({ c }) {
         <circle cx="98" cy="398" r="15" />
       </g>
       <g fill={c.raimBrillantor}><circle cx="64" cy="340" r="4" /><circle cx="92" cy="338" r="4" /><circle cx="78" cy="366" r="4" /></g>
+    </>
+  )
+}
+
+// Vaca de perfil mirant a la dreta (pelatge clar, com l'aubrac o la bruna); l'origen és
+// el centre del cos.
+function Vaca({ x, y, escala = 1, mirallat = false }) {
+  const sx = mirallat ? -escala : escala
+  return (
+    <g transform={`translate(${x} ${y}) scale(${sx} ${escala})`}>
+      <rect x="-31" y="4" width="9" height="27" rx="4" fill="#C9A27A" />
+      <rect x="15" y="4" width="9" height="27" rx="4" fill="#C9A27A" />
+      <path d="M-38 -10 C-47 -4 -47 8 -43 18" fill="none" stroke="#C9A27A" strokeWidth="3.5" strokeLinecap="round" />
+      <path d="M-38 -4 C-38 -20 -22 -25 0 -25 C22 -25 34 -21 36 -6 C38 8 26 14 2 14 C-22 14 -38 10 -38 -4 Z" fill="#EBD3AE" />
+      <rect x="-21" y="7" width="9" height="27" rx="4" fill="#EBD3AE" />
+      <rect x="5" y="7" width="9" height="27" rx="4" fill="#EBD3AE" />
+      <path d="M26 -17 L44 -27 C51 -31 59 -27 59 -18 L59 -6 C59 0 53 2 48 0 L31 -4 Z" fill="#EBD3AE" />
+      <path d="M45 -26 C42 -37 49 -42 54 -40 C50 -35 50 -31 50 -27 Z" fill="#F5F0E4" />
+      <path d="M41 -24 L32 -29 L36 -19 Z" fill="#C9A27A" />
+      <rect x="50" y="-12" width="11" height="10" rx="4.5" fill="#5E5040" />
+      <circle cx="50" cy="-19" r="2.6" fill="#2A2017" />
+    </g>
+  )
+}
+
+// Ramaderia: el sol, els turons i la masia de la composició del vi (pintats amb el color
+// de la família), però amb prats, una tanca de fusta i vaques pasturant al primer pla.
+function Ramaderia({ c }) {
+  return (
+    <>
+      <g className="visita-paisatge__halo">
+        <circle cx="470" cy="130" r="86" fill="none" stroke={c.halo} strokeWidth="3" strokeDasharray="2 14" strokeLinecap="round" />
+      </g>
+      <circle cx="470" cy="130" r="64" fill={c.sol} />
+      <circle cx="470" cy="130" r="46" fill={c.solDins} />
+      <path d="M120 92 q9 -9 18 0 q9 -9 18 0" fill="none" stroke={c.ocells} strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M0 290 C120 240 240 230 360 252 C460 270 540 240 640 226 L640 480 L0 480 Z" fill={c.turo1} />
+      <rect x="402" y="214" width="88" height="45" fill={c.casa} />
+      <path d="M394 217 L446 186 L498 217 Z" fill={c.teulada} />
+      <path d="M434 259 V240 A12 12 0 0 1 458 240 V259 Z" fill={c.obertures} />
+      <rect x="412" y="226" width="12" height="12" rx="2" fill={c.obertures} />
+      <rect x="468" y="226" width="12" height="12" rx="2" fill={c.obertures} />
+      <ellipse cx="512" cy="232" rx="8" ry="24" fill={c.xiprer} />
+      <path d="M0 360 C140 326 280 326 420 344 C520 356 590 344 640 334 L640 480 L0 480 Z" fill={c.turo2} />
+      {/* herba del prat */}
+      <g fill="none" stroke={c.fileres2} strokeWidth="3.5" strokeLinecap="round">
+        <path d="M60 372 l-4 -10 M68 372 l0 -12 M76 372 l4 -10" />
+        <path d="M520 360 l-4 -10 M528 360 l0 -12 M536 360 l4 -10" />
+        <path d="M300 352 l-3 -8 M306 352 l0 -10 M312 352 l3 -8" />
+      </g>
+      {/* tanca de fusta */}
+      <g fill={c.casa}>
+        <rect x="18" y="388" width="8" height="46" rx="3" />
+        <rect x="118" y="380" width="8" height="54" rx="3" />
+        <rect x="218" y="384" width="8" height="50" rx="3" />
+      </g>
+      <g fill="none" stroke={c.casa} strokeWidth="6" strokeLinecap="round">
+        <path d="M10 402 C80 392 160 390 236 396" />
+        <path d="M10 420 C80 410 160 408 236 414" />
+      </g>
+      <Vaca x={340} y={386} escala={1.35} />
+      <Vaca x={505} y={364} escala={0.9} mirallat />
+      <Vaca x={560} y={392} escala={1.1} />
+      <path d="M0 430 C200 410 420 440 640 420 L640 480 L0 480 Z" fill={c.banda} />
     </>
   )
 }
@@ -253,7 +318,7 @@ function Formatge() {
 
 /**
  * Il·lustració de l'hero de la visita.
- * - familia: id de la família (vi, horta i formatge tenen il·lustració pròpia)
+ * - familia: id de la família (vi, horta, formatge i ramaderia tenen il·lustració pròpia)
  * Decorativa (aria-hidden); la mida la fixa el contenidor.
  */
 export default function PaisatgeVisita({ familia }) {
@@ -262,6 +327,7 @@ export default function PaisatgeVisita({ familia }) {
   if (familia === 'vi') contingut = <Vi c={PALETA_VI} />
   else if (familia === 'horta') contingut = <Horta />
   else if (familia === 'formatge') contingut = <Formatge />
+  else if (familia === 'ramaderia') contingut = <Ramaderia c={paletaGenerica(color)} />
   else contingut = <Vi c={paletaGenerica(color)} />
 
   return (

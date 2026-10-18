@@ -10,9 +10,15 @@ import { getFamilia } from '../data/families'
 // /entrevistes — "Les visites": totes les visites publicades, de la més recent a la
 // primera (numeroVisita descendent), i una targeta final que convida a proposar-ne una.
 
-const visites = productors
-  .filter((p) => p.publicat && getFamilia(p.familia))
+const publicades = productors.filter((p) => p.publicat && getFamilia(p.familia))
+
+const visites = publicades
+  .filter((p) => p.etapa !== 'primera')
   .sort((a, b) => (b.numeroVisita ?? 0) - (a.numeroVisita ?? 0))
+
+// Primera etapa (2024): les visites recuperades de l'antic web, en el mateix ordre
+// en què hi sortien
+const primeraEtapa = publicades.filter((p) => p.etapa === 'primera')
 
 export default function Entrevistes() {
   const ref = useFadeIn(0.02)
@@ -43,6 +49,24 @@ export default function Entrevistes() {
             </div>
           </div>
         </section>
+
+        {primeraEtapa.length > 0 && (
+          <section className="pagina-cos" aria-labelledby="primera-etapa-titol">
+            <div className="pagina-cos__inner contenidor">
+              <p className="seccio-etiqueta">Primera etapa · 2024</p>
+              <h2 id="primera-etapa-titol" className="seccio-titol">Les primeres visites</h2>
+              <p className="seccio-intro seccio-intro--ample">
+                Abans d&apos;aquest web vam visitar aquests productors i en vam publicar la visita. Estem
+                recuperant els reportatges per tornar-los a publicar amb el format nou.
+              </p>
+              <div className="graella-visites graella-visites--primera">
+                {primeraEtapa.map((p) => (
+                  <VisitaCard key={p.slug} productor={p} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
       </main>
 
       <Footer />

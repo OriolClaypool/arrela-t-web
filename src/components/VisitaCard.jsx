@@ -19,6 +19,11 @@ export default function VisitaCard({ productor }) {
   const videos = reportatge?.videos?.length ?? 0
   const codi =
     productor.numeroVisita != null ? String(productor.numeroVisita).padStart(3, '0') : null
+  const insignia = codi
+    ? `Visita nº ${codi}`
+    : productor.etapa === 'primera'
+      ? `Primera etapa · ${productor.anyPublicacio ?? 2024}`
+      : null
   const etiqueta = [productor.categoria, productor.comarca].filter(Boolean).join(' · ')
   // Si el títol del reportatge no és el nom del productor, el nom obre la descripció
   const nomAlText = titol !== productor.nom
@@ -30,7 +35,7 @@ export default function VisitaCard({ productor }) {
     >
       <div className="visita-card__capcalera" style={{ background: familia.color }}>
         <CapcaleraVisita familia={familia.id} />
-        {codi && <span className="etiqueta visita-card__insignia">Visita nº {codi}</span>}
+        {insignia && <span className="etiqueta visita-card__insignia">{insignia}</span>}
         <div className="visita-card__icona" aria-hidden="true">
           <IconaFamilia familia={familia.id} mida={54} />
         </div>
@@ -76,6 +81,8 @@ VisitaCard.propTypes = {
     nom: PropTypes.string.isRequired,
     familia: PropTypes.string,
     numeroVisita: PropTypes.number,
+    etapa: PropTypes.string,
+    anyPublicacio: PropTypes.number,
     categoria: PropTypes.string,
     comarca: PropTypes.string,
     descripcioCurta: PropTypes.string,

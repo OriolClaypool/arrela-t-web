@@ -12,6 +12,7 @@ import VisitaProductes from '../components/visita/VisitaProductes'
 import VisitaTrobar from '../components/visita/VisitaTrobar'
 import VisitaSegell from '../components/visita/VisitaSegell'
 import VisitaPro from '../components/visita/VisitaPro'
+import VisitaArxiu from '../components/visita/VisitaArxiu'
 import productors from '../data/productors'
 import { getFamilia } from '../data/families'
 import { getCalendari } from '../data/calendaris'
@@ -44,8 +45,11 @@ export default function Visita() {
   }
 
   // L'ona del peu de l'hero porta el color de la secció que ve a continuació
+  const primeraEtapa = productor.etapa === 'primera' && !reportatge
   const teFitxa = (productor.fitxa ?? []).length > 0
-  const fonsSeguent = teFitxa || !getCalendari(productor) ? '#F5F0E4' : '#EDE5D2'
+  const fonsSeguent = primeraEtapa
+    ? '#F6E2D3'
+    : teFitxa || !getCalendari(productor) ? '#F5F0E4' : '#EDE5D2'
 
   const titolSeo = reportatge?.titol
     ? `${reportatge.titol} — ${productor.nom} · Arrela't`
@@ -58,15 +62,26 @@ export default function Visita() {
 
       <main className="visita-pagina" style={estil}>
         <VisitaHero productor={productor} familia={familia} fonsSeguent={fonsSeguent} />
-        {teFitxa && <VisitaFitxa productor={productor} familia={familia} />}
-        <CalendariFeines productor={productor} />
-        <ProcesPassos familia={familia} />
-        <VisitaReportatge productor={productor} />
-        <VisitaVideos productor={productor} familia={familia} />
-        <VisitaProductes productor={productor} familia={familia} />
-        <VisitaTrobar productor={productor} familia={familia} />
-        <VisitaSegell productor={productor} />
-        <VisitaPro productor={productor} />
+        {primeraEtapa ? (
+          <>
+            {/* Visites de 2024 recuperades de l'antic web: només hi ha el que se n'ha pogut
+                recuperar. No es pinten el calendari ni el procés genèrics de la família. */}
+            <VisitaArxiu productor={productor} />
+            <VisitaTrobar productor={productor} familia={familia} />
+          </>
+        ) : (
+          <>
+            {teFitxa && <VisitaFitxa productor={productor} familia={familia} />}
+            <CalendariFeines productor={productor} />
+            <ProcesPassos familia={familia} />
+            <VisitaReportatge productor={productor} />
+            <VisitaVideos productor={productor} familia={familia} />
+            <VisitaProductes productor={productor} familia={familia} />
+            <VisitaTrobar productor={productor} familia={familia} />
+            <VisitaSegell productor={productor} />
+            {productor.comercial && <VisitaPro productor={productor} />}
+          </>
+        )}
       </main>
       <Footer />
     </>

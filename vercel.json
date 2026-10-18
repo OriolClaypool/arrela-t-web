@@ -1,8 +1,95 @@
 {
   "redirects": [
-    { "source": "/entrevistes/:slug", "destination": "/productors/:slug", "permanent": true }
+    {
+      "source": "/entrevistes/:slug",
+      "destination": "/productors/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/aubracs-del-sorregis",
+      "destination": "/productors/aubracs-del-sorreigs",
+      "permanent": true
+    },
+    {
+      "source": "/aubracs-del-sorregis/",
+      "destination": "/productors/aubracs-del-sorreigs",
+      "permanent": true
+    },
+    {
+      "source": "/biobastona-projecte-familiar-agricultura-ramaderia-ecologica",
+      "destination": "/productors/biobastona",
+      "permanent": true
+    },
+    {
+      "source": "/biobastona-projecte-familiar-agricultura-ramaderia-ecologica/",
+      "destination": "/productors/biobastona",
+      "permanent": true
+    },
+    {
+      "source": "/projecte-geosmina",
+      "destination": "/productors/projecte-geosmina",
+      "permanent": true
+    },
+    {
+      "source": "/projecte-geosmina/",
+      "destination": "/productors/projecte-geosmina",
+      "permanent": true
+    },
+    {
+      "source": "/pollastres-ecologics-ecoavicola",
+      "destination": "/productors/ecoavicola",
+      "permanent": true
+    },
+    {
+      "source": "/pollastres-ecologics-ecoavicola/",
+      "destination": "/productors/ecoavicola",
+      "permanent": true
+    },
+    {
+      "source": "/mas-terricabras",
+      "destination": "/productors/mas-terricabras",
+      "permanent": true
+    },
+    {
+      "source": "/mas-terricabras/",
+      "destination": "/productors/mas-terricabras",
+      "permanent": true
+    },
+    {
+      "source": "/cal-miquel",
+      "destination": "/productors/cal-miquel",
+      "permanent": true
+    },
+    {
+      "source": "/cal-miquel/",
+      "destination": "/productors/cal-miquel",
+      "permanent": true
+    },
+    {
+      "source": "/participa",
+      "destination": "/contacte",
+      "permanent": true
+    },
+    {
+      "source": "/participa/",
+      "destination": "/contacte",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/entrevistes",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/entrevistes",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
