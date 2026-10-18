@@ -14,6 +14,9 @@ This folder is the visual source of truth for the site redesign. Read this file 
 | `icones/segell.svg` | The Arrela't seal ("Segell"), numbered. |
 | `dades/mapa-extres.json` | Decorative map extras: simplified river lines and city points (lon, lat). |
 | `tandes/*.md` | The implementation prompts, one per batch, to run in order. |
+| `atles/` | The per-comarca census data for `/atles` (`comarques.json`) and its fields, sources and caveats (`README.md`). |
+| `contingut-real.md` | Oriol's checklist of what is real in the three 2026 visits, used by batch 7. |
+| `recuperacio/web-antic.json` | What was recovered from the old WordPress site (archived home page). |
 
 The mockups are plain HTML: open them in a browser to see them. Every illustration is inline SVG inside them, so you can copy SVG markup straight into React components (convert attributes to JSX: `stroke-width` → `strokeWidth`, `class` → `className`, etc.).
 
